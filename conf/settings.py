@@ -81,6 +81,7 @@ INSTALLED_APPS = [
     "conf.apps.CustomAdminConfig",
     "apps.misc",
     "apps.users",
+    "apps.pages"
 ]
 
 MIDDLEWARE = [
