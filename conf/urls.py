@@ -5,7 +5,8 @@ from django.urls import include, path
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path("", include("apps.users.urls.auth")),
+    path("account", include("apps.users.urls.auth")),
+    path("", include("apps.pages.urls.home")),
     path("admin/", admin.site.urls),
 ]
 

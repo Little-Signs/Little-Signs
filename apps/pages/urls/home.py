@@ -1,7 +1,7 @@
 from django.urls import include, path
-from .v
+from apps.pages import views
 
 urlpatterns = [
-    path("/", auth_views.LoginView.as_view(), name="home"),
+    path("", views.index, name="home"),
     
 ]
