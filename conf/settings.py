@@ -126,6 +126,7 @@ STATICFILES_DIRS = (
     ("css", root_path("assets/css")),
     ("js", root_path("assets/js")),
     ("img", root_path("assets/img")),
+    ("pic", root_path("assets/pic")),
 )
 
 webpack_stats_filename = "webpack-stats.json"

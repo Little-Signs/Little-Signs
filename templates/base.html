@@ -1,17 +1,20 @@
 {% load render_bundle from webpack_loader %} {% load static %}
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE }}">
+<html lang='{{ LANGUAGE }}'>
   <head>
-    <meta charset="utf-8" />
+    <meta charset='utf-8' />
     <title>{% block page_title %}{% endblock %}</title>
     <meta
-      name="description"
-      content="{% block page_description %}{% endblock %}"
+      name='description'
+      content='{% block page_description %}{% endblock %}'
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
 
     {% block page_extra_meta %}{% endblock %}
-    <link rel='stylesheet' href='{% static 'css/settings.css' %}' type='text/css' media='all' />
+
+    <link rel='stylesheet' type='text/css' href='{% static 'css/revolution/settings.css' %}'>
+    <link rel='stylesheet' type='text/css' href='{% static 'css/revolution/layers.css' %}'>
+    <link rel='stylesheet' type='text/css' href='{% static 'css/revolution/navigation.css' %}'>
 
     <link rel='stylesheet' href='{% static 'css/font-awesome.css' %}' type='text/css' media='all' />
     <link rel='stylesheet' href='{% static 'css/jquery.fancybox.css' %}' type='text/css' media='all' />
@@ -19,18 +22,23 @@
     <link rel='stylesheet' href='{% static 'css/animate.css' %}' type='text/css' media='all' />
     <link rel='stylesheet' href='{% static 'css/main.css' %}' type='text/css' media='all' />
     <link rel='stylesheet' href='{% static 'css/shop.css' %}' type='text/css' media='all' />
-
-    <script type='text/javascript' src='{% static 'js/jquery.js' %}'></script>
-    <script type='text/javascript' src='{% static 'js/jquery-migrate.min.js' %}'></script>
-    <script type='text/javascript' src='{% static 'js/jquery.themepunch.plugins.min.js' %}'></script>
-    <script type='text/javascript' src='{% static 'js/jquery.themepunch.revolution.min.js' %}'></script>
+   
   </head>
-  <body class="home page wide wave-style">
-    <div class="page">
+  <body class='home page wide wave-style'>
+    <div class='page'>
       {% block header %} {% endblock %} {% block body %}{% endblock %}
       {% block footer %} {% endblock%} 
     </div>
-
+    <script type='text/javascript' src='{% static 'js/jquery.js' %}'></script>
+    <script type='text/javascript' src='{% static 'js/jquery-migrate.min.js' %}'></script>
+		<script src='{% static 'js/revolution/jquery.themepunch.tools.min.js'  %}'></script>
+		<script src='{% static 'js/revolution/jquery.themepunch.revolution.min.js'  %}'></script>
+    <script src='{% static 'js/revolution/jquery.themepunch.enablelog.js'  %}'></script>
+		<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.slideanims.min.js'  %}'></script>
+		<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.layeranimation.min.js'  %}'></script>
+		<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.navigation.min.js'  %}'></script>
+		<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.kenburn.min.js'  %}'></script>
+		<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.actions.min.js'  %}'></script>
     <script type='text/javascript' src='{% static 'js/retina_1.3.0.js' %}'></script>
     <script type='text/javascript' src='{% static 'js/modernizr.js' %}'></script>
     <script type='text/javascript' src='{% static 'js/owl.carousel.js' %}'></script>
