@@ -1,4 +1,4 @@
-{% load render_bundle from webpack_loader %} {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang='{{ LANGUAGE }}'>
   <head>
@@ -9,36 +9,43 @@
       content='{% block page_description %}{% endblock %}'
     />
     <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/logo/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/logo/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/logo/favicon-16x16.png' %}">
 
     {% block page_extra_meta %}{% endblock %}
-
-    <link rel='stylesheet' type='text/css' href='{% static 'css/revolution/settings.css' %}'>
-    <link rel='stylesheet' type='text/css' href='{% static 'css/revolution/layers.css' %}'>
-    <link rel='stylesheet' type='text/css' href='{% static 'css/revolution/navigation.css' %}'>
-
     <link rel='stylesheet' href='{% static 'css/font-awesome.css' %}' type='text/css' media='all' />
     <link rel='stylesheet' href='{% static 'css/jquery.fancybox.css' %}' type='text/css' media='all' />
     <link rel='stylesheet' href='{% static 'css/select2.css' %}' type='text/css' media='all' />
     <link rel='stylesheet' href='{% static 'css/animate.css' %}' type='text/css' media='all' />
     <link rel='stylesheet' href='{% static 'css/main.css' %}' type='text/css' media='all' />
     <link rel='stylesheet' href='{% static 'css/shop.css' %}' type='text/css' media='all' />
+    {% block extra_css %}
+    
+    {% endblock %}
    
   </head>
   <body class='home page wide wave-style'>
     <div class='page'>
-      {% block header %} {% endblock %} {% block body %}{% endblock %}
+      {% block header %} {% endblock %}
+      {% if messages %}
+      <div style="padding-left: 20%;padding-right: 20%;">
+       {% for message in messages %}
+       <div class="cws_msg_box {{message.tags}}-box clearfix closable">
+        <div class="icon_section"><i class="fa fa-{{message.tags}}"></i></div>
+        <div class="content_section">
+            <div class="msg_box_text">{{message}}</div>
+        </div>
+        <div class="cls_btn"></div>
+    </div>
+       {% endfor %}
+  </div>
+      {% endif %}
+      {% block body %}{% endblock %}
       {% block footer %} {% endblock%} 
     </div>
     <script type='text/javascript' src='{% static 'js/jquery.js' %}'></script>
     <script type='text/javascript' src='{% static 'js/jquery-migrate.min.js' %}'></script>
-		<script src='{% static 'js/revolution/jquery.themepunch.tools.min.js'  %}'></script>
-		<script src='{% static 'js/revolution/jquery.themepunch.revolution.min.js'  %}'></script>
-    <script src='{% static 'js/revolution/jquery.themepunch.enablelog.js'  %}'></script>
-		<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.slideanims.min.js'  %}'></script>
-		<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.layeranimation.min.js'  %}'></script>
-		<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.navigation.min.js'  %}'></script>
-		<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.kenburn.min.js'  %}'></script>
-		<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.actions.min.js'  %}'></script>
     <script type='text/javascript' src='{% static 'js/retina_1.3.0.js' %}'></script>
     <script type='text/javascript' src='{% static 'js/modernizr.js' %}'></script>
     <script type='text/javascript' src='{% static 'js/owl.carousel.js' %}'></script>
@@ -50,6 +57,7 @@
     <script type='text/javascript' src='{% static 'js/jquery.validate.min.js' %}'></script>
     <script type='text/javascript' src='{% static 'js/jquery.form.min.js'  %}'></script>
     <script type='text/javascript' src='{% static 'js/scripts.js' %}'></script>
-    <script type='text/javascript' src='{% static 'js/jquery.tweet.js' %}'></script>
+
+    {% block extra_js %}{% endblock%}
   </body>
 </html>

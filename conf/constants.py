@@ -1,0 +1,1 @@
+ACCOUNT_CREATED_SUCCESSFUL =  "Your Account has been created succesfully!! Please check your email to confirm your email address in order to activate your account."

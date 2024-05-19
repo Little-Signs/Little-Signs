@@ -1,16 +1,47 @@
 const path = require("path");
-const webpack = require("webpack");
 const BundleTracker = require("webpack-bundle-tracker");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require('webpack');
 
 module.exports = {
   context: __dirname,
   entry: "./index",
   output: {
     path: path.resolve(__dirname, "bundles/"),
-    publicPath: "auto", // necessary for CDNs/S3/blob storages
+    publicPath: "auto",
     filename: "[name]-[contenthash].js",
   },
+
   plugins: [
-    new BundleTracker({ path: path.resolve(__dirname, "bundles/"), filename: "webpack-stats.json" }),
+    new BundleTracker({ path: __dirname, filename: "webpack-stats.json" }),
+    new MiniCssExtractPlugin({
+      filename: "[name]-[contenthash].css",
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+    }),
   ],
+
+  module: {
+    rules: [
+      // we pass the output from babel loader to react-hot loader
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+    ],
+  },
+
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
 };

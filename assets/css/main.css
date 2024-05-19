@@ -2242,6 +2242,7 @@ HEADER
 
 .site_header .logo>img {
     display: block;
+    max-height: 45px;
 }
 
 .header_logo_part.with_border .logo>img {
@@ -2327,21 +2328,21 @@ HEADER
     right: 2px;
 }
 
-.main-nav-container .main-menu.menu-bees>.menu-item:first-child>a>.canvas_wrapper canvas {
+/* .main-nav-container .main-menu.menu-bees>.menu-item:first-child>a>.canvas_wrapper canvas {
     left: -20px;
 }
 
 .main-nav-container .main-menu.menu-bees>.menu-item:last-child>a>.canvas_wrapper canvas {
     right: -20px;
-}
+} */
 
-.main-nav-container .main-menu.menu-bees>.menu-item:first-child>a>.canvas_wrapper {
+/* .main-nav-container .main-menu.menu-bees>.menu-item:first-child>a>.canvas_wrapper {
     left: -22px;
 }
 
 .main-nav-container .main-menu.menu-bees>.menu-item:last-child>a>.canvas_wrapper {
     right: -22px;
-}
+} */
 
 .main-nav-container .main-menu:not(.menu-bees)>.menu-item:first-child>a {
     border-top-left-radius: 11px;

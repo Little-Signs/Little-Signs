@@ -1,229 +1,174 @@
-  <!-- top panel -->
-  <div class='site_top_panel wave slider'>
-    <!-- canvas -->
-    <div class='top_half_sin_wrapper'>
-        <canvas class='top_half_sin' data-bg-color='#ffffff' data-line-color='#ffffff'></canvas>
+{% load static %}
+<!-- top panel -->
+<div class="site_top_panel wave slider">
+  <!-- canvas -->
+  <div class="top_half_sin_wrapper">
+    <canvas
+      class="top_half_sin"
+      data-bg-color="#ffffff"
+      data-line-color="#ffffff"
+    ></canvas>
+  </div>
+  <!-- / canvas -->
+  <!-- top panekl main container -->
+  <div class="container">
+    <div class="row_text_search">
+      <div id="top_panel_text">
+        <a href="mailto:info@littlesigns.co.zw">
+          <i class="fa fa-envelope-o"></i>info@littlesigns.co.zw</a
+        >
+      </div>
     </div>
-    <!-- / canvas -->
-    <!-- top panekl main container -->
-    <div class='container'>
-        <div class='row_text_search'>
-            <div id='top_panel_text'><a href="tel:1-800-123-45678"><i class="fa fa-phone-square"></i> 1-800-123-45678 </a>;
-                <a href="mailto:mail@mail.com"> <i class="fa fa-envelope-o"></i>mail@mail.com</a>
-            </div>
-            <form method="get" class="search-form" action="#">
-                <label>
-                    <span class="screen-reader-text">Search for:</span>
-                    <input type="text" class="search-field vova" value="" name="s" title="Search for:" />
-                </label>
-                <input type="submit" class="search-submit" value="Search" />
-                <input type='hidden' name='lang' value='en' />
-            </form>
+    <div id="top_panel_links">
+        <div class="search_icon"></div>
+        <div id="top_social_links_wrapper">
+          <div class="share-toggle-button">
+            <i class="share-icon fa fa-share-alt"></i>
+          </div>
+          <div class="cws_social_links">
+            <a href="http://twitter.com/" class="cws_social_link" title="Twitter"
+              ><i class="share-icon fa fa-twitter"></i></a
+            ><a
+              href="http://facebook.com/"
+              class="cws_social_link"
+              title="Facebook"
+              ><i class="share-icon fa fa-facebook"></i></a
+            >
+          </div>
         </div>
-        <div id='top_panel_links'>
-            <div class='search_icon'></div>
-            <div id='top_social_links_wrapper'>
-                <div class='share-toggle-button'><i class='share-icon fa fa-share-alt'></i></div>
-                <div class='cws_social_links'><a href='http://twitter.com/' class='cws_social_link' title='Twitter'><i class='share-icon fa fa-twitter'></i></a><a href='http://facebook.com/' class='cws_social_link' title='Facebook'><i class='share-icon fa fa-facebook'></i></a><a href='http://dribbble.com/' class='cws_social_link' title='Dribbble'><i class='share-icon fa fa-dribbble'></i></a><a href='https://plus.google.com/' class='cws_social_link' title='Google'><i class='share-icon fa fa-google-plus'></i></a></div>
-            </div>
-            <div class='mini-cart'> <a class="woo_icon" href="features-shop-cart.html" title="View your shopping cart"><i class='woo_mini-count fa fa-shopping-cart'><span>2</span></i></a>
-                <div class="woo_mini_cart">
-                    <!-- start product list -->
-                    <ul class="cart_list product_list_widget">
-                        <li>
-                            <a href="#" class="remove" title="Remove this item">×</a>
-                            <a href="shop-single-product.html">
-                                <img width="180" height="180" src="pic/shop/58x58-bag.jpg" class="attachment-shop_thumbnail" alt="poster_2_up">Bag&nbsp; </a>
-                            <span class="quantity">1 × <span class="amount">£12.00</span></span>
-                        </li>
-                        <li>
-                            <a href="#" class="remove" title="Remove this item">×</a>
-                            <a href="shop-single-product.html">
-                                <img width="180" height="180" src="pic/shop/58x58-basket.jpg" class="attachment-shop_thumbnail" alt="T_7_front">Basket&nbsp; </a>
-                            <span class="quantity">1 × <span class="amount">£18.00</span></span>
-                        </li>
-                    </ul>
-                    <!-- end product list -->
-                    <p class="total"><strong>Subtotal:</strong> <span class="amount">£30.00</span></p>
-                    <p class="buttons">
-                        <a href="features-shop-cart.html" class="button wc-forward">View Cart</a>
-                        <a href="features-shop-checkout.html" class="button checkout wc-forward">Checkout</a>
-                    </p>
-                </div>
-            </div>
-            <div class="lang_bar">
-                <div>
-                    <ul>
-                        <li>
-                            <a href="#" class="lang_sel_sel icl-en"><img class="iclflag" src="img/en.png" alt="en" title="English" /> &nbsp;English
-                            </a>
-                            <ul>
-                                <li class="icl-fr">
-                                    <a href="#"><img class="iclflag" src="img/fr.png" alt="fr" title="Français" />&nbsp;Français</a>
-                                </li>
-                                <li class="icl-de">
-                                    <a href="#"><img class="iclflag" src="img/de.png" alt="de" title="Deutsch" />&nbsp;Deutsch</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        
+        <div class="lang_bar">
+          <div>
+            <ul>
+              <li>
+                <a href="#" class="lang_sel_sel icl-en"
+                  ><img
+                    class="iclflag"
+                    src="{% static 'img/en.png' %}"
+                    alt="en"
+                    title="English"
+                  />
+                  &nbsp;English
+                </a>
+                <ul>
+                  
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="site_top_panel_toggle"></div>
-    </div>
-    <!-- / top panel main container -->
+      </div>
+    <div class="site_top_panel_toggle"></div>
+  </div>
+  <!-- / top panel main container -->
 </div>
 <!-- / top panel -->
 <!-- header container -->
-<div class='header_cont'>
-    <div class='header_mask'>
-        <div class='header_pattern'></div>
-        <div class='header_img'></div>
-    </div>
-    <header class='site_header logo-in-menu' data-menu-after="3">
-        <div class="header_box">
-            <div class="container">
-                <!-- logo -->
-                <div class="header_logo_part with_border" role="banner">
-                    <a class="logo" href="index-2.html"><img src='img/logo1-304vqrnv7ccxz47xp4tw5m.png' data-at2x='img/logo1-304vqrnv7ccxz47xp4tw5m@2x.png' alt /></a>
-                </div>
-                <!-- / logo -->
-                <!-- menu -->
-                <div class="header_nav_part">
-                    <nav class="main-nav-container a-right">
-                        <div class="mobile_menu_header">
-                            <i class="mobile_menu_switcher"><span></span><span></span><span></span></i>
-                        </div>
-                        <ul id="menu-main-menu" class="main-menu menu-bees">
-                            <!-- menu item -->
-                            <li class="menu-item menu-item-has-children bees-start">
-                                <a href="index-2.html">
-                                    <div class="bees bees-start"><span></span>
-                                        <div class="line-one"></div>
-                                        <div class="line-two"></div>
-                                    </div>Home
-                                    <div class="canvas_wrapper">
-                                        <canvas class="menu_dashed"></canvas>
-                                    </div>
-                                </a>
-                                <span class='button_open'></span>
-                                <ul class="sub-menu">
-                                    <li class="menu-item back"><a href="#"><em>←</em>&nbsp;BACK</a>
-                                    </li>
-                                    <li class="menu-item"><a href="index-2.html">Learn&#038;Play</a></li>
-                                    <li class="menu-item"><a href="babysitter.html">Babysitter</a></li>
-                                    <li class="menu-item"><a href="store.html">Store</a></li>
-                                </ul>
-                            </li>
-                            <!-- / menu item -->
-                            <!-- menu item -->
-                            <li class="menu-item menu-item-has-children"><a href="features-benefits.html">Features<div class="canvas_wrapper"><canvas class="menu_dashed"></canvas></div></a>
-                                <span class='button_open'></span>
-                                <ul class="sub-menu">
-                                    <li class="menu-item back"><a href="#"><em>←</em>&nbsp;BACK</a>
-                                    </li>
-                                    <li class="menu-item"><a href="features-benefits.html">Template Benefits</a></li>
-                                    <li class="menu-item"><a href="features-shop-ready.html">Shop Ready</a></li>
-                                    <li class="menu-item"><a href="features-content-elements.html">Content Elements</a></li>
-                                    <li class="menu-item menu-item-has-children"><a href="features-shop.html">Shop</a>
-                                        <span class='button_open'></span>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item back"><a href="#"><em>←</em>&nbsp;BACK</a>
-                                            </li>
-                                            <li class="menu-item"><a href="features-shop.html">Shop</a></li>
-                                            <li class="menu-item"><a href="features-shop-cart.html">Cart</a></li>
-                                            <li class="menu-item"><a href="features-shop-checkout.html">Checkout</a></li>
-                                            <li class="menu-item"><a href="features-my-account.html">My Account</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- / menu item -->
-                            <!-- menu item -->
-                            <li class="menu-item menu-item-has-children"><a href="page-about-us.html">Pages<div class="canvas_wrapper"><canvas class="menu_dashed"></canvas></div></a>
-                                <span class='button_open'></span>
-                                <ul class="sub-menu">
-                                    <li class="menu-item back"><a href="#"><em>←</em>&nbsp;BACK</a>
-                                    </li>
-                                    <li class="menu-item"><a href="page-about-us.html">About Us</a></li>
-                                    <li class="menu-item"><a href="page-services-2.html">Services</a></li>
-                                    <li class="menu-item"><a href="page-our-process.html">Our Process</a></li>
-                                    <li class="menu-item"><a href="page-our-team.html">Our Team</a></li>
-                                    <li class="menu-item"><a href="page-right-sidebar.html">Right Sidebar</a></li>
-                                    <li class="menu-item"><a href="page-left-sidebar.html">Left Sidebar</a></li>
-                                    <li class="menu-item"><a href="page-double-sidebars.html">Double Sidebars</a></li>
-                                    <li class="menu-item"><a href="page-full-width.html">Full Width</a></li>
-                                    <li class="menu-item"><a href="page-faq.html">FAQ</a></li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="page-404.html">404 Page</a></li>
-                                </ul>
-                            </li>
-                            <!-- / menu item -->
-                            <!-- menu item -->
-                            <li class="menu-item menu-item-has-children right"><a href="portfolio-four-columns.html">Portfolio<div class="canvas_wrapper"><canvas class="menu_dashed"></canvas></div></a>
-                                <span class='button_open'></span>
-                                <ul class="sub-menu">
-                                    <li class="menu-item back"><a href="#"><em>←</em>&nbsp;BACK</a>
-                                    </li>
-                                    <li class="menu-item"><a href="portfolio-one-column.html">One Column</a></li>
-                                    <li class="menu-item"><a href="portfolio-two-columns.html">Two Columns</a></li>
-                                    <li class="menu-item"><a href="portfolio-three-columns.html">Three Columns</a></li>
-                                    <li class="menu-item"><a href="portfolio-four-columns.html">Four Columns</a></li>
-                                    <li class="menu-item"><a href="portfolio-filtered.html">With Sidebar</a></li>
-                                    <li class="menu-item"><a href="portfolio-gallery.html">Gallery</a></li>
-                                </ul>
-                            </li>
-                            <!-- / menu item -->
-                            <!-- menu item -->
-                            <li class="menu-item menu-item-has-children right"><a href="blog-right-sidebar.html">Blog<div class="canvas_wrapper"><canvas class="menu_dashed"></canvas></div></a>
-                                <span class='button_open'></span>
-                                <ul class="sub-menu">
-                                    <li class="menu-item back"><a href="#"><em>←</em>&nbsp;BACK</a>
-                                    </li>
-                                    <li class="menu-item menu-item-has-children"><a href="blog-one-column.html">Columns</a>
-                                        <span class='button_open'></span>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item back"><a href="#"><em>←</em>&nbsp;BACK</a>
-                                            </li>
-                                            <li class="menu-item"><a href="blog-one-column.html">One Column</a></li>
-                                            <li class="menu-item"><a href="blog-two-columns.html">Two Columns</a></li>
-                                            <li class="menu-item"><a href="blog-three-columns.html">Three Columns</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item menu-item-has-children"><a href="blog-right-sidebar.html">With Sidebar</a>
-                                        <span class='button_open'></span>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item back"><a href="#"><em>←</em>&nbsp;BACK</a>
-                                            </li>
-                                            <li class="menu-item"><a href="blog-left-sidebar.html">Left Sidebar</a></li>
-                                            <li class="menu-item"><a href="blog-right-sidebar.html">Right Sidebar</a></li>
-                                            <li class="menu-item"><a href="blog-double-sidebars.html">Double Sidebars</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item"><a href="blog-larg-images.html">Large Images</a></li>
-                                    <li class="menu-item"><a href="blog-medium-images.html">Medium Images</a></li>
-                                    <li class="menu-item"><a href="blog-small-images.html">Small Images</a></li>
-                                </ul>
-                            </li>
-                            <!-- / menu item -->
-                            <!-- menu item -->
-                            <li class="menu-item current-menu-item page_item current_page_item right bees-end">
-                                <a href="contact-us.html">
-                                    <div class="bees bees-end"><span></span>
-                                        <div class="line-one"></div>
-                                        <div class="line-two"></div>
-                                    </div>Contact
-                                    <div class="canvas_wrapper">
-                                        <canvas class="menu_dashed"></canvas>
-                                    </div>
-                                </a>
-                            </li>
-                            <!-- / menu item -->
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+<div class="header_cont">
+  <div class="header_mask">
+    <div class="header_pattern"></div>
+    <div class="header_img"></div>
+  </div>
+  <header class="site_header logo-in-menu" data-menu-after="3">
+    <div class="header_box">
+      <div class="container">
+        <!-- logo -->
+        <div class="header_logo_part with_border" role="banner">
+          <a class="logo" href="{% url "learn" %}"
+            >
+            <img
+              src="{% static 'img/logo/Litttle Signs (1).png' %}"
+              data-at2x="{% static 'img/logo/Litttle Signs (1).png' %}"
+              alt
+            /></a>
         </div>
-    </header>
-    <!-- #masthead -->
+        <!-- / logo -->
+        <!-- menu -->
+        <div class="header_nav_part">
+          <nav class="main-nav-container a-right">
+            <div class="mobile_menu_header">
+              <i class="mobile_menu_switcher"
+                ><span></span><span></span><span></span
+              ></i>
+            </div>
+            <ul id="menu-main-menu" class="main-menu menu-bees">
+              <!-- menu item -->
+              <li
+                class="menu-item current-menu-item page_item current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children "
+              >
+                <a href="{% url "home" %}">
+                  
+                  Home
+                  <div class="canvas_wrapper">
+                    <canvas class="menu_dashed"></canvas>
+                  </div>
+                </a>
+              </li>
+              <!-- / menu item -->
+              <!-- menu item -->
+              <li class="menu-item menu-item-has-children">
+                <a href="{% url "learn" %}"
+                  >Learn
+                  <div class="canvas_wrapper">
+                    <canvas class="menu_dashed"></canvas></div
+                ></a>
+              </li>
+              <!-- / menu item -->
+              <!-- menu item -->
+              <li class="menu-item menu-item-has-children right">
+                <a  href="{% url "about-us" %}"
+                  > About Us
+                  <div class="canvas_wrapper">
+                    <canvas class="menu_dashed"></canvas></div
+                ></a>
+              </li>
+              <!-- / menu item -->
+              <!-- menu item -->
+              <li class="menu-item menu-item-has-children right">
+                <a  href="{% url "login" %}"
+                  > Login
+                  <div class="canvas_wrapper">
+                    <canvas class="menu_dashed"></canvas></div
+                ></a>
+              </li>
+              <!-- / menu item -->
+              <!-- menu item -->
+              <li class="menu-item right ">
+                <a href="{% url "contact" %}">
+                  
+                  Contact
+                  <div class="canvas_wrapper">
+                    <canvas class="menu_dashed"></canvas>
+                  </div>
+                </a>
+              </li>
+              <!-- / menu item -->
+            </ul>
+          </nav>
+        </div>
+        <!-- / menu -->
+      </div>
+    </div>
+  </header>
+  <!-- #masthead -->
 </div>
+<!-- breadcrumbs -->
+<section class="page_title wave">
+  <div class="container">
+    <div class="title">
+      <h1>{{page_name}}</h1>
+    </div>
+    <nav class="bread-crumbs">
+      <a href="{% url "home" %}">Home</a
+      ><i class="delimiter fa fa-chevron-right"></i
+      ><span class="current">{{page_name}}</span>
+    </nav>
+    <!-- .breadcrumbs -->
+  </div>
+  <canvas
+    class="breadcrumbs"
+    data-bg-color="#f8f2dc"
+    data-line-color="#f9e8b2"
+  ></canvas>
+</section>
+<!-- / breadcrumbs -->

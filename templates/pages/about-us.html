@@ -1,0 +1,127 @@
+{% extends 'base.html' %} {% load i18n static %} {% block page_title %} 
+{% trans 'Little Signs - About us' %}{% endblock %}
+{% block extra_css %}
+<style>
+  input, textarea, input {
+    padding: 13px 10px;
+    -webkit-box-shadow: inset 0px 5px 0px 0px rgba(0, 0, 0, 0.12);
+  }
+  .map-border {
+    background: #f8f2dc;
+  }
+</style>
+{% endblock %}
+{% block header %} 
+{% include "includes/header.html" %}
+{% endblock %}
+{% block body %}
+<div id="main" class="site-main">
+  <div class="page_content">
+      <!-- pattern container / -->
+      <div class='left-pattern pattern pattern-2'></div>
+      <main>
+        <!-- content section -->
+        <div class='grid_row clearfix'>
+          <div class='grid_col grid_col_6'>
+            <div class='ce clearfix'>
+                <h3 class="ce_title">{% trans "Who We Are" %}</h3>
+                <div>
+                    <p><img class="size-medium image-type alignleft" src="{% static 'img/logo/logo.png' %}" width="150" height="150" alt="our_team_2" />{% trans "The Little Signs introduces a whole new world of education . Bridging the  gaps in education and making sure that every child get a learning tool to assist them in their learning journey" %}</p>
+                    <p>{% trans "At LittleSigns , we believe that learning sign language can be fun, empowering and inclusive. Little Signs is a platiform for kids. It is created mainly for the deaf children but can be used by anyone else who wishes to learn sign language." %}</p>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+        </div>
+          <!-- accordion -->
+          <div class='grid_col grid_col_6'>
+              <div class='ce clearfix'>
+                  <h3 class="ce_title">{% trans "What Drive Us" %}</h3>
+                  <div class='cws_ce_content ce_accordion'>
+                      <div class='accordion_section active'>
+                          <div class='accordion_title'><i class='accordion_icon'></i><span>{% trans "Our Mission" %}</span></div>
+                          <div class='accordion_content'>
+                              <p>{{ mission}}}</p>
+                          </div>
+                      </div>
+
+                      <div class='accordion_section active'>
+                        <div class='accordion_title'><i class='accordion_icon'></i><span>{% trans "Our Vision" %}</span></div>
+                        <div class='accordion_content'>
+                            <p>{{ vision }}</p>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <!-- / accordion -->
+      </div>
+      <!-- / content section -->
+      <!-- text section -->
+      <div class='grid_row clearfix'>
+        <div class='grid_col grid_col_12'>
+            <div class='ce clearfix'>
+                <h3 class="ce_title" style="text-align: center;">{% trans "Meet Our Team" %}</h3>
+                <div>
+                    <p style="text-align: center;">{% trans "At Little Signs, we are a passionate group of educators, developers, and visionaries united by a common goal: to create a world where every child can embrace the joy of learning through sign language." %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / text section -->
+    {% if org_members %}
+    {% for org_member in org_members %}
+    <div class='grid_row clearfix'>
+      <section class='cws_ourteam'>
+          <div class='cws_wrapper'>
+              <div class='cws_ourteam_items grid grid-4 isotope'>
+    <article class='item'>
+      <div class='ourteam_item_wrapper'>
+          <div class='media_part'>
+              <div class='pic'><img src='{{org_member.avatar.url}}' data-at2x='{{org_member.avatar.url}}' alt />
+                  <div class='hover-effect'></div>
+              </div>
+          </div>
+          <div class='title_wrap'>
+              <h3 class='title'><a >{{org_member.full_name}}</a></h3>
+              <div class='positions'><a >{{org_member.position}}</a></div>
+          </div>
+          <div class='social_links'>
+              <a href='{{org_member.linked_in}}' class='fa fa-linkedin' title='Linked In' target='_blank'></a>
+              <a href='org_member.facebook' class='fa fa-facebook' title='Facebook' target='_blank'></a>
+              <a href='{{org_member.twitter}}' class='fa fa-twitter' title='Twitter' target='_blank'></a>
+          </div>
+      </div>
+  </article>
+</div>
+</div>
+</section>
+</div>
+    {% endfor %}
+    {% else %}
+    <h5 class="ce_subtitle" style="text-align: center;">{% trans "Sorry, we are yet to update this information" %}</h5>
+    {% endif %}
+      </main>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block footer %}
+<!-- pettaren container / -->
+<div class='right-pattern pattern pattern-2'></div>
+<!-- footer image container / -->
+<div class="footer_image"></div>
+
+  <!-- svg filter -->
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" style='display:none;'>
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+            <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+        </filter>
+    </defs>
+</svg>
+<!-- / svg filter -->
+{% include "includes/footer.html" %}
+{% endblock %}
+

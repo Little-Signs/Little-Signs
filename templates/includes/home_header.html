@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 <div class="site_top_panel wave slider">
   <!-- canvas -->
   <div class="top_half_sin_wrapper">
@@ -72,12 +72,13 @@
         <div class="container">
           <!-- logo -->
           <div class="header_logo_part with_border" role="banner">
-            <a class="logo" href="index-2.html"
-              ><img
-                src="{% static 'img/logo1-304vqrnv7ccxz47xp4tw5m.png' %}"
-                data-at2x="{% static 'img/logo1-304vqrnv7ccxz47xp4tw5m@2x.png' %}"
+            <a class="logo" href="{% url "learn" %}"
+              >
+              <img
+                src="{% static 'img/logo/Litttle Signs (1).png' %}"
+                data-at2x="{% static 'img/logo/Litttle Signs (1).png' %}"
                 alt
-            /></a>
+              /></a>
           </div>
           <!-- / logo -->
           <!-- menu -->
@@ -91,14 +92,10 @@
               <ul id="menu-main-menu" class="main-menu menu-bees">
                 <!-- menu item -->
                 <li
-                  class="menu-item current-menu-item page_item current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children bees-start"
+                  class="menu-item current-menu-item page_item current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children "
                 >
-                  <a href="/">
-                    <div class="bees bees-start">
-                      <span></span>
-                      <div class="line-one"></div>
-                      <div class="line-two"></div>
-                    </div>
+                  <a href="{% url "home" %}">
+                    
                     Home
                     <div class="canvas_wrapper">
                       <canvas class="menu_dashed"></canvas>
@@ -108,17 +105,8 @@
                 <!-- / menu item -->
                 <!-- menu item -->
                 <li class="menu-item menu-item-has-children">
-                  <a href="features-benefits.html"
-                    >About Us
-                    <div class="canvas_wrapper">
-                      <canvas class="menu_dashed"></canvas></div
-                  ></a>
-                </li>
-                <!-- / menu item -->
-                <!-- menu item -->
-                <li class="menu-item menu-item-has-children">
-                  <a href="page-about-us.html"
-                    >Services
+                  <a href="{% url "learn" %}"
+                    >Learn
                     <div class="canvas_wrapper">
                       <canvas class="menu_dashed"></canvas></div
                   ></a>
@@ -126,21 +114,26 @@
                 <!-- / menu item -->
                 <!-- menu item -->
                 <li class="menu-item menu-item-has-children right">
-                  <a href="portfolio-four-columns.html"
-                    > My Account
+                  <a  href="{% url "about-us" %}"
+                    > About Us
                     <div class="canvas_wrapper">
                       <canvas class="menu_dashed"></canvas></div
                   ></a>
                 </li>
                 <!-- / menu item -->
                 <!-- menu item -->
-                <li class="menu-item right bees-end">
-                  <a href="contact-us.html">
-                    <div class="bees bees-end">
-                      <span></span>
-                      <div class="line-one"></div>
-                      <div class="line-two"></div>
-                    </div>
+                <li class="menu-item menu-item-has-children right">
+                  <a  href="{% url "login" %}"
+                    > Login
+                    <div class="canvas_wrapper">
+                      <canvas class="menu_dashed"></canvas></div
+                  ></a>
+                </li>
+                <!-- / menu item -->
+                <!-- menu item -->
+                <li class="menu-item right ">
+                  <a href="{% url "contact" %}">
+                    
                     Contact
                     <div class="canvas_wrapper">
                       <canvas class="menu_dashed"></canvas>
@@ -243,7 +236,7 @@
             data-responsive_offset="on"
             style="z-index: 6; white-space: nowrap"
           >
-            Welcome to
+            {% trans "Welcome to" %}
           </div>
           <!-- LAYER NR. 3 -->
           <div
@@ -262,7 +255,7 @@
             data-responsive_offset="on"
             style="z-index: 7; white-space: nowrap"
           >
-            KIDDY!
+            Little Signs
           </div>
           <!-- LAYER NR. 4 -->
           <div
@@ -312,7 +305,7 @@
               border-color: rgba(0, 0, 0, 1);
             "
           >
-            A perfect learning center
+            {% trans "A perfect learning platiform" %}
           </div>
           <!-- LAYER NR. 6 -->
           <div
@@ -337,7 +330,7 @@
               border-color: rgba(0, 0, 0, 1);
             "
           >
-            for your kids
+            {% trans "for little ones" %}
           </div>
           <!-- LAYER NR. 7 -->
           <div
@@ -405,7 +398,7 @@
             style="z-index: 13"
           >
             <img
-              src="{% static 'pic/revslider/general/children.png' %}"
+              src="{% static 'pic/revslider/general/Photoroom-20240516_010501.webp' %}"
               alt=""
               width="662"
               height="484"
@@ -778,7 +771,7 @@
             data-responsive_offset="on"
             style="z-index: 7; white-space: nowrap"
           >
-            Our goal is
+            {% trans "Our goal is" %}
           </div>
           <!-- LAYER NR. 4 -->
           <div
@@ -797,7 +790,7 @@
             data-responsive_offset="on"
             style="z-index: 8; white-space: nowrap"
           >
-            to Provide
+            {% trans "to Provide" %}
           </div>
           <!-- LAYER NR. 5 -->
           <div
@@ -851,8 +844,7 @@
               border-color: rgba(0, 0, 0, 1);
             "
           >
-            a complete nurturing environment for the growth and development of
-            the whole child
+            {% trans "a learning platiform that primarily assist children to learn sign language." %}
           </div>
           <!-- LAYER NR. 7 -->
           <div
@@ -872,7 +864,7 @@
             style="z-index: 11"
           >
             <img
-              src="{% static 'pic/revslider/general/kid-right.png' %}"
+              src="{% static 'pic/revslider/general/Photoroom-20240516_010548.webp' %}"
               alt=""
               width="384"
               height="538"
@@ -897,7 +889,7 @@
             style="z-index: 12"
           >
             <img
-              src="{% static 'pic/revslider/general/kid-left.png' %}"
+              src="{% static 'pic/revslider/general/Photoroom-20240516_003427.webp' %}"
               alt=""
               width="459"
               height="501"
@@ -1006,7 +998,7 @@
             data-responsive_offset="on"
             style="z-index: 7; white-space: nowrap"
           >
-            Learning
+            {% trans "Learning" %}
           </div>
           <!-- LAYER NR. 4 -->
           <div
@@ -1025,7 +1017,7 @@
             data-responsive_offset="on"
             style="z-index: 8; white-space: nowrap"
           >
-            Is Fun
+            {% trans "Is Fun" %}
           </div>
           <!-- LAYER NR. 5 -->
           <div
@@ -1079,8 +1071,7 @@
               border-color: rgba(0, 0, 0, 1);
             "
           >
-            Through play, children learn about themselves, their environment,
-            people and the world around them
+            {% trans "Our platiform provides animated, gamified and interactive learning slides." %}
           </div>
           <!-- LAYER NR. 7 -->
           <div
@@ -1123,7 +1114,7 @@
             style="z-index: 12"
           >
             <img
-              src="{% static 'pic/revslider/general/girl.png' %}"
+              src="{% static 'pic/revslider/general/Photoroom-20240518_164731.webp' %}"
               alt=""
               width="356"
               height="552"
@@ -1163,21 +1154,19 @@
         <div class="widget-title">
           <div class="widget_title_box">
             <div class="widget_title_icon_section">
-              <img
+              {% comment %} <img
                 src="{% static 'img/games-304vqrsdsyjt42zxc5ydxm.png' %}"
                 data-at2x="{% static 'img/games-304vqrsdsyjt42zxc5ydxm@2x.png' %}"
                 alt
-              />
+              /> {% endcomment %}
             </div>
-            <div class="widget_title_text_section">Games</div>
+            <div class="widget_title_text_section">{% trans "Zimbabwe Sign Language" %}</div>
           </div>
         </div>
         <div class="cws_textwidget_content">
           <div class="text">
-            Game in early childhood is the best foundation for success in
-            school. It develops all necessary learning skills.
+            {% trans "We primarily use Zimbabwe Sign Language (ZSL) as the main language for teaching children." %}
           </div>
-          <div class="link"><a href="#" class="cws_button small">More</a></div>
         </div>
       </div>
       <!-- / benefits item -->
@@ -1186,22 +1175,19 @@
         <div class="widget-title">
           <div class="widget_title_box">
             <div class="widget_title_icon_section">
-              <img
+              {% comment %} <img
                 src="{% static 'img/activities-304vqs1fhfe8b8ybbneakq.png' %}"
                 data-at2x="{% static 'img/activities-304vqs1fhfe8b8ybbneakq@2x.png' %}"
                 alt
-              />
+              /> {% endcomment %}
             </div>
-            <div class="widget_title_text_section">Activities</div>
+            <div class="widget_title_text_section">{% trans "Interactives Lessons" %}</div>
           </div>
         </div>
         <div class="cws_textwidget_content">
           <div class="text">
-            Our activities will challenge and develop <br />
-            your child’s creativity, imagination, thinking skills, and social
-            skills.
+            {% trans "Our engaging lessons feature animated characters that make learning sign language both fun and interactive." %}
           </div>
-          <div class="link"><a href="#" class="cws_button small">More</a></div>
         </div>
       </div>
       <!-- / benefits item -->
@@ -1210,21 +1196,19 @@
         <div class="widget-title">
           <div class="widget_title_box">
             <div class="widget_title_icon_section">
-              <img
+              {% comment %} <img
                 src="{% static 'img/education-304vqs5ybpxf691gt0t7nu.png' %}"
                 data-at2x="{% static 'img/education-304vqs5ybpxf691gt0t7nu@2x.png' %}"
                 alt
-              />
+              /> {% endcomment %}
             </div>
-            <div class="widget_title_text_section">Education</div>
+            <div class="widget_title_text_section">{% trans "For Everyone" %}</div>
           </div>
         </div>
         <div class="cws_textwidget_content">
           <div class="text">
-            Our center provides many educational activities to keep your kids
-            engaged. They learn when playing.
+            {% trans "While our platform is created mainly for deaf children, it is designed to be inclusive and can be used by anyone who wishes to learn sign language." %}
           </div>
-          <div class="link"><a href="#" class="cws_button small">More</a></div>
         </div>
       </div>
       <!-- / benefits item -->

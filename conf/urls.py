@@ -4,10 +4,15 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import TemplateView
 
+def trigger_error(request):
+    division_by_zero = 1 / 0
+    
 urlpatterns = [
-    path("account", include("apps.users.urls.auth")),
+    path("account/", include("apps.users.urls.auth")),
+    path("learn/", include("apps.learn.urls.learn")),
     path("", include("apps.pages.urls.home")),
     path("admin/", admin.site.urls),
+    path('sentry-debug/', trigger_error)
 ]
 
 if settings.DEBUG:

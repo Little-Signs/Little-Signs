@@ -1,0 +1,204 @@
+{% load i18n static %}
+<div class="footer_wrapper_copyright">
+  <!-- canvas -->
+  <div class="half_sin_wrapper">
+    <canvas
+      class="half_sin"
+      data-bg-color="23,108,129"
+      data-line-color="23,108,129"
+    ></canvas>
+  </div>
+  <!-- / canvas -->
+  <footer class="page_footer">
+    <div class="container">
+      <div class="footer_container">
+        <!-- widget post -->
+        <div class="cws-widget">
+          <div class="widget-title">Contact Us </div>
+          <div class="widget_carousel">
+            <div class="item">
+              <!-- post item -->
+              <div class="post_item">
+                <div class="post_preview clearfix">
+                  <div class="hover-effect"></div>
+                  <div class="links">
+                   <a href="mailto:info@littlesigns.co.zw"><span class="fa fa-envelope-o"></span>info@littlesigns.co.zw</a> 
+                  </div>
+                </div>
+              </div>
+              <!-- / post item -->
+            </div>
+          </div>
+        </div>
+        <!-- / widget post -->
+        <!-- twitter -->
+        <div class="cws-widget">
+          <div class="widget-title">Little Sign</div>
+          <div class="cws_tweets tweets_carousel paginated">
+            <div class="twitter-carousel cws_tweet"><img
+              src="{% static 'img/logo/logo_icon_white.webp' %}"
+              data-at2x="{% static 'img/logo/logo_icon_white.webp' %}"
+              alt
+            /></div>
+          </div>
+        </div>
+        <!-- / twitter -->
+        <!-- widget gallery -->
+        <div class="cws-widget">
+          <div class="widget-title">Study Packs</div>
+          <div class="cws_textwidget_content">
+            <div class="text">
+              <div
+                id="gallery-2"
+                class="gallery galleryid-2288 gallery-columns-3 gallery-size-thumbnail"
+              >
+              {% if coarses %}
+              {% for coarse in coarses %}
+              <!-- gallery item -->
+              <div class="gallery-item">
+                <div class="gallery-icon landscape">
+                  <img
+                    width="150"
+                    height="150"
+                    src="{{ coarse.image.url }}"
+                    class="attachment-thumbnail"
+                    alt="{{coarse.name}}"
+                  />
+                </div>
+              </div>
+              <!-- / galery item -->
+              {% endfor %}
+              {% else %}
+              <div class="grid_row clearfix" style="padding-top: 0px; padding-bottom: 0px">
+                <div class="ce clearfix">
+                  <h3 class="ce_title" style="text-align: center">
+                    {% trans "No study packs found!" %}
+                  </h3>
+                  <div>
+                    <p style="text-align: center">
+                      {% trans "This means we have currently suspended our services publicly.
+                      Please call again, we are currently updating our content." %}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+                
+                <br style="clear: both" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- / widget gallery -->
+        <!-- conatact form -->
+        <div class="cws-widget">
+          <div class="widget-title">Shoot a Message</div>
+          <div class="textwidget">
+            <div role="form" class="cf" id="cf-f1705-o1" lang="en-US" dir="ltr">
+              <!-- <div class="screen-reader-response"></div> -->
+              <form
+                id="contact-form"
+                class="cf-form contact-form"
+                novalidate="novalidate"
+              >
+                <p>
+                  <span class="cf-form-control-wrap your-name"
+                    ><input
+                      type="text"
+                      name="name"
+                      value=""
+                      size="60"
+                      class=""
+                      aria-required="true"
+                      aria-invalid="false"
+                      placeholder="Name"
+                  /></span>
+                </p>
+                <p>
+                  <span class="cf-form-control-wrap your-email"
+                    ><input
+                      type="email"
+                      name="email"
+                      value=""
+                      size="60"
+                      class=""
+                      aria-required="true"
+                      aria-invalid="false"
+                      placeholder="E-mail"
+                  /></span>
+                </p>
+                <p>
+                  <span class="cf-form-control-wrap your-message">
+                    <textarea
+                      name="message"
+                      cols="39"
+                      rows="6"
+                      class=""
+                      aria-invalid="false"
+                      placeholder="Message"
+                    ></textarea>
+                  </span>
+                </p>
+                <p>
+                  <input
+                    type="submit"
+                    value="Send"
+                    class="cf-form-control cf-submit"
+                  />
+                </p>
+              </form>
+              <div class="email_server_responce"></div>
+            </div>
+          </div>
+        </div>
+        <!-- / contact form -->
+      </div>
+    </div>
+  </footer>
+  <!-- copyright -->
+  <div class="copyrights_area">
+    <!-- canvas -->
+    <div class="half_sin_wrapper">
+      <canvas
+        class="footer_half_sin"
+        data-bg-color="14,64,77"
+        data-line-color="14,64,77"
+      ></canvas>
+    </div>
+    <!-- / canvas -->
+    <div class="container">
+      <div class="copyrights_container">
+        <div class="copyrights">
+          <a target="_blank" href="{% url "home" %}"
+            >Little Signs @{{ year }}</a
+          >
+          <a target="_blank" href="{% url "privacy-policy" %}"
+            >| Privacy policy</a
+          >
+          <a target="_blank" href="{% url "term-of-use" %}"
+            >| Terms of use</a
+          >
+          
+        </div>
+        <div class="copyrights_panel">
+          <div class="copyrights_panel_wrapper">
+            <div class="cws_social_links">
+              <a
+                href="http://twitter.com/"
+                class="cws_social_link"
+                title="Twitter"
+                ><i class="share-icon fa fa-twitter"></i></a
+              ><a
+                href="http://facebook.com/"
+                class="cws_social_link"
+                title="Facebook"
+                ><i class="share-icon fa fa-facebook"></i></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- / copyright -->
+</div>

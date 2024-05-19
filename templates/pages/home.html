@@ -1,6 +1,53 @@
-{% extends 'base.html' %} {% load i18n %} {% block page_title %}
+{% extends 'base.html' %} {% load i18n static %} {% block page_title %} 
 {% trans 'Little Signs - Home' %}{% endblock %}
-
-{% block header %}
+{% block extra_css %}
+<link rel='stylesheet' type='text/css' href='{% static 'css/revolution/settings.css' %}'>
+<link rel='stylesheet' type='text/css' href='{% static 'css/revolution/layers.css' %}'>
+<link rel='stylesheet' type='text/css' href='{% static 'css/revolution/navigation.css' %}'>
+{% endblock extra_css %}
+{% block extra_js %}
+<script src='{% static 'js/revolution/jquery.themepunch.tools.min.js'  %}'></script>
+<script src='{% static 'js/revolution/jquery.themepunch.revolution.min.js'  %}'></script>
+<script src='{% static 'js/revolution/jquery.themepunch.enablelog.js'  %}'></script>
+<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.slideanims.min.js'  %}'></script>
+<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.layeranimation.min.js'  %}'></script>
+<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.navigation.min.js'  %}'></script>
+<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.kenburn.min.js'  %}'></script>
+<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.actions.min.js'  %}'></script>
+{% endblock %}
+{% block header %} 
 {% include "includes/home_header.html" %}
+{% endblock %}
+{% block body %}
+<div id="main" class="site-main">
+  <div class="page_content">
+    <!-- pattern conatainer / -->
+    <div class="left-pattern pattern pattern-2"></div>
+    <main>
+        {% include "includes/home_about.html" %}
+        {% include "includes/home_coarse.html" %}
+        {% include "includes/donate.html" %}
+    </main>
+  </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<!-- pettaren container / -->
+<div class='right-pattern pattern pattern-2'></div>
+<!-- footer image container / -->
+<div class="footer_image"></div>
+
+  <!-- svg filter -->
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" style='display:none;'>
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+            <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+        </filter>
+    </defs>
+</svg>
+<!-- / svg filter -->
+{% include "includes/footer.html" %}
 {% endblock %}

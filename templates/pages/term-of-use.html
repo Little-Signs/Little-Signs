@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% load i18n %} {% block page_title %} 
+{% trans 'Little Signs - Terms of Use' %}{% endblock %}
+{% block extra_css %}
+<style>
+  input, textarea, input {
+    padding: 13px 10px;
+    -webkit-box-shadow: inset 0px 5px 0px 0px rgba(0, 0, 0, 0.12);
+  }
+  .map-border {
+    background: #f8f2dc;
+  }
+</style>
+{% endblock %}
+{% block header %} 
+{% include "includes/header.html" %}
+{% endblock %}
+{% block body %}
+{% include "includes/under_construction.html" %}
+{% endblock %}
+{% block footer %}
+<!-- pettaren container / -->
+<div class='right-pattern pattern pattern-2'></div>
+<!-- footer image container / -->
+<div class="footer_image"></div>
+
+  <!-- svg filter -->
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" style='display:none;'>
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+            <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+        </filter>
+    </defs>
+</svg>
+<!-- / svg filter -->
+{% include "includes/footer.html" %}
+{% endblock %}
+

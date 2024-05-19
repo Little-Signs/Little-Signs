@@ -1,6 +1,53 @@
-{% extends 'registration/base.html' %}
-{% load i18n %}
+{% extends 'base.html' %} {% load i18n %} {% block page_title %} 
+{% trans'Little Signs - Account activation successful' %}{% endblock %} {% block
+extra_css %} {% endblock %} {% block body %}
+<div id="main" class="site-main">
+  <div class="page_content">
+    <div class="left-pattern pattern pattern-2"></div>
+    <main>
+      <div
+        class="grid_row clearfix"
+        style="padding-top: 0px; padding-bottom: 0px"
+      >
+        <div class="ce clearfix">
+          <h3 class="ce_title" style="text-align: center">
+            Account activated successfully!
+          </h3>
+          <div>
+            <p style="text-align: center">
+              You can now login into your account.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
 
-{% block content %}
-  <p>{% trans 'Your account is now activated.' %}</p>
+{% endblock %} {% block footer %}
+<!-- pettaren container / -->
+<div class="right-pattern pattern pattern-2"></div>
+<!-- footer image container / -->
+<div class="footer_image"></div>
+
+<!-- svg filter -->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  version="1.1"
+  width="0"
+  style="display: none"
+>
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+      <feColorMatrix
+        in="blur"
+        type="matrix"
+        values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+        result="goo"
+      />
+      <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+    </filter>
+  </defs>
+</svg>
 {% endblock %}

@@ -1,0 +1,61 @@
+{% load i18n static %} 
+{% if coarses %} 
+{% comment %} coarses list {% endcomment %}
+<div class="cws_wrapper">
+  <div class="cws_ourteam_items grid grid-4 isotope clearfix"style="margin-left: 5%; margin-right: 5%;">
+    {% for coarse in coarses %}
+
+        <article class="item explore" >
+          <div class="ourteam_item_wrapper">
+            <div class="media_part">
+              <div class="pic">
+                <img
+                  src="{{ coarse.image.url }}"
+                  data-at2x="{% static 'pic/bfi_thumb/248x248-21528548-304vr78rnfmvllh2qjgcui@2x.jpg' %}"
+                  alt
+                />
+                <div class="hover-effect"></div>
+                <div class="links_popup animate">
+                  <div class="link_cont">
+                    <div class="link">
+                      <a href="{% static 'pic/2015/04/21528548.jpg' %}" class="fancy"
+                        ><i class="fa fa-star"></i
+                      ></a>
+                      <div class="link-item-bounce"></div>
+                    </div>
+                    <div class="link">
+                      <a href="page-profile.html"
+                        ><i class="fa fa-share"></i
+                      ></a>
+                      <div class="link-item-bounce"></div>
+                    </div>
+                  </div>
+                  <div class="link-toggle-button">
+                    <i class="fa fa-plus link-toggle-icon"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+    {% endfor %}
+  </div>
+</div>
+
+{% else %} {% comment %} No coarses in the database {% endcomment %}
+
+<div class="grid_row clearfix" style="padding-top: 0px; padding-bottom: 0px">
+  <div class="ce clearfix">
+    <h3 class="ce_title" style="text-align: center">
+      {% trans "No study packs found!" %}
+    </h3>
+    <div>
+      <p style="text-align: center">
+        {% trans "This means we have currently suspended our services publicly.
+        Please call again, we are currently updating our content." %}
+      </p>
+    </div>
+  </div>
+</div>
+{% endif %}

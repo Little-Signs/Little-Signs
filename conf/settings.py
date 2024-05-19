@@ -2,6 +2,8 @@ import os
 
 import environ
 
+import dj_database_url
+
 env = environ.Env()
 root_path = environ.Path(__file__) - 2
 env.read_env(env_file=root_path(".env"))
@@ -29,10 +31,16 @@ USE_TZ = env("USE_TZ", default=True)
 # -----------------------------------------------------------------------------
 # Emails
 # -----------------------------------------------------------------------------
-DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL", default="")
+DEFAULT_FROM_EMAIL = env("EMAIL_FROM", default="")
 EMAIL_BACKEND = env(
     "EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend"
 )
+EMAIL_HOST = env("EMAIL_HOST", default="")
+EMAIL_PORT = env("EMAIL_PORT", default="")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default="")
+EMAIL_USE_SSL = True # Use this for SSL instead of TLS
+CONTACT_EMAIL = 'info@littlesigns.co.zw'
 
 # -----------------------------------------------------------------------------
 # Security and Users
@@ -57,13 +65,7 @@ LOGIN_REDIRECT_URL = env("LOGIN_REDIRECT_URL", default="/")
 # -----------------------------------------------------------------------------
 DJANGO_DATABASE_URL = env.db("DATABASE_URL")
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': root_path('db.sqlite3'),
-    }
-}
-
+DATABASES = {"default": DJANGO_DATABASE_URL}
 
 # -----------------------------------------------------------------------------
 # Applications configuration
@@ -76,17 +78,21 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Third party
-    "webpack_loader",
+    "storages",
+    "import_export",
     # Local
     "conf.apps.CustomAdminConfig",
     "apps.misc",
     "apps.users",
-    "apps.pages"
+    "apps.pages",
+    "apps.coarse",
+    "apps.learn"
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -114,23 +120,42 @@ TEMPLATES = [
 # -----------------------------------------------------------------------------
 # Static & Media Files
 # -----------------------------------------------------------------------------
-STATIC_URL = env("STATIC_URL", default="/static/")
-STATIC_ROOT = env("STATIC_ROOT", default=root_path("static"))
 
-MEDIA_URL = env("MEDIA_URL", default="/media/")
-MEDIA_ROOT = env("MEDIA_ROOT", default=root_path("media"))
+# AWS credentials
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+AWS_DEFAULT_ACL = 'public-read'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_OBJECT_PARAMETERS = {
+        'CacheControl': 'max-age=86400',
+    }
+
+
+# For serving static files directly from S3
+AWS_S3_URL_PROTOCOL = 'https:'
+AWS_S3_USE_SSL = True
+AWS_S3_VERIFY = True
+
+STATIC_URL = env("STATIC_URL", default="/static/")
+STATIC_ROOT = os.path.join('static')
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+PUBLIC_MEDIA_LOCATION = 'media'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
+DEFAULT_FILE_STORAGE = 'app.storage_backends.PublicMediaStorage'
 ADMIN_MEDIA_PREFIX = STATIC_URL + "admin/"
 
 STATICFILES_DIRS = (
-    ("bundles", root_path("assets/bundles")),
     ("css", root_path("assets/css")),
     ("js", root_path("assets/js")),
     ("img", root_path("assets/img")),
     ("pic", root_path("assets/pic")),
+    ("fonts", root_path("assets/fonts")),
 )
 
 webpack_stats_filename = "webpack-stats.json"
-stats_file = os.path.join(root_path("assets/bundles/"), webpack_stats_filename)
+stats_file = os.path.join(root_path("assets/"), webpack_stats_filename)
 
 WEBPACK_LOADER = {
     "DEFAULT": {
