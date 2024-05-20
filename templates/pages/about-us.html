@@ -69,11 +69,12 @@
     </div>
     <!-- / text section -->
     {% if org_members %}
-    {% for org_member in org_members %}
+   
     <div class='grid_row clearfix'>
       <section class='cws_ourteam'>
           <div class='cws_wrapper'>
               <div class='cws_ourteam_items grid grid-4 isotope'>
+                {% for org_member in org_members %}
     <article class='item'>
       <div class='ourteam_item_wrapper'>
           <div class='media_part'>
@@ -92,11 +93,12 @@
           </div>
       </div>
   </article>
+  {% endfor %}
 </div>
 </div>
 </section>
 </div>
-    {% endfor %}
+   
     {% else %}
     <h5 class="ce_subtitle" style="text-align: center;">{% trans "Sorry, we are yet to update this information" %}</h5>
     {% endif %}

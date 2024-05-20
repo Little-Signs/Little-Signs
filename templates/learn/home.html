@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load i18n %} {% block page_title %} 
+{% extends 'base.html' %} {% load i18n static %} {% block page_title %} 
 {% trans 'Little Signs - Learn' %}{% endblock %}
 {% block extra_css %}
 <style>
@@ -9,31 +9,67 @@
   .map-border {
     background: #f8f2dc;
   }
+  .header_img {
+    background-image: none;
+   }
+   .header_box .logo-in-menu .header_logo {
+    display: inline-block;
+    vertical-align: middle;
+     }
+     .header_box .container {
+      display: table;
+      }
+      .header_box .container > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+     .header_logo .logo1 {
+      display: inline-block;
+      max-height: 60px;
+      
+    }
+  .header_box h3 {
+    font-size: 2em;
+    font-style: italic;
+    line-height: 1.2;
+    text-align: right;
+    word-break: break-all;
+    color: white;
+  }
+  .main{
+    top: -30px;
+    background-color: #f9e8b2
+  }
+  .page_content {
+    position: relative;
+    z-index: 1;
+    background-position: left center;
+    background-image: url({% static 'img/dots-pattern.png' %});
+    background-color: #f9e8b2;
+    height: 100vh;
+  }
+  
 </style>
 {% endblock %}
 {% block header %} 
-{% include "includes/header.html" %}
+{% include "includes/learn_header.html" %}
 {% endblock %}
 {% block body %}
-{% include "includes/under_construction.html" %}
-{% endblock %}
-{% block footer %}
-<!-- pettaren container / -->
-<div class='right-pattern pattern pattern-2'></div>
-<!-- footer image container / -->
-<div class="footer_image"></div>
-
-  <!-- svg filter -->
-  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" style='display:none;'>
-    <defs>
-        <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
-            <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-        </filter>
-    </defs>
-</svg>
-<!-- / svg filter -->
-{% include "includes/footer.html" %}
+<div id="main" class="site-main">
+  <div class="page_content">
+    <div class='left-pattern pattern pattern-2'></div>
+    <main>
+      <div class='grid_row clearfix' style='padding-top: 0px;padding-bottom: 0px;'>
+        <div class='grid_col grid_col_12'>
+            <div class='ce clearfix'>
+                <h3 class="ce_title">{% trans "Study Packs" %}</h3>
+                {% include "includes/coarse_list1.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+  </div>
+</div>
 {% endblock %}
 

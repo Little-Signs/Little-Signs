@@ -4,7 +4,6 @@
 <div class="cws_wrapper">
   <div class="cws_ourteam_items grid grid-4 isotope clearfix"style="margin-left: 5%; margin-right: 5%;">
     {% for coarse in coarses %}
-
         <article class="item explore" >
           <div class="ourteam_item_wrapper">
             <div class="media_part">
@@ -17,14 +16,9 @@
                 <div class="hover-effect"></div>
                 <div class="links_popup animate">
                   <div class="link_cont">
+                    
                     <div class="link">
-                      <a href="{% static 'pic/2015/04/21528548.jpg' %}" class="fancy"
-                        ><i class="fa fa-star"></i
-                      ></a>
-                      <div class="link-item-bounce"></div>
-                    </div>
-                    <div class="link">
-                      <a href="page-profile.html"
+                      <a href="{% url "learn" %}"
                         ><i class="fa fa-share"></i
                       ></a>
                       <div class="link-item-bounce"></div>

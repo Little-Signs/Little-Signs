@@ -1,6 +1,7 @@
 from django.urls import include, path
-from apps.learn import views
+from apps.learn.views import LearnListView
 
 urlpatterns = [
-    path("", views.index, name="learn")
+    path("", LearnListView.as_view(), name="learn"),
+    
 ]

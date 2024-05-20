@@ -1,0 +1,41 @@
+{% load i18n static %} 
+{% if coarses %} 
+{% comment %} coarses list {% endcomment %}
+<div class="cws_wrapper">
+  <div class="cws_ourteam_items grid grid-4 isotope clearfix"style="margin-left: 5%; margin-right: 5%;">
+    {% for coarse in coarses %}
+
+    <article class='item'>
+        <div class='ourteam_item_wrapper'>
+            <div class='media_part'>
+                <div class='pic'><img src='{{coarse.image.url}}' data-at2x='{{coarse.image.url}}' alt />
+                    <div class='hover-effect'></div>
+                </div>
+            </div>
+            <div class='title_wrap'>
+                <h3 class='title'><a >{{coarse.name}}</a></h3>
+            </div>
+            
+        </div>
+    </article>
+
+    {% endfor %}
+  </div>
+</div>
+
+{% else %} {% comment %} No coarses in the database {% endcomment %}
+
+<div class="grid_row clearfix" style="padding-top: 0px; padding-bottom: 0px">
+  <div class="ce clearfix">
+    <h3 class="ce_title" style="text-align: center">
+      {% trans "No study packs found!" %}
+    </h3>
+    <div>
+      <p style="text-align: center">
+        {% trans "This means we have currently suspended our services publicly.
+        Please call again, we are currently updating our content." %}
+      </p>
+    </div>
+  </div>
+</div>
+{% endif %}

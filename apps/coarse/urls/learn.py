@@ -1,7 +1,7 @@
 from django.urls import include, path
-#from apps.pages import views
+from apps.pages.views import LearnListView
 
 urlpatterns = [
-    #path("", views.index, name="home"),
+    path("", LearnListView.as_view(), name="home"),
     
 ]

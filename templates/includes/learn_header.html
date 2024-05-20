@@ -1,0 +1,47 @@
+{% load static %}
+<!-- / top panel -->
+<!-- header container -->
+<div class="header_cont">
+  <div class="header_mask">
+    <div class="header_pattern"></div>
+    <div class="header_img"></div>
+  </div>
+  <header class="site_header logo-in-menu" data-menu-after="3">
+    <div class="header_box">
+      <div class="container">
+                <img
+                src="{% static 'img/logo/Litttle_Signs.png' %}"
+                data-at2x="{% static 'img/logo/Litttle_Signs.png' %}"
+                alt
+                style="max-height: 60px;"
+              />
+              <h3>Welcome, {{ user.first_name }}</h3>
+    </div>
+  </header>
+  <!-- #masthead -->
+</div>
+<!-- breadcrumbs -->
+<section class="page_title wave">
+  <div class="container">
+    <div class="title">
+      <h1>{{page_name}}</h1>
+    </div>
+    <nav class="bread-crumbs">
+        <i class=" fa fa-sign-out"></i
+            ><a href="{% url "logout" %}">Sign  Out</a
+      >
+      <i class="delimiter">|</i
+        >
+        <i class=" fa fa-user"></i
+            ><a href="{% url "learn" %}">My Profile</a
+      >
+    </nav>
+    <!-- .breadcrumbs -->
+  </div>
+  <canvas
+    class="breadcrumbs"
+    data-bg-color="#f8f2dc"
+    data-line-color="#f9e8b2"
+  ></canvas>
+</section>
+<!-- / breadcrumbs -->
