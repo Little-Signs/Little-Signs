@@ -65,12 +65,7 @@ LOGIN_REDIRECT_URL = env("LOGIN_REDIRECT_URL", default="/")
 # -----------------------------------------------------------------------------
 DJANGO_DATABASE_URL = env.db("DATABASE_URL")
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': root_path('db.sqlite3'),
-    }
-}
+DATABASES = {"default": DJANGO_DATABASE_URL}
 
 # -----------------------------------------------------------------------------
 # Applications configuration
