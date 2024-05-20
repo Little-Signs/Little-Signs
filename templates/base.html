@@ -4,14 +4,29 @@
   <head>
     <meta charset='utf-8' />
     <title>{% block page_title %}{% endblock %}</title>
-    <meta
-      name='description'
-      content='{% block page_description %}{% endblock %}'
-    />
+    <meta name="description" content="At Little Signs, we believe that learning sign language can be fun, empowering, and inclusive. Our platform is primarily designed for deaf children but is also accessible to anyone interested in learning Zimbabwe Sign Language (ZSL). Join us to create an engaging and supportive learning environment for all.">
+    <meta name="keywords" content="Little Signs, sign language, Zimbabwe Sign Language, ZSL, deaf children, inclusive learning, sign language learning, sign language for kids, learning sign language">
+    <meta name="author" content="Little Signs">
+
     <meta name='viewport' content='width=device-width, initial-scale=1' />
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/logo/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/logo/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/logo/favicon-16x16.png' %}">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="LittleSigns - Fun, Empowering, and Inclusive Sign Language Learning">
+    <meta property="og:description" content="At LittleSigns, we believe that learning sign language can be fun, empowering, and inclusive. Our platform is primarily designed for deaf children but is also accessible to anyone interested in learning Zimbabwe Sign Language (ZSL). Join us to create an engaging and supportive learning environment for all.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.littlesigns.co.zw">
+    <meta property="og:image" content="{% static 'img/logo/android-chrome-512x512.png' %}">
+    <meta property="og:site_name" content="LittleSigns">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LittleSigns - Fun, Empowering, and Inclusive Sign Language Learning">
+    <meta name="twitter:description" content="At LittleSigns, we believe that learning sign language can be fun, empowering, and inclusive. Our platform is primarily designed for deaf children but is also accessible to anyone interested in learning Zimbabwe Sign Language (ZSL). Join us to create an engaging and supportive learning environment for all.">
+    <meta name="twitter:image" content="{% static 'img/logo/android-chrome-512x512.png' %}">
+    <meta name="twitter:site" content="@LittleSigns">
 
     {% block page_extra_meta %}{% endblock %}
     <link rel='stylesheet' href='{% static 'css/font-awesome.css' %}' type='text/css' media='all' />
