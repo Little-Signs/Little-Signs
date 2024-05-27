@@ -140,7 +140,7 @@ AWS_S3_VERIFY = True
 
 STATIC_URL = env("STATIC_URL", default="/static/")
 STATIC_ROOT = os.path.join('static')
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 PUBLIC_MEDIA_LOCATION = 'media'
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
