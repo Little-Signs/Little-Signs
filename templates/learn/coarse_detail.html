@@ -55,6 +55,18 @@
 
       </aside>
       <main>
+        <div class='grid_row clearfix'>
+          <div class='grid_col grid_col_6'>
+            <div class='ce clearfix'>
+                <h3 class="ce_title">{{coarse.name}}</h3>
+                <div>
+                    <p><img class="size-medium image-type alignleft" src="{{coarse.image.url}}" width="150" height="150" alt="{{coarse.name}}" /></p>
+                    <p>{{coarse.description}}</p>
+                    <p>&nbsp;</p>
+                    <p><a href="{% url 'learn_start' coarse.id %}" class="cws_button small">Starting learning</a></p>
+                </div>
+            </div>
+        </div>
       </main>
     </div>
     <div class="footer_image"></div>

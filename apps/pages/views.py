@@ -84,5 +84,12 @@ def termOfuse(request):
 
 class CoarseDetailView(DetailView):
     model = Coarse
+    context_object_name = 'coarse'
     template_name = "pages/coarse-detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["other_coarses"] = Coarse.objects.all().exclude(pk=self.get_object().pk)
+        return context
+    
 

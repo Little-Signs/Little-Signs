@@ -1,0 +1,90 @@
+{% extends 'base.html' %} {% load i18n static %} 
+{% block page_title %} 
+  Little Signs - Learn {{coarse.name }}
+{% endblock %}
+{% block extra_css %}
+<style>
+  input, textarea, input {
+    padding: 13px 10px;
+    -webkit-box-shadow: inset 0px 5px 0px 0px rgba(0, 0, 0, 0.12);
+  }
+  .map-border {
+    background: #f8f2dc;
+  }
+  .header_logo_part.with_border .logo>h3 {
+    background-image: url({% static 'img/dots-pattern.png' %});
+  }
+  .header_logo_part.with_border .logo> h3 {
+    margin: 2px;
+    padding: 7px 25px;
+    border: 5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 2px;
+}
+.site_header .logo>h3 {
+  display: block;
+  font-size: 35px;
+  color: white;
+}
+</style>
+{% endblock %}
+{% block header %} 
+{% include "includes/header.html" %}
+{% endblock %}
+{% block body %}
+<div id="main" class="site-main">
+    <div class="page_content single_sidebar">
+      <div class="left-pattern pattern pattern-2" style="width: 69.5px;"></div>
+      <div class="container">
+        <aside class="sb_right">
+            <div class="cws-widget">
+                <div class="widget-title">Other Study Packs</div>
+                <div class="menu-main-menu-container">
+                    <ul id="menu-main-menu-1" class="menu">
+                        {% if other_coarses %}
+                        {% for other_coarse in other_coarses %}
+                        <li class="menu-item menu-item-has-children has_children">
+                            <a href="{% url 'coarse-detail' other_coarse.id %}">{{other_coarse.name}}</a>
+                        {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        <main>
+          <div class='grid_row clearfix'>
+            <div class='grid_col grid_col_6'>
+              <div class='ce clearfix'>
+                  <h3 class="ce_title" style="font-size: 35px;">{{coarse.name}}</h3>
+                  <div>
+                      <p><img class="size-medium image-type alignleft" src="{{coarse.image.url}}" width="150" height="150" alt="{{coarse.name}}" /></p>
+                      <p>{{coarse.description}}</p>
+                      <p>&nbsp;</p>
+                      <p><a href="{% url 'learn_start' coarse.id %}" class="cws_button small">Starting learning</a></p>
+                  </div>
+              </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block footer %}
+<!-- pettaren container / -->
+<div class='right-pattern pattern pattern-2'></div>
+<!-- footer image container / -->
+<div class="footer_image"></div>
+
+  <!-- svg filter -->
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" style='display:none;'>
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+            <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+        </filter>
+    </defs>
+</svg>
+<!-- / svg filter -->
+{% include "includes/footer.html" %}
+{% endblock %}
+
