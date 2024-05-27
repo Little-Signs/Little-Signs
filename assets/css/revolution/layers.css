@@ -4230,7 +4230,6 @@ tp-caption.Team-Thumb,
     border-radius: 100px 100px 100px 100px;
     text-align: center
 }
-.tp-caption.VideoControls-Pause:hover,
 .VideoControls-Pause:hover {
     color: rgba(0, 0, 0, 1.00);
     text-decoration: none;
@@ -4240,3 +4239,4 @@ tp-caption.Team-Thumb,
     border-width: 0px;
     border-radius: 100px 100px 100px 100px;
     cursor: pointer
+}

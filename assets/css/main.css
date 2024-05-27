@@ -99,7 +99,6 @@
 
 @import url("reset.css");
 @import url("layout.css");
-@import url("font-awesome.css");
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700|Dosis|Patrick+Hand);
 
 /**/
@@ -2242,7 +2241,6 @@ HEADER
 
 .site_header .logo>img {
     display: block;
-    max-height: 45px;
 }
 
 .header_logo_part.with_border .logo>img {
@@ -2547,7 +2545,6 @@ HEADER
     display: inline-block;
     width: 40px;
     height: 40px;
-    background: url('../img/bees.png') left center;
     animation: play .1s steps(3) infinite;
     -webkit-animation: play .1s steps(3) infinite;
 }
@@ -2629,7 +2626,6 @@ only screen and (min--moz-device-pixel-ratio: 1.5),
 only screen and (-o-device-pixel-ratio: 3/2),
 only screen and (min-device-pixel-ratio: 1.5) {
     .bees>span {
-        background: url('../img/bees%402x.png') left center;
         background-size: 120px;
     }
 }
@@ -8954,7 +8950,6 @@ FULL SCREEN VIDEO
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(../img/bgvideo.html);
     background-repeat: repeat;
 }
 

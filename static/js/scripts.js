@@ -99,7 +99,6 @@ jQuery(document).ready(function () {
   cws_toggle_init();
   cws_message_box_init();
   select2_init();
-  wow_init();
   widget_archives_hierarchy_init();
   cws_portfolio_single_carousel_init();
   fancybox_init();
@@ -1392,10 +1391,6 @@ function cloudPaint(ctx, width, patternParentHeight, only_top) {
       ctx.lineTo(-10, 50);
     }
   }
-}
-
-function wow_init() {
-  new WOW().init();
 }
 
 function reload_scripts() {

@@ -1,19 +1,13 @@
-{% extends 'base.html' %} {% load i18n static %} {% block page_title %} 
+{% extends 'base.html' %}
+{% load i18n static %}
+{% load render_bundle from webpack_loader %}
+{% block page_title %} 
 {% trans 'Little Signs - Home' %}{% endblock %}
 {% block extra_css %}
-<link rel='stylesheet' type='text/css' href='{% static 'css/revolution/settings.css' %}'>
-<link rel='stylesheet' type='text/css' href='{% static 'css/revolution/layers.css' %}'>
-<link rel='stylesheet' type='text/css' href='{% static 'css/revolution/navigation.css' %}'>
+{% render_bundle 'main' 'css' 'REV' %}
 {% endblock extra_css %}
 {% block extra_js %}
 <script src='{% static 'js/revolution/jquery.themepunch.tools.min.js'  %}'></script>
-<script src='{% static 'js/revolution/jquery.themepunch.revolution.min.js'  %}'></script>
-<script src='{% static 'js/revolution/jquery.themepunch.enablelog.js'  %}'></script>
-<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.slideanims.min.js'  %}'></script>
-<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.layeranimation.min.js'  %}'></script>
-<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.navigation.min.js'  %}'></script>
-<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.kenburn.min.js'  %}'></script>
-<script type='text/javascript' src='{% static 'js/revolution/extensions/revolution.extension.actions.min.js'  %}'></script>
 {% endblock %}
 {% block header %} 
 {% include "includes/home_header.html" %}

@@ -80,12 +80,12 @@ INSTALLED_APPS = [
     # Third party
     "storages",
     "import_export",
+    "webpack_loader",
     # Local
     "conf.apps.CustomAdminConfig",
     "apps.misc",
     "apps.users",
     "apps.pages",
-    "apps.coarse",
     "apps.learn"
 ]
 
@@ -147,15 +147,17 @@ DEFAULT_FILE_STORAGE = 'app.storage_backends.PublicMediaStorage'
 ADMIN_MEDIA_PREFIX = STATIC_URL + "admin/"
 
 STATICFILES_DIRS = (
-    ("css", root_path("assets/css")),
+    ("bundles", root_path("assets/bundles")),
     ("js", root_path("assets/js")),
     ("img", root_path("assets/img")),
     ("pic", root_path("assets/pic")),
     ("fonts", root_path("assets/fonts")),
 )
 
-webpack_stats_filename = "webpack-stats.json"
-stats_file = os.path.join(root_path("assets/"), webpack_stats_filename)
+webpack_stats_filename = "webpack-bundle.%s.json" % ENV
+webpack_rev_stats_filename = "webpack-bundle-rev.%s.json" % ENV
+stats_file = os.path.join(root_path("assets/bundles/"), webpack_stats_filename)
+stats_rev_file = os.path.join(root_path("assets/bundles/"), webpack_rev_stats_filename)
 
 WEBPACK_LOADER = {
     "DEFAULT": {
@@ -164,9 +166,18 @@ WEBPACK_LOADER = {
         "STATS_FILE": stats_file,
         "POLL_INTERVAL": 0.1,
         "TIMEOUT": None,
-        'IGNORE': [r'.+\.hot-update.js', r'.+\.map'],
+        "IGNORE": [r".+\.hot-update.js", r".+\.map"],
+    },
+    "REV": {
+        "CACHE": not DEBUG,
+        "BUNDLE_DIR_NAME": "bundles/",  # must end with slash
+        "STATS_FILE": stats_rev_file,
+        "POLL_INTERVAL": 0.1,
+        "TIMEOUT": None,
+        "IGNORE": [r".+\.hot-update.js", r".+\.map"],
     }
 }
+
 
 USE_S3_STATIC_STORAGE = env.bool("USE_S3_STATIC_STORAGE", default=False)
 

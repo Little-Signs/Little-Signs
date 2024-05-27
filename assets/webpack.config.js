@@ -1,47 +1,142 @@
-const path = require("path");
-const BundleTracker = require("webpack-bundle-tracker");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
+const BundleTracker = require("webpack-bundle-tracker");
 
-module.exports = {
-  context: __dirname,
-  entry: "./index",
-  output: {
-    path: path.resolve(__dirname, "bundles/"),
-    publicPath: "auto",
-    filename: "[name]-[contenthash].js",
-  },
+const resolve = path.resolve.bind(path, __dirname);
 
-  plugins: [
-    new BundleTracker({ path: __dirname, filename: "webpack-stats.json" }),
-    new MiniCssExtractPlugin({
-      filename: "[name]-[contenthash].css",
-    }),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-    }),
-  ],
+module.exports = (env, argv) => {
+  let output;
+  let extractCssPlugin;
+  let fileLoaderName;
 
-  module: {
-    rules: [
-      // we pass the output from babel loader to react-hot loader
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
+  switch (env) {
+    case "prod":
+      publicPath = "https://littlesigns.co.zw/static/bundles/prod/";
+      outputPath = resolve("bundles/prod");
+      break;
+    case "stg":
+      publicPath = "https://staging.littlesigns.co.zw/static/bundles/stg/";
+      outputPath = resolve("bundles/stg");
+      break;
+    case "dev":
+      publicPath = "http://127.0.0.1:8000/static/bundles/dev/";
+      outputPath = resolve("bundles/dev");
+      break;
+  }
+
+  switch (argv.mode) {
+    case "production":
+      output = {
+        path: outputPath,
+        filename: "[chunkhash]/[name].js",
+        chunkFilename: "[chunkhash]/[name].[id].js",
+        publicPath: publicPath
+      };
+      extractCssPlugin = new MiniCssExtractPlugin({
+        filename: "[chunkhash]/[name].css",
+        chunkFilename: "[chunkhash]/[name].[id].css"
+      });
+      fileLoaderName = "[path][name].[contenthash].[ext]";
+      break;
+
+    case "development":
+      output = {
+        path: outputPath,
+        filename: "[name].js",
+        chunkFilename: "[name].js",
+        publicPath: publicPath
+      };
+      extractCssPlugin = new MiniCssExtractPlugin({
+        filename: "[name].css",
+        chunkFilename: "[name].[id].css"
+      });
+      fileLoaderName = "[path][name].[ext]";
+      break;
+    default:
+      break;
+  }
+
+  return {
+    mode: argv.mode,
+    entry: "./index.js",
+    output,
+    module: {
+      rules: [
+        // Scripts
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: "babel-loader"
         },
-      },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      },
+        // Styles
+        {
+          test: /\.(sa|sc|c)ss$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: "css-loader",
+              options: {
+                sourceMap: true
+              }
+            }
+          ]
+        },
+        // Fonts
+        {
+          test: /\.(eot|otf|ttf|woff|woff2)(\?v=[0-9.]+)?$/,
+          loader: "file-loader",
+          options: {
+            outputPath: "fonts",
+            name: fileLoaderName
+          }
+        },
+        // Images
+        {
+          test: /\.(png|svg|jpg|gif)(\?v=[0-9.]+)?$/,
+          loader: "file-loader",
+          options: {
+            outputPath: "images",
+            name: fileLoaderName
+          }
+        },
+        // html
+        {
+          test: /\.html$/,
+          loader: "file-loader",
+          options: {
+            outputPath: "html",
+            name: fileLoaderName
+          }
+        },
+        {test: /modernizr/, loader: 'imports-loader?this=>window!exports-loader?window.Modernizr'},
+        // Jquery
+        // {
+        //   test: require.resolve('jquery'),
+        //   use: [
+        //     {
+        //       loader: 'expose-loader',
+        //       options: 'jQuery'
+        //     },
+        //     {
+        //       loader: 'expose-loader',
+        //       options: '$'
+        //     }
+        //   ]
+        // }
+      ]
+    },
+    plugins: [
+      new BundleTracker({
+        path: resolve("bundles/"),
+        filename: `webpack-bundle.${env}.json`
+      }),
+      extractCssPlugin,
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery'
+      })
     ],
-  },
-
-  resolve: {
-    extensions: [".js", ".jsx"],
-  },
+    devtool: "source-map"
+  };
 };

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from apps.coarse.models import Coarse
+from apps.learn.models import Coarse
 from .models import AboutUs, OrganisationMembers
 import datetime
 from django.core.mail import send_mail

@@ -1,0 +1,231 @@
+{
+  "status": "done",
+  "assets": {
+    "fonts/fonts/fontawesome-webfont93e3.eot": {
+      "name": "fonts/fonts/fontawesome-webfont93e3.eot",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\fonts\\fonts\\fontawesome-webfont93e3.eot",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/fonts/fonts/fontawesome-webfont93e3.eot"
+    },
+    "fonts/fonts/fontawesome-webfont93e3.ttf": {
+      "name": "fonts/fonts/fontawesome-webfont93e3.ttf",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\fonts\\fonts\\fontawesome-webfont93e3.ttf",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/fonts/fonts/fontawesome-webfont93e3.ttf"
+    },
+    "fonts/fonts/fontawesome-webfont93e3.woff": {
+      "name": "fonts/fonts/fontawesome-webfont93e3.woff",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\fonts\\fonts\\fontawesome-webfont93e3.woff",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/fonts/fonts/fontawesome-webfont93e3.woff"
+    },
+    "fonts/fonts/fontawesome-webfontd41d.eot": {
+      "name": "fonts/fonts/fontawesome-webfontd41d.eot",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\fonts\\fonts\\fontawesome-webfontd41d.eot",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/fonts/fonts/fontawesome-webfontd41d.eot"
+    },
+    "html/fonts/fontawesome-webfont93e3.html": {
+      "name": "html/fonts/fontawesome-webfont93e3.html",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\html\\fonts\\fontawesome-webfont93e3.html",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/html/fonts/fontawesome-webfont93e3.html"
+    },
+    "images/css/select2-spinner.gif": {
+      "name": "images/css/select2-spinner.gif",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\css\\select2-spinner.gif",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/css/select2-spinner.gif"
+    },
+    "images/css/select2.png": {
+      "name": "images/css/select2.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\css\\select2.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/css/select2.png"
+    },
+    "images/fonts/fontawesome-webfont93e3.svg": {
+      "name": "images/fonts/fontawesome-webfont93e3.svg",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\fonts\\fontawesome-webfont93e3.svg",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/fonts/fontawesome-webfont93e3.svg"
+    },
+    "images/img/dark-pattern.png": {
+      "name": "images/img/dark-pattern.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\dark-pattern.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/dark-pattern.png"
+    },
+    "images/img/dots-pattern.png": {
+      "name": "images/img/dots-pattern.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\dots-pattern.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/dots-pattern.png"
+    },
+    "images/img/dott_pattern.png": {
+      "name": "images/img/dott_pattern.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\dott_pattern.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/dott_pattern.png"
+    },
+    "images/img/fancybox/blank.gif": {
+      "name": "images/img/fancybox/blank.gif",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\fancybox\\blank.gif",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/fancybox/blank.gif"
+    },
+    "images/img/fancybox/fancybox_loading.gif": {
+      "name": "images/img/fancybox/fancybox_loading.gif",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\fancybox\\fancybox_loading.gif",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/fancybox/fancybox_loading.gif"
+    },
+    "images/img/fancybox/fancybox_loading@2x.gif": {
+      "name": "images/img/fancybox/fancybox_loading@2x.gif",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\fancybox\\fancybox_loading@2x.gif",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/fancybox/fancybox_loading@2x.gif"
+    },
+    "images/img/fancybox/fancybox_overlay.png": {
+      "name": "images/img/fancybox/fancybox_overlay.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\fancybox\\fancybox_overlay.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/fancybox/fancybox_overlay.png"
+    },
+    "images/img/fancybox/fancybox_sprite.png": {
+      "name": "images/img/fancybox/fancybox_sprite.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\fancybox\\fancybox_sprite.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/fancybox/fancybox_sprite.png"
+    },
+    "images/img/fancybox/fancybox_sprite@2x.png": {
+      "name": "images/img/fancybox/fancybox_sprite@2x.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\fancybox\\fancybox_sprite@2x.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/fancybox/fancybox_sprite@2x.png"
+    },
+    "images/img/filter.svg": {
+      "name": "images/img/filter.svg",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\filter.svg",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/filter.svg"
+    },
+    "images/img/footer-304vqsf31glt2ll026r4zu.png": {
+      "name": "images/img/footer-304vqsf31glt2ll026r4zu.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\footer-304vqsf31glt2ll026r4zu.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/footer-304vqsf31glt2ll026r4zu.png"
+    },
+    "images/img/footer.png": {
+      "name": "images/img/footer.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\footer.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/footer.png"
+    },
+    "images/img/patt/pat1.png": {
+      "name": "images/img/patt/pat1.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat1.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat1.png"
+    },
+    "images/img/patt/pat1@2x.png": {
+      "name": "images/img/patt/pat1@2x.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat1@2x.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat1@2x.png"
+    },
+    "images/img/patt/pat2.png": {
+      "name": "images/img/patt/pat2.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat2.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat2.png"
+    },
+    "images/img/patt/pat2@2x.png": {
+      "name": "images/img/patt/pat2@2x.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat2@2x.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat2@2x.png"
+    },
+    "images/img/patt/pat3.png": {
+      "name": "images/img/patt/pat3.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat3.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat3.png"
+    },
+    "images/img/patt/pat3@2x.png": {
+      "name": "images/img/patt/pat3@2x.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat3@2x.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat3@2x.png"
+    },
+    "images/img/patt/pat4.png": {
+      "name": "images/img/patt/pat4.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat4.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat4.png"
+    },
+    "images/img/patt/pat4@2x.png": {
+      "name": "images/img/patt/pat4@2x.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat4@2x.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat4@2x.png"
+    },
+    "images/img/patt/pat5.png": {
+      "name": "images/img/patt/pat5.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat5.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat5.png"
+    },
+    "images/img/patt/pat5@2x.png": {
+      "name": "images/img/patt/pat5@2x.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat5@2x.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat5@2x.png"
+    },
+    "images/img/patt/pat6.png": {
+      "name": "images/img/patt/pat6.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat6.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat6.png"
+    },
+    "images/img/patt/pat6@2x.png": {
+      "name": "images/img/patt/pat6@2x.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat6@2x.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat6@2x.png"
+    },
+    "images/img/patt/pat7.png": {
+      "name": "images/img/patt/pat7.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat7.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat7.png"
+    },
+    "images/img/patt/pat7@2x.png": {
+      "name": "images/img/patt/pat7@2x.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat7@2x.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat7@2x.png"
+    },
+    "images/img/patt/pat8.png": {
+      "name": "images/img/patt/pat8.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat8.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat8.png"
+    },
+    "images/img/patt/pat8@2x.png": {
+      "name": "images/img/patt/pat8@2x.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat8@2x.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat8@2x.png"
+    },
+    "images/img/patt/pat9.png": {
+      "name": "images/img/patt/pat9.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat9.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat9.png"
+    },
+    "images/img/patt/pat9@2x.png": {
+      "name": "images/img/patt/pat9@2x.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\patt\\pat9@2x.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/patt/pat9@2x.png"
+    },
+    "images/img/sunshine.png": {
+      "name": "images/img/sunshine.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\images\\img\\sunshine.png",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/images/img/sunshine.png"
+    },
+    "main.css": {
+      "name": "main.css",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\main.css",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/main.css"
+    },
+    "main.css.map": {
+      "name": "main.css.map",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\main.css.map",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/main.css.map"
+    },
+    "main.js": {
+      "name": "main.js",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\main.js",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/main.js"
+    },
+    "main.js.map": {
+      "name": "main.js.map",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\main.js.map",
+      "publicPath": "http://127.0.0.1:8000/static/bundles/dev/main.js.map"
+    }
+  },
+  "chunks": {
+    "main": [
+      "main.css",
+      "main.js",
+      "main.css.map",
+      "main.js.map"
+    ]
+  },
+  "publicPath": "http://127.0.0.1:8000/static/bundles/dev/",
+  "error": "ModuleNotFoundError",
+  "message": "Module not found: Error: Can't resolve 'TweenLite' in 'C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\js\\revolution'"
+}

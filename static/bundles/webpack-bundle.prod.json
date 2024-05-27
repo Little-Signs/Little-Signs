@@ -1,0 +1,229 @@
+{
+  "status": "done",
+  "assets": {
+    "9efb2d7a65653d190e32/main.css": {
+      "name": "9efb2d7a65653d190e32/main.css",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\9efb2d7a65653d190e32\\main.css",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/9efb2d7a65653d190e32/main.css"
+    },
+    "9efb2d7a65653d190e32/main.css.map": {
+      "name": "9efb2d7a65653d190e32/main.css.map",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\9efb2d7a65653d190e32\\main.css.map",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/9efb2d7a65653d190e32/main.css.map"
+    },
+    "9efb2d7a65653d190e32/main.js": {
+      "name": "9efb2d7a65653d190e32/main.js",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\9efb2d7a65653d190e32\\main.js",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/9efb2d7a65653d190e32/main.js"
+    },
+    "9efb2d7a65653d190e32/main.js.map": {
+      "name": "9efb2d7a65653d190e32/main.js.map",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\9efb2d7a65653d190e32\\main.js.map",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/9efb2d7a65653d190e32/main.js.map"
+    },
+    "fonts/fonts/fontawesome-webfont93e3.45c73723862c6fc5eb3d6961db2d71fb.eot": {
+      "name": "fonts/fonts/fontawesome-webfont93e3.45c73723862c6fc5eb3d6961db2d71fb.eot",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\fonts\\fonts\\fontawesome-webfont93e3.45c73723862c6fc5eb3d6961db2d71fb.eot",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/fonts/fonts/fontawesome-webfont93e3.45c73723862c6fc5eb3d6961db2d71fb.eot"
+    },
+    "fonts/fonts/fontawesome-webfont93e3.7c87870ab40d63cfb8870c1f183f9939.ttf": {
+      "name": "fonts/fonts/fontawesome-webfont93e3.7c87870ab40d63cfb8870c1f183f9939.ttf",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\fonts\\fonts\\fontawesome-webfont93e3.7c87870ab40d63cfb8870c1f183f9939.ttf",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/fonts/fonts/fontawesome-webfont93e3.7c87870ab40d63cfb8870c1f183f9939.ttf"
+    },
+    "fonts/fonts/fontawesome-webfont93e3.dfb02f8f6d0cedc009ee5887cc68f1f3.woff": {
+      "name": "fonts/fonts/fontawesome-webfont93e3.dfb02f8f6d0cedc009ee5887cc68f1f3.woff",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\fonts\\fonts\\fontawesome-webfont93e3.dfb02f8f6d0cedc009ee5887cc68f1f3.woff",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/fonts/fonts/fontawesome-webfont93e3.dfb02f8f6d0cedc009ee5887cc68f1f3.woff"
+    },
+    "fonts/fonts/fontawesome-webfontd41d.45c73723862c6fc5eb3d6961db2d71fb.eot": {
+      "name": "fonts/fonts/fontawesome-webfontd41d.45c73723862c6fc5eb3d6961db2d71fb.eot",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\fonts\\fonts\\fontawesome-webfontd41d.45c73723862c6fc5eb3d6961db2d71fb.eot",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/fonts/fonts/fontawesome-webfontd41d.45c73723862c6fc5eb3d6961db2d71fb.eot"
+    },
+    "html/fonts/fontawesome-webfont93e3.4b5a84aaf1c9485e060c503a0ff8cadb.html": {
+      "name": "html/fonts/fontawesome-webfont93e3.4b5a84aaf1c9485e060c503a0ff8cadb.html",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\html\\fonts\\fontawesome-webfont93e3.4b5a84aaf1c9485e060c503a0ff8cadb.html",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/html/fonts/fontawesome-webfont93e3.4b5a84aaf1c9485e060c503a0ff8cadb.html"
+    },
+    "images/css/select2-spinner.7b9776076d5fceef4993b55c9383dedd.gif": {
+      "name": "images/css/select2-spinner.7b9776076d5fceef4993b55c9383dedd.gif",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\css\\select2-spinner.7b9776076d5fceef4993b55c9383dedd.gif",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/css/select2-spinner.7b9776076d5fceef4993b55c9383dedd.gif"
+    },
+    "images/css/select2.2ca61b76e22053571dd8611e5aac4900.png": {
+      "name": "images/css/select2.2ca61b76e22053571dd8611e5aac4900.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\css\\select2.2ca61b76e22053571dd8611e5aac4900.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/css/select2.2ca61b76e22053571dd8611e5aac4900.png"
+    },
+    "images/fonts/fontawesome-webfont93e3.76a4f23c6be74fd309e0d0fd2c27a5de.svg": {
+      "name": "images/fonts/fontawesome-webfont93e3.76a4f23c6be74fd309e0d0fd2c27a5de.svg",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\fonts\\fontawesome-webfont93e3.76a4f23c6be74fd309e0d0fd2c27a5de.svg",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/fonts/fontawesome-webfont93e3.76a4f23c6be74fd309e0d0fd2c27a5de.svg"
+    },
+    "images/img/dark-pattern.6cff2b67206364cbdd33cf27e4099989.png": {
+      "name": "images/img/dark-pattern.6cff2b67206364cbdd33cf27e4099989.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\dark-pattern.6cff2b67206364cbdd33cf27e4099989.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/dark-pattern.6cff2b67206364cbdd33cf27e4099989.png"
+    },
+    "images/img/dots-pattern.dd33c2df8288c5425eeb6690dc4f247a.png": {
+      "name": "images/img/dots-pattern.dd33c2df8288c5425eeb6690dc4f247a.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\dots-pattern.dd33c2df8288c5425eeb6690dc4f247a.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/dots-pattern.dd33c2df8288c5425eeb6690dc4f247a.png"
+    },
+    "images/img/dott_pattern.f16af444adf67822aab076dac5ad795b.png": {
+      "name": "images/img/dott_pattern.f16af444adf67822aab076dac5ad795b.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\dott_pattern.f16af444adf67822aab076dac5ad795b.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/dott_pattern.f16af444adf67822aab076dac5ad795b.png"
+    },
+    "images/img/fancybox/blank.325472601571f31e1bf00674c368d335.gif": {
+      "name": "images/img/fancybox/blank.325472601571f31e1bf00674c368d335.gif",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\fancybox\\blank.325472601571f31e1bf00674c368d335.gif",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/fancybox/blank.325472601571f31e1bf00674c368d335.gif"
+    },
+    "images/img/fancybox/fancybox_loading.328cc0f6c78211485058d460e80f4fa8.gif": {
+      "name": "images/img/fancybox/fancybox_loading.328cc0f6c78211485058d460e80f4fa8.gif",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\fancybox\\fancybox_loading.328cc0f6c78211485058d460e80f4fa8.gif",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/fancybox/fancybox_loading.328cc0f6c78211485058d460e80f4fa8.gif"
+    },
+    "images/img/fancybox/fancybox_loading@2x.f92938639fa894a0e8ded1c3368abe98.gif": {
+      "name": "images/img/fancybox/fancybox_loading@2x.f92938639fa894a0e8ded1c3368abe98.gif",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\fancybox\\fancybox_loading@2x.f92938639fa894a0e8ded1c3368abe98.gif",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/fancybox/fancybox_loading@2x.f92938639fa894a0e8ded1c3368abe98.gif"
+    },
+    "images/img/fancybox/fancybox_overlay.77aeaa52715b898b73c74d68c630330e.png": {
+      "name": "images/img/fancybox/fancybox_overlay.77aeaa52715b898b73c74d68c630330e.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\fancybox\\fancybox_overlay.77aeaa52715b898b73c74d68c630330e.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/fancybox/fancybox_overlay.77aeaa52715b898b73c74d68c630330e.png"
+    },
+    "images/img/fancybox/fancybox_sprite.783d4031fe50c3d83c960911e1fbc705.png": {
+      "name": "images/img/fancybox/fancybox_sprite.783d4031fe50c3d83c960911e1fbc705.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\fancybox\\fancybox_sprite.783d4031fe50c3d83c960911e1fbc705.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/fancybox/fancybox_sprite.783d4031fe50c3d83c960911e1fbc705.png"
+    },
+    "images/img/fancybox/fancybox_sprite@2x.ed9970ce22242421e66ff150aa97fe5f.png": {
+      "name": "images/img/fancybox/fancybox_sprite@2x.ed9970ce22242421e66ff150aa97fe5f.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\fancybox\\fancybox_sprite@2x.ed9970ce22242421e66ff150aa97fe5f.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/fancybox/fancybox_sprite@2x.ed9970ce22242421e66ff150aa97fe5f.png"
+    },
+    "images/img/filter.666a3cbf9d3ce4fcbd9c563958139afd.svg": {
+      "name": "images/img/filter.666a3cbf9d3ce4fcbd9c563958139afd.svg",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\filter.666a3cbf9d3ce4fcbd9c563958139afd.svg",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/filter.666a3cbf9d3ce4fcbd9c563958139afd.svg"
+    },
+    "images/img/footer-304vqsf31glt2ll026r4zu.9eef67da6936b804f2b8e15c1630deb9.png": {
+      "name": "images/img/footer-304vqsf31glt2ll026r4zu.9eef67da6936b804f2b8e15c1630deb9.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\footer-304vqsf31glt2ll026r4zu.9eef67da6936b804f2b8e15c1630deb9.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/footer-304vqsf31glt2ll026r4zu.9eef67da6936b804f2b8e15c1630deb9.png"
+    },
+    "images/img/footer.618350b26f5863411e4a66eba4336f53.png": {
+      "name": "images/img/footer.618350b26f5863411e4a66eba4336f53.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\footer.618350b26f5863411e4a66eba4336f53.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/footer.618350b26f5863411e4a66eba4336f53.png"
+    },
+    "images/img/patt/pat1.d7bf79b938a58bb19c41552e87a24609.png": {
+      "name": "images/img/patt/pat1.d7bf79b938a58bb19c41552e87a24609.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat1.d7bf79b938a58bb19c41552e87a24609.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat1.d7bf79b938a58bb19c41552e87a24609.png"
+    },
+    "images/img/patt/pat1@2x.0ed6397b9ed567d45d3fbe85d06efe23.png": {
+      "name": "images/img/patt/pat1@2x.0ed6397b9ed567d45d3fbe85d06efe23.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat1@2x.0ed6397b9ed567d45d3fbe85d06efe23.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat1@2x.0ed6397b9ed567d45d3fbe85d06efe23.png"
+    },
+    "images/img/patt/pat2.01e6f042cd4b08c9ce2dcdf41feeceb6.png": {
+      "name": "images/img/patt/pat2.01e6f042cd4b08c9ce2dcdf41feeceb6.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat2.01e6f042cd4b08c9ce2dcdf41feeceb6.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat2.01e6f042cd4b08c9ce2dcdf41feeceb6.png"
+    },
+    "images/img/patt/pat2@2x.957845a15ba749f3d645d9769a5df05d.png": {
+      "name": "images/img/patt/pat2@2x.957845a15ba749f3d645d9769a5df05d.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat2@2x.957845a15ba749f3d645d9769a5df05d.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat2@2x.957845a15ba749f3d645d9769a5df05d.png"
+    },
+    "images/img/patt/pat3.df2d4b32737a19eb587adfe247922e47.png": {
+      "name": "images/img/patt/pat3.df2d4b32737a19eb587adfe247922e47.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat3.df2d4b32737a19eb587adfe247922e47.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat3.df2d4b32737a19eb587adfe247922e47.png"
+    },
+    "images/img/patt/pat3@2x.22a13506af2dfbb87df92d473aa46b1e.png": {
+      "name": "images/img/patt/pat3@2x.22a13506af2dfbb87df92d473aa46b1e.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat3@2x.22a13506af2dfbb87df92d473aa46b1e.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat3@2x.22a13506af2dfbb87df92d473aa46b1e.png"
+    },
+    "images/img/patt/pat4.2788a2876c67a1e62a48839687924431.png": {
+      "name": "images/img/patt/pat4.2788a2876c67a1e62a48839687924431.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat4.2788a2876c67a1e62a48839687924431.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat4.2788a2876c67a1e62a48839687924431.png"
+    },
+    "images/img/patt/pat4@2x.9a89c39c1040748e84ae3b88e8f6505a.png": {
+      "name": "images/img/patt/pat4@2x.9a89c39c1040748e84ae3b88e8f6505a.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat4@2x.9a89c39c1040748e84ae3b88e8f6505a.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat4@2x.9a89c39c1040748e84ae3b88e8f6505a.png"
+    },
+    "images/img/patt/pat5.2b3094e1cce15692d80478f2b4b4a9d2.png": {
+      "name": "images/img/patt/pat5.2b3094e1cce15692d80478f2b4b4a9d2.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat5.2b3094e1cce15692d80478f2b4b4a9d2.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat5.2b3094e1cce15692d80478f2b4b4a9d2.png"
+    },
+    "images/img/patt/pat5@2x.a9dc028cc0658d6942a3dafa09425087.png": {
+      "name": "images/img/patt/pat5@2x.a9dc028cc0658d6942a3dafa09425087.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat5@2x.a9dc028cc0658d6942a3dafa09425087.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat5@2x.a9dc028cc0658d6942a3dafa09425087.png"
+    },
+    "images/img/patt/pat6.2b1910a4f076706053ede10d845d67a9.png": {
+      "name": "images/img/patt/pat6.2b1910a4f076706053ede10d845d67a9.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat6.2b1910a4f076706053ede10d845d67a9.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat6.2b1910a4f076706053ede10d845d67a9.png"
+    },
+    "images/img/patt/pat6@2x.1472c6afaf8578c60f069ef7525767c3.png": {
+      "name": "images/img/patt/pat6@2x.1472c6afaf8578c60f069ef7525767c3.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat6@2x.1472c6afaf8578c60f069ef7525767c3.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat6@2x.1472c6afaf8578c60f069ef7525767c3.png"
+    },
+    "images/img/patt/pat7.74f057ea0f84ea0251527a595e3b9554.png": {
+      "name": "images/img/patt/pat7.74f057ea0f84ea0251527a595e3b9554.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat7.74f057ea0f84ea0251527a595e3b9554.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat7.74f057ea0f84ea0251527a595e3b9554.png"
+    },
+    "images/img/patt/pat7@2x.c9117d897742e4f442055fd9ad00f098.png": {
+      "name": "images/img/patt/pat7@2x.c9117d897742e4f442055fd9ad00f098.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat7@2x.c9117d897742e4f442055fd9ad00f098.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat7@2x.c9117d897742e4f442055fd9ad00f098.png"
+    },
+    "images/img/patt/pat8.90a5a32f32af17c353553da41c51c442.png": {
+      "name": "images/img/patt/pat8.90a5a32f32af17c353553da41c51c442.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat8.90a5a32f32af17c353553da41c51c442.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat8.90a5a32f32af17c353553da41c51c442.png"
+    },
+    "images/img/patt/pat8@2x.8ecbbc79a5c66e3d1ef5e4b25c7a4dd5.png": {
+      "name": "images/img/patt/pat8@2x.8ecbbc79a5c66e3d1ef5e4b25c7a4dd5.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat8@2x.8ecbbc79a5c66e3d1ef5e4b25c7a4dd5.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat8@2x.8ecbbc79a5c66e3d1ef5e4b25c7a4dd5.png"
+    },
+    "images/img/patt/pat9.5ad3e0360c78e1d8e2b3e5bd2f91e5d2.png": {
+      "name": "images/img/patt/pat9.5ad3e0360c78e1d8e2b3e5bd2f91e5d2.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat9.5ad3e0360c78e1d8e2b3e5bd2f91e5d2.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat9.5ad3e0360c78e1d8e2b3e5bd2f91e5d2.png"
+    },
+    "images/img/patt/pat9@2x.3d4b7e3a158edbcda8b925ea14cd4140.png": {
+      "name": "images/img/patt/pat9@2x.3d4b7e3a158edbcda8b925ea14cd4140.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\patt\\pat9@2x.3d4b7e3a158edbcda8b925ea14cd4140.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/patt/pat9@2x.3d4b7e3a158edbcda8b925ea14cd4140.png"
+    },
+    "images/img/sunshine.d2ac40d4984da2c278176b9bcec1fa32.png": {
+      "name": "images/img/sunshine.d2ac40d4984da2c278176b9bcec1fa32.png",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\images\\img\\sunshine.d2ac40d4984da2c278176b9bcec1fa32.png",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/prod/images/img/sunshine.d2ac40d4984da2c278176b9bcec1fa32.png"
+    }
+  },
+  "chunks": {
+    "main": [
+      "9efb2d7a65653d190e32/main.css",
+      "9efb2d7a65653d190e32/main.js",
+      "9efb2d7a65653d190e32/main.css.map",
+      "9efb2d7a65653d190e32/main.js.map"
+    ]
+  },
+  "publicPath": "https://littlesigns.co.zw/static/bundles/prod/"
+}

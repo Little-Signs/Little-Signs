@@ -1,7 +1,6 @@
 from django.contrib.auth import models as base_models
 from django.db import models
 from django.utils import timezone
-
 from apps.users import managers
 
 
@@ -23,6 +22,7 @@ class User(base_models.AbstractBaseUser, base_models.PermissionsMixin):
     is_individual = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now)
+    badges = models.ManyToManyField("learn.Badge", verbose_name="Learner badges")
 
     REQUIRED_FIELDS = []
     USERNAME_FIELD = "email"

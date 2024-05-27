@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% load i18n static %} 
+{% block page_title %} 
+{% trans 'Little Signs - Learn' %}
+{% endblock %} 
+{% block extra_css %}
+<style>
+  input,
+  textarea,
+  input {
+    padding: 13px 10px;
+    -webkit-box-shadow: inset 0px 5px 0px 0px rgba(0, 0, 0, 0.12);
+  }
+  .map-border {
+    background: #f8f2dc;
+  }
+  .header_img {
+    background-image: none;
+  }
+  .header_box .logo-in-menu .header_logo {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .header_box .container {
+    display: table;
+  }
+  .header_box .container > * {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .header_logo .logo1 {
+    display: inline-block;
+    max-height: 60px;
+  }
+  .header_box h3 {
+    font-size: 2em;
+    font-style: italic;
+    line-height: 1.2;
+    text-align: right;
+    word-break: break-all;
+    color: white;
+  }
+  .cws_wrapper {
+    position: relative;
+    z-index: 1;
+  }
+</style>
+{% endblock %} 
+{% block header %} {% include "includes/learn_header.html" %} {% endblock %} 
+{% block body %}
+<div id="main" class="site-main">
+  <div class="page_content single_sidebar">
+    <div class="left-pattern pattern pattern-2" style="width: 69.5px;"></div>
+    <div class="container">
+      <aside class="sb_right">
+
+      </aside>
+      <main>
+      </main>
+    </div>
+    <div class="footer_image"></div>
+  </div>
+</div>
+{% endblock %}
