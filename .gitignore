@@ -20,7 +20,7 @@ db.json
 assets/node_modules
 assets/bundles/webpack-bundle.dev.json
 assets/bundles/dev
-assets
-
+assets/js
+assets/css
 # IDE config
 .vscode

@@ -12,16 +12,16 @@ module.exports = (env, argv) => {
 
   switch (env) {
     case "prod":
-      publicPath = "https://www.littlesigns.co.zw/static/bundles/prod/";
-      outputPath = resolve("bundles/prod");
+      publicPath = "https://littlesigns.co.zw/static/bundles/rev/prod/";
+      outputPath = resolve("bundles/rev/prod");
       break;
     case "stg":
-      publicPath = "https://www.staging.littlesigns.co.zw/static/bundles/stg/";
-      outputPath = resolve("bundles/stg");
+      publicPath = "https://staging.littlesigns.co.zw/static/bundles/rev/stg/";
+      outputPath = resolve("bundles/rev/stg");
       break;
     case "dev":
-      publicPath = "http://127.0.0.1:8000/static/bundles/dev/";
-      outputPath = resolve("bundles/dev");
+      publicPath = "http://127.0.0.1:8000/static/bundles/rev/dev/";
+      outputPath = resolve("bundles/rev/dev");
       break;
   }
 
@@ -59,7 +59,7 @@ module.exports = (env, argv) => {
 
   return {
     mode: argv.mode,
-    entry: "./index.js",
+    entry: "./rev.js",
     output,
     module: {
       rules: [
@@ -129,7 +129,7 @@ module.exports = (env, argv) => {
     plugins: [
       new BundleTracker({
         path: resolve("bundles/"),
-        filename: `webpack-bundle.${env}.json`
+        filename: `webpack-bundle-rev.${env}.json`
       }),
       extractCssPlugin,
       new webpack.ProvidePlugin({
