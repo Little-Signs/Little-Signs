@@ -18,7 +18,6 @@ urlpatterns = [
     path("account/", include("apps.users.urls.auth")),
     path("learn/", include("apps.learn.urls.learn")),
     path("", include("apps.pages.urls.home")),
-    path("admin/", admin.site.urls),
     path('sentry-debug/', trigger_error),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
 ]
@@ -38,4 +37,5 @@ if settings.ENV == "dev":
         path("error/403/", TemplateView.as_view(template_name="403.html")),
         path("error/404/", TemplateView.as_view(template_name="404.html")),
         path("error/500/", TemplateView.as_view(template_name="500.html")),
+        path("admin/", admin.site.urls),
     ]
