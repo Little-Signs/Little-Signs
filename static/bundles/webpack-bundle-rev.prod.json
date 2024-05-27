@@ -1,33 +1,33 @@
 {
   "status": "done",
   "assets": {
-    "57dfd422f4ede29981e4/main.css": {
-      "name": "57dfd422f4ede29981e4/main.css",
-      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\rev\\prod\\57dfd422f4ede29981e4\\main.css",
-      "publicPath": "https://littlesigns.co.zw/static/bundles/rev/prod/57dfd422f4ede29981e4/main.css"
+    "f3c657f9bcde94d342cc/main.css": {
+      "name": "f3c657f9bcde94d342cc/main.css",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\rev\\prod\\f3c657f9bcde94d342cc\\main.css",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/rev/prod/f3c657f9bcde94d342cc/main.css"
     },
-    "57dfd422f4ede29981e4/main.css.map": {
-      "name": "57dfd422f4ede29981e4/main.css.map",
-      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\rev\\prod\\57dfd422f4ede29981e4\\main.css.map",
-      "publicPath": "https://littlesigns.co.zw/static/bundles/rev/prod/57dfd422f4ede29981e4/main.css.map"
+    "f3c657f9bcde94d342cc/main.css.map": {
+      "name": "f3c657f9bcde94d342cc/main.css.map",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\rev\\prod\\f3c657f9bcde94d342cc\\main.css.map",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/rev/prod/f3c657f9bcde94d342cc/main.css.map"
     },
-    "57dfd422f4ede29981e4/main.js": {
-      "name": "57dfd422f4ede29981e4/main.js",
-      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\rev\\prod\\57dfd422f4ede29981e4\\main.js",
-      "publicPath": "https://littlesigns.co.zw/static/bundles/rev/prod/57dfd422f4ede29981e4/main.js"
+    "f3c657f9bcde94d342cc/main.js": {
+      "name": "f3c657f9bcde94d342cc/main.js",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\rev\\prod\\f3c657f9bcde94d342cc\\main.js",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/rev/prod/f3c657f9bcde94d342cc/main.js"
     },
-    "57dfd422f4ede29981e4/main.js.map": {
-      "name": "57dfd422f4ede29981e4/main.js.map",
-      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\rev\\prod\\57dfd422f4ede29981e4\\main.js.map",
-      "publicPath": "https://littlesigns.co.zw/static/bundles/rev/prod/57dfd422f4ede29981e4/main.js.map"
+    "f3c657f9bcde94d342cc/main.js.map": {
+      "name": "f3c657f9bcde94d342cc/main.js.map",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\rev\\prod\\f3c657f9bcde94d342cc\\main.js.map",
+      "publicPath": "https://littlesigns.co.zw/static/bundles/rev/prod/f3c657f9bcde94d342cc/main.js.map"
     }
   },
   "chunks": {
     "main": [
-      "57dfd422f4ede29981e4/main.css",
-      "57dfd422f4ede29981e4/main.js",
-      "57dfd422f4ede29981e4/main.css.map",
-      "57dfd422f4ede29981e4/main.js.map"
+      "f3c657f9bcde94d342cc/main.css",
+      "f3c657f9bcde94d342cc/main.js",
+      "f3c657f9bcde94d342cc/main.css.map",
+      "f3c657f9bcde94d342cc/main.js.map"
     ]
   },
   "publicPath": "https://littlesigns.co.zw/static/bundles/rev/prod/"

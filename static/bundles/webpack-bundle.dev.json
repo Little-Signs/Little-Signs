@@ -225,7 +225,5 @@
       "main.js.map"
     ]
   },
-  "publicPath": "http://127.0.0.1:8000/static/bundles/dev/",
-  "error": "ModuleNotFoundError",
-  "message": "Module not found: Error: Can't resolve 'TweenLite' in 'C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\js\\revolution'"
+  "publicPath": "http://127.0.0.1:8000/static/bundles/dev/"
 }

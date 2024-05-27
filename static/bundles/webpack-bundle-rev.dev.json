@@ -3,22 +3,22 @@
   "assets": {
     "main.css": {
       "name": "main.css",
-      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\main.css",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\rev\\dev\\main.css",
       "publicPath": "http://127.0.0.1:8000/static/bundles/rev/dev/main.css"
     },
     "main.css.map": {
       "name": "main.css.map",
-      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\main.css.map",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\rev\\dev\\main.css.map",
       "publicPath": "http://127.0.0.1:8000/static/bundles/rev/dev/main.css.map"
     },
     "main.js": {
       "name": "main.js",
-      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\main.js",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\rev\\dev\\main.js",
       "publicPath": "http://127.0.0.1:8000/static/bundles/rev/dev/main.js"
     },
     "main.js.map": {
       "name": "main.js.map",
-      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\dev\\main.js.map",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\rev\\dev\\main.js.map",
       "publicPath": "http://127.0.0.1:8000/static/bundles/rev/dev/main.js.map"
     }
   },

@@ -81,6 +81,7 @@ INSTALLED_APPS = [
     "storages",
     "import_export",
     "webpack_loader",
+    "active_link",
     # Local
     "conf.apps.CustomAdminConfig",
     "apps.misc",

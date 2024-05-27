@@ -5,7 +5,24 @@
 {% trans 'Little Signs - Home' %}{% endblock %}
 {% block extra_css %}
 {% render_bundle 'main' 'css' 'REV' %}
+<style>
+  .header_logo_part.with_border .logo>h3 {
+    background-image: url({% static 'img/dots-pattern.png' %});
+  }
+  .header_logo_part.with_border .logo> h3 {
+    margin: 2px;
+    padding: 7px 25px;
+    border: 5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 2px;
+}
+.site_header .logo>h3 {
+  display: block;
+  font-size: 35px;
+  color: white;
+}
+</style>
 {% endblock extra_css %}
+
 {% block extra_js %}
 <script src='{% static 'js/revolution/jquery.themepunch.tools.min.js'  %}'></script>
 {% endblock %}

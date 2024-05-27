@@ -1,0 +1,78 @@
+{% load i18n static active_link_tags  %}
+<header class="site_header logo-in-menu" data-menu-after="3">
+    <div class="header_box">
+      <div class="container">
+        <!-- logo -->
+        <div class="header_logo_part with_border" role="banner">
+          <a class="logo" href="{% url "learn" %}"
+            >
+            <h3>Little Signs</h3></a>
+        </div>
+        <!-- / logo -->
+        <!-- menu -->
+        <div class="header_nav_part">
+          <nav class="main-nav-container a-right">
+            <div class="mobile_menu_header">
+              <i class="mobile_menu_switcher"
+                ><span></span><span></span><span></span
+              ></i>
+            </div>
+            <ul id="menu-main-menu" class="main-menu menu-bees">
+              <!-- menu item -->
+              <li
+                class="menu-item {% active_link 'home' 'current-menu-item page_item current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor ' %}  menu-item-has-children "
+              >
+                <a href="{% url "home" %} ">
+                  
+                  Home
+                  <div class="canvas_wrapper">
+                    <canvas class="menu_dashed"></canvas>
+                  </div>
+                </a>
+              </li>
+              <!-- / menu item -->
+              <!-- menu item -->
+              <li class="menu-item {% active_link 'learn' 'current-menu-item page_item current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor ' %} menu-item-has-children">
+                <a href="{% url "learn" %}"
+                  >Learn
+                  <div class="canvas_wrapper">
+                    <canvas class="menu_dashed"></canvas></div
+                ></a>
+              </li>
+              <!-- / menu item -->
+              <!-- menu item -->
+              <li class="menu-item {% active_link 'aboout-us' 'current-menu-item page_item current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor ' %} menu-item-has-children right">
+                <a  href="{% url "about-us" %}"
+                  > About Us
+                  <div class="canvas_wrapper">
+                    <canvas class="menu_dashed"></canvas></div
+                ></a>
+              </li>
+              <!-- / menu item -->
+              <!-- menu item -->
+              <li class="menu-item {% active_link 'login' 'current-menu-item page_item current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor ' %} menu-item-has-children right">
+                <a  href="{% url "learn" %}"
+                  > Login
+                  <div class="canvas_wrapper">
+                    <canvas class="menu_dashed"></canvas></div
+                ></a>
+              </li>
+              <!-- / menu item -->
+              <!-- menu item -->
+              <li class="menu-item {% active_link 'contact' 'current-menu-item page_item current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor ' %} right ">
+                <a href="{% url "contact" %}">
+                  
+                  Contact
+                  <div class="canvas_wrapper">
+                    <canvas class="menu_dashed"></canvas>
+                  </div>
+                </a>
+              </li>
+              <!-- / menu item -->
+            </ul>
+          </nav>
+        </div>
+        <!-- / menu -->
+      </div>
+    </div>
+  </header>
