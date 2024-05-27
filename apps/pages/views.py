@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from conf import settings
+from django.views.generic import DetailView 
 import json
 
 year = datetime.date.today().year
@@ -35,8 +36,6 @@ def aboutUs(request):
 def contact(request):
     if request.method == 'POST':
         data = request.POST['values']
-        print("######################")
-        print(data)
     context = {
         "coarses": coarses,
         "year": year
@@ -81,3 +80,9 @@ def privacyPolicy(request):
 def termOfuse(request):
 
     return render(request, 'pages/term-of-use.html')
+
+
+class CoarseDetailView(DetailView):
+    model = Coarse
+    template_name = "pages/coarse-detail.html"
+

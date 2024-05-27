@@ -36,8 +36,8 @@
           <div class="widget-title">Little Sign</div>
           <div class="cws_tweets tweets_carousel paginated">
             <div class="twitter-carousel cws_tweet"><img
-              src="{% static 'img/logo/logo_icon_white.webp' %}"
-              data-at2x="{% static 'img/logo/logo_icon_white.webp' %}"
+              src="{% static 'img/logo/logo.png' %}"
+              data-at2x="{% static 'img/logo/logo.png' %}"
               alt
             /></div>
           </div>
@@ -76,8 +76,7 @@
                   </h3>
                   <div>
                     <p style="text-align: center">
-                      {% trans "This means we have currently suspended our services publicly.
-                      Please call again, we are currently updating our content." %}
+                      {% trans "This means we have currently suspended our services publicly. Please call again, we are currently updating our content." %}
                     </p>
                   </div>
                 </div>
@@ -182,7 +181,7 @@
         </div>
         <div class="copyrights_panel">
           <div class="copyrights_panel_wrapper">
-            <div class="cws_social_links">
+            {% comment %} <div class="cws_social_links">
               <a
                 href="http://twitter.com/"
                 class="cws_social_link"
@@ -194,7 +193,7 @@
                 title="Facebook"
                 ><i class="share-icon fa fa-facebook"></i></a
               >
-            </div>
+            </div> {% endcomment %}
           </div>
         </div>
       </div>

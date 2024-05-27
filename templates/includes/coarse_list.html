@@ -4,6 +4,7 @@
 <div class="cws_wrapper">
   <div class="cws_ourteam_items grid grid-4 isotope clearfix"style="margin-left: 5%; margin-right: 5%;">
     {% for coarse in coarses %}
+    <a href="{% url 'learn_start' coarse.id %}">
         <article class="item explore" >
           <div class="ourteam_item_wrapper">
             <div class="media_part">
@@ -18,8 +19,10 @@
                   <div class="link_cont">
                     
                     <div class="link">
-                      <a href="{% url "learn" %}"
-                        ><i class="fa fa-share"></i
+                      <a href="{% url 'coarse-detail' coarse.id %}"
+                        >
+                        Details
+                        <i class="fa fa-arrow-right"></i
                       ></a>
                       <div class="link-item-bounce"></div>
                     </div>
@@ -30,8 +33,12 @@
                 </div>
               </div>
             </div>
+            <div class='title_wrap'>
+              <h3 class='title'><a href="{% url 'coarse-detail' coarse.id %}">{{coarse.name}}</a></h3>
+          </div>
           </div>
         </article>
+    <a/>
 
     {% endfor %}
   </div>
@@ -46,8 +53,7 @@
     </h3>
     <div>
       <p style="text-align: center">
-        {% trans "This means we have currently suspended our services publicly.
-        Please call again, we are currently updating our content." %}
+        {% trans "This means we have currently suspended our services publicly. Please call again, we are currently updating our content." %}
       </p>
     </div>
   </div>

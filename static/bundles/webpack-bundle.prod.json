@@ -1,25 +1,25 @@
 {
   "status": "done",
   "assets": {
-    "4115ca829d21f4b20fc9/main.css": {
-      "name": "4115ca829d21f4b20fc9/main.css",
-      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\4115ca829d21f4b20fc9\\main.css",
-      "publicPath": "https://www.littlesigns.co.zw/static/bundles/prod/4115ca829d21f4b20fc9/main.css"
+    "877df37191c90e587bff/main.css": {
+      "name": "877df37191c90e587bff/main.css",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\877df37191c90e587bff\\main.css",
+      "publicPath": "https://www.littlesigns.co.zw/static/bundles/prod/877df37191c90e587bff/main.css"
     },
-    "4115ca829d21f4b20fc9/main.css.map": {
-      "name": "4115ca829d21f4b20fc9/main.css.map",
-      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\4115ca829d21f4b20fc9\\main.css.map",
-      "publicPath": "https://www.littlesigns.co.zw/static/bundles/prod/4115ca829d21f4b20fc9/main.css.map"
+    "877df37191c90e587bff/main.css.map": {
+      "name": "877df37191c90e587bff/main.css.map",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\877df37191c90e587bff\\main.css.map",
+      "publicPath": "https://www.littlesigns.co.zw/static/bundles/prod/877df37191c90e587bff/main.css.map"
     },
-    "4115ca829d21f4b20fc9/main.js": {
-      "name": "4115ca829d21f4b20fc9/main.js",
-      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\4115ca829d21f4b20fc9\\main.js",
-      "publicPath": "https://www.littlesigns.co.zw/static/bundles/prod/4115ca829d21f4b20fc9/main.js"
+    "877df37191c90e587bff/main.js": {
+      "name": "877df37191c90e587bff/main.js",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\877df37191c90e587bff\\main.js",
+      "publicPath": "https://www.littlesigns.co.zw/static/bundles/prod/877df37191c90e587bff/main.js"
     },
-    "4115ca829d21f4b20fc9/main.js.map": {
-      "name": "4115ca829d21f4b20fc9/main.js.map",
-      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\4115ca829d21f4b20fc9\\main.js.map",
-      "publicPath": "https://www.littlesigns.co.zw/static/bundles/prod/4115ca829d21f4b20fc9/main.js.map"
+    "877df37191c90e587bff/main.js.map": {
+      "name": "877df37191c90e587bff/main.js.map",
+      "path": "C:\\Users\\kudak\\OneDrive\\Documents\\GitHub\\little-signs\\assets\\bundles\\prod\\877df37191c90e587bff\\main.js.map",
+      "publicPath": "https://www.littlesigns.co.zw/static/bundles/prod/877df37191c90e587bff/main.js.map"
     },
     "fonts/fonts/fontawesome-webfont93e3.45c73723862c6fc5eb3d6961db2d71fb.eot": {
       "name": "fonts/fonts/fontawesome-webfont93e3.45c73723862c6fc5eb3d6961db2d71fb.eot",
@@ -219,10 +219,10 @@
   },
   "chunks": {
     "main": [
-      "4115ca829d21f4b20fc9/main.css",
-      "4115ca829d21f4b20fc9/main.js",
-      "4115ca829d21f4b20fc9/main.css.map",
-      "4115ca829d21f4b20fc9/main.js.map"
+      "877df37191c90e587bff/main.css",
+      "877df37191c90e587bff/main.js",
+      "877df37191c90e587bff/main.css.map",
+      "877df37191c90e587bff/main.js.map"
     ]
   },
   "publicPath": "https://www.littlesigns.co.zw/static/bundles/prod/"
