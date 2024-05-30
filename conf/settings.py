@@ -57,6 +57,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
 LOGIN_URL = env("LOGIN_URL", default="/account/login/")
+LOGIN_REDIRECT_URL = env("LOGIN_REDIRECT_URL", default="/learn/")
 
 # -----------------------------------------------------------------------------
 # Databases
