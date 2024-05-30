@@ -14,7 +14,7 @@ class User(base_models.AbstractBaseUser, base_models.PermissionsMixin):
     phone_number = models.CharField("phone number", max_length=15, null=True)
     gender = models.CharField("gender", max_length=50, choices=gender_choices, null=True)
     phone_number = models.CharField("phone number", max_length=15, null=True)
-    email = models.EmailField("email", max_length=50, null=True)
+    email = models.EmailField(unique=True, null=True, db_index=True)
     date_of_birth = models.DateField("date of birth", null=True)
     city = models.CharField("city", max_length=50, null=True)
     is_active = models.BooleanField(default=False)

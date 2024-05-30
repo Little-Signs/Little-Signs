@@ -1,22 +1,29 @@
 {% extends "base.html" %} {% block body %}
-<div id="main" class="site-main"  style="height: 100px;">
+<div id="main" class="site-main" style="height: 100px">
   <div class="page_content">
     <div class="left-pattern pattern pattern-2"></div>
-    <main style="height: 100vh;">
+    <main style="height: 100vh">
       <div class="grid_row clearfix">
         <div class="grid_col grid_col_12">
           <div class="ce clearfix">
             <div>
               <div class="cws_sc_carousel" data-columns="1">
                 <div class="cws_sc_carousel_header clearfix">
-                  <div class="ce_title">Gallery</div>
+                  <div id="goBack" class="ce_title"><a href="{% url 'learn_start' content.coarse.pk %}"> < Return home</a></div>
                   <div class="carousel_nav_panel">
-                    <span class="prev"></span><span class="next"></span>
+                    <div id="completion-percentage"></div>
+                    <a href="#" class="cws_button alt" data-content-id="{{ content.id }}" data-coarse-id="{{ content.coarse.id }}">
+                      
+                      <span class="cws_button_inner"
+                        data-bg_hover_color=""
+                        data-bg_color=""
+                        data-text_color=""
+                      >Mark as Completed</span>
+                    </a>
                   </div>
                 </div>
                 <div class="cws_wrapper">
                   <div
-                    id="gallery-1"
                     class="#gallery-1 gallery galleryid-117 gallery-columns-1 gallery-size-full owl-carousel owl-theme"
                     style="opacity: 1; display: block"
                   >
@@ -25,14 +32,11 @@
                         class="owl-wrapper"
                         style="width: 3600px; left: 0px; display: block"
                       >
-                        <div class="owl-item" style="width: 30%;">
+                        <div class="owl-item" style="width: 30%">
                           <div class="gallery-item">
                             <div class="gallery-icon landscape">
-                              <img
-                                src="{{content.image.url}}"
-                                class="attachment-full"
-                                alt="Full-HD-5"
-                              />
+                              <img src="{{content.image.url}}"
+                              class="attachment-full" alt="{{content.name}}"" />
                             </div>
                           </div>
                         </div>
@@ -49,3 +53,36 @@
   </div>
 </div>
 {% endblock %}
+{% block extra_js %}
+<script>
+  $(document).on("click", ".cws_button.alt", function (event) {
+    event.preventDefault(); // Prevent the default link behavior
+  
+    var contentId = $(this).data("content-id"); // Assuming you have a data attribute for content ID
+    var coarseId = $(this).data("coarse-id"); // Assuming you have a data attribute for enrollment ID
+    console.log(contentId )
+    console.log(coarseId)
+    $.ajax({
+      url: "{% url 'mark_as_completed' %}", // Update with your actual URL
+      method: "POST",
+      data: {
+        content_id: contentId,
+        coarse_id: coarseId,
+        csrfmiddlewaretoken: '{{ csrf_token }}', // Include CSRF token for security
+      },
+      success: function (response) {
+        if (response.success) {
+          console.log("Content marked as completed");
+          // Update the completion percentage
+          $("#completion-percentage").text("Wonderful, marked as read and undestood.");
+        } else {
+          console.error("Failed to mark content as completed");
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error marking content as completed: ", error);
+      }
+    });
+  });
+</script>
+{% endblock extra_js %}

@@ -22,7 +22,8 @@ def register_user(request):
             from_email = EMAIL_HOST_USER
             to_list = [user_registration.email]
             email_subject = "Confirm your Email"
-            
+            print(generate_token.make_token(user_registration))
+            print(urlsafe_base64_encode(force_bytes(user_registration.pk)))
             body = render_to_string('authemail/signup_email.html',{
             'name': user_registration.first_name,
             'domain': current_site.domain,
@@ -34,6 +35,7 @@ def register_user(request):
             email_msg.content_subtype = "html"
             email_msg.send()
             messages.success(request,ACCOUNT_CREATED_SUCCESSFUL)
+            
             return render(request, 'registration/register.html', {'form': form, 'page_name':'Sign up'})
         else:
             messages.error(request,form.errors.as_text())

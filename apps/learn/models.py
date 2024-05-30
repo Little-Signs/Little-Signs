@@ -42,6 +42,7 @@ class CoarseEnrollment(models.Model):
     status = models.CharField(max_length=10,choices=ENROLLMENT_STATUS,default='PENDING')
     progress = models.IntegerField(default=0)
     last_content_accessed = models.ForeignKey(CoarseContent,on_delete=models.CASCADE,null=True),
+    completed_contents= models.ManyToManyField("learn.CoarseContent", verbose_name="Coarse Contents completed",related_name="coarse_contents",related_query_name="coarse_content")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

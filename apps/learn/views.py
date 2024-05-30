@@ -92,3 +92,36 @@ class ContentDetailView(DetailView):
     model = CoarseContent
     context_object_name = 'content'
     template_name = 'learn/content_detail.html'
+
+@csrf_exempt
+def mark_as_completed(request):
+    if request.method == 'POST':
+        content_id = request.POST.get('content_id')
+        coarse_id = request.POST.get('coarse_id')
+        print("****************")
+        
+        try:
+            print(request.user.first_name)
+            enroll = CoarseEnrollment.objects.filter(user=request.user,coarse=Coarse.objects.get(id=int(coarse_id))).first()
+            print("**********34")
+            content = CoarseContent.objects.get(id=int(content_id))
+            print("$$$$$$$$$$$$$$$43")
+            
+            # Mark the content as completed
+            enroll.completed_contents.add(content)
+            
+            # Update the percentage
+            total_contents = CoarseContent.objects.filter(coarse=Coarse.objects.get(id=int(coarse_id))).count()
+            completed_contents = enroll.completed_contents.all().count()
+            new_percentage = (completed_contents / total_contents) * 100
+            
+            # Save the new percentage
+            enroll.progress = int(new_percentage)
+            enroll.save()
+            print("#################")
+            return JsonResponse({'success': True, 'new_percentage': new_percentage})
+        except CoarseEnrollment.DoesNotExist or CoarseContent.DoesNotExist:
+            print("&&&&&&&&&&&&&&&")
+            return JsonResponse({'success': False, 'error': 'Invalid IDs'})
+    print("$$$$$$$$$$$$$$$$$")
+    return JsonResponse({'success': False, 'error': 'Invalid request method'})
