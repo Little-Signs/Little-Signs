@@ -1,11 +1,51 @@
-{% extends "base.html" %}
-
-{% block body %}
-  <h1>{{ content.name }}</h1>
-  {% if content.image %}
-    <img src="{{ content.image.url }}" alt="{{ content.name }}">
-  {% endif %}
-  <p>Created at: {{ content.created_at }}</p>
-  <p>Updated at: {{ content.updated_at }}</p>
-  <a href="{% url 'coarse_detail' content.coarse.pk %}">Back to Course</a>
+{% extends "base.html" %} {% block body %}
+<div id="main" class="site-main"  style="height: 100px;">
+  <div class="page_content">
+    <div class="left-pattern pattern pattern-2"></div>
+    <main style="height: 100vh;">
+      <div class="grid_row clearfix">
+        <div class="grid_col grid_col_12">
+          <div class="ce clearfix">
+            <div>
+              <div class="cws_sc_carousel" data-columns="1">
+                <div class="cws_sc_carousel_header clearfix">
+                  <div class="ce_title">Gallery</div>
+                  <div class="carousel_nav_panel">
+                    <span class="prev"></span><span class="next"></span>
+                  </div>
+                </div>
+                <div class="cws_wrapper">
+                  <div
+                    id="gallery-1"
+                    class="#gallery-1 gallery galleryid-117 gallery-columns-1 gallery-size-full owl-carousel owl-theme"
+                    style="opacity: 1; display: block"
+                  >
+                    <div class="owl-wrapper-outer">
+                      <div
+                        class="owl-wrapper"
+                        style="width: 3600px; left: 0px; display: block"
+                      >
+                        <div class="owl-item" style="width: 30%;">
+                          <div class="gallery-item">
+                            <div class="gallery-icon landscape">
+                              <img
+                                src="{{content.image.url}}"
+                                class="attachment-full"
+                                alt="Full-HD-5"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
 {% endblock %}

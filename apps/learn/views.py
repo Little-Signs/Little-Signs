@@ -41,15 +41,15 @@ class LearnDetailView(LoginRequiredMixin, DetailView):
         context["page_name"] = f'Learning {self.get_object().name}'
         context["other_coarses"] = Coarse.objects.all().exclude(pk=self.get_object().pk)
         context["badges"] = self.request.user.badges.all()
+        
         if is_enrolled:
             context["enrollement"] = CoarseEnrollment.objects.filter(user=self.request.user,coarse=self.get_object()).first()
             content_list = CoarseContent.objects.filter(coarse=self.get_object())
-            paginator = Paginator(content_list, 3)  # Show 3 contents per page
+            paginator = Paginator(content_list, 3)
             page_number = self.request.GET.get('page', 1)
             page_obj = paginator.get_page(page_number)
             context["content_page_obj"] = page_obj
-            context["content_list"] = content_list
-        
+
         return context
     
 @csrf_exempt
@@ -85,7 +85,7 @@ class LoadContentView(LoginRequiredMixin, DetailView):
         paginator = Paginator(content_list, 3)
         page_obj = paginator.get_page(page_number)
 
-        content_html = render_to_string('learn/coarse_content_partial.html', {'content_page_obj': page_obj})
+        content_html = render_to_string('includes/coarse_content_partial.html', {'content_page_obj': page_obj})
         return JsonResponse({'content_html': content_html})
     
 class ContentDetailView(DetailView):
