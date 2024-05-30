@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <h1>{{ content.name }}</h1>
+  {% if content.image %}
+    <img src="{{ content.image.url }}" alt="{{ content.name }}">
+  {% endif %}
+  <p>Created at: {{ content.created_at }}</p>
+  <p>Updated at: {{ content.updated_at }}</p>
+  <a href="{% url 'coarse_detail' content.coarse.pk %}">Back to Course</a>
+{% endblock %}

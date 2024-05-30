@@ -1,0 +1,34 @@
+{% load i18n %}
+<div class="portfolio_item_thumbs clearfix">
+
+    {% if badges %}
+    {% for badge in badges %}
+    <div class="portfolio_item_thumb">
+        <div class="pic">
+            <a  class="fancy" data-fancybox-group="cws-portfolio-gallery-564eeb8288d19"><img src="{{badge.icon.url}}" data-at2x="{{image.icon.url}}" alt="">
+                <div class="hover-effect"></div>
+                <div class="links_popup">
+                    <div class="link_cont">
+                        <div class="link">
+                            <span><i class="fa fa-camera"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <div class="grid_row clearfix" style="padding-top: 0px; padding-bottom: 0px">
+        <div class="ce clearfix">
+          <h4 class="ce_title" style="text-align: center">
+            {% trans "No Badges found !" %}
+          </h4>
+          <div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    
+</div>

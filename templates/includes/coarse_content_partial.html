@@ -1,0 +1,40 @@
+{% load i18n %}
+<ul class="products grid">
+  {% if content_page_obj %} 
+  {% for content in content_page_obj %}
+  <li
+    class="post-4650 product type-product status-publish has-post-thumbnail product_cat-clothing product_cat-t-shirts shipping-taxable purchasable product-type-simple product-cat-clothing product-cat-t-shirts instock"
+  >
+    <div class="media_part">
+      <div class="pic">
+        <img
+          src="{{content.image.url}}"
+          data-at2x="{{content.image.url}}"
+          width="100px"
+          height="100px"
+          alt=""
+        />
+        <div class="hover-effect"></div>
+      </div>
+    </div>
+    <a href="shop-single-product.html"><h3>{{content.name}}</h3> </a>
+    <hr />
+  </li>
+  {% endfor %}
+  {% else %}
+  <!--No Content coarses in the database -->
+<div class="grid_row clearfix" style="padding-top: 0px; padding-bottom: 0px">
+    <div class="ce clearfix">
+      <h3 class="ce_title" style="text-align: center">
+        {% trans "No learning material found!" %}
+      </h3>
+      <div>
+        <p style="text-align: center">
+          {% trans "This means we have currently suspended our services publicly. Please call again, we are currently updating our content." %}
+        </p>
+      </div>
+    </div>
+  </div>
+   {% endif %}
+  
+</ul>

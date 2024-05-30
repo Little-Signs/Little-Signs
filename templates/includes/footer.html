@@ -54,8 +54,7 @@
               >
               {% if coarses %}
               {% for coarse in coarses %}
-              <!-- gallery item -->
-              <div class="gallery-item">
+              <a class="gallery-item" href="{% url 'coarse-detail' coarse.id %}">
                 <div class="gallery-icon landscape">
                   <img
                     width="150"
@@ -65,8 +64,7 @@
                     alt="{{coarse.name}}"
                   />
                 </div>
-              </div>
-              <!-- / galery item -->
+              </a>
               {% endfor %}
               {% else %}
               <div class="grid_row clearfix" style="padding-top: 0px; padding-bottom: 0px">
@@ -91,7 +89,7 @@
         <!-- / widget gallery -->
         <!-- conatact form -->
         <div class="cws-widget">
-          <div class="widget-title">Shoot a Message</div>
+          <div class="widget-title">Leave  a Message</div>
           <div class="textwidget">
             <div role="form" class="cf" id="cf-f1705-o1" lang="en-US" dir="ltr">
               <!-- <div class="screen-reader-response"></div> -->

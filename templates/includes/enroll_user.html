@@ -1,0 +1,19 @@
+{% load i18n %}
+
+<div id="EnrollBox" class="woo_panel">
+  <p class="woocommerce-result-count" style="color: white">
+    {% trans "Interested in" %} {{coarse.name}}
+  </p>
+  <nav class="woocommerce-ordering">
+    <a
+      id="EnrollUser"
+      data-coarse="{{coarse.id}}"
+      data-user="{{request.user.pk}}"
+      class="cws_button customized"
+      data-bg_hover_color="#00b8dd"
+      data-bg_color="#ff990a"
+      data-text_color="#fff"
+      style="background-color: #6ad7ed; border-color: #00b8dd; color: #fff"
+      >Continue</a>
+  </nav>
+</div>

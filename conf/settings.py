@@ -2,7 +2,6 @@ import os
 
 import environ
 
-import dj_database_url
 
 env = environ.Env()
 root_path = environ.Path(__file__) - 2

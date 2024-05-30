@@ -1,7 +1,8 @@
-{% extends 'base.html' %} {% load i18n static %} 
+{% extends 'base.html' %} 
+{% load i18n static %} 
 {% block page_title %} 
 {% trans 'Little Signs - Learn' %}
-{% endblock %} 
+{% endblock %}
 {% block extra_css %}
 <style>
   input,
@@ -44,28 +45,54 @@
     z-index: 1;
   }
 </style>
-{% endblock %} 
-{% block header %} {% include "includes/learn_header.html" %} {% endblock %} 
+{% endblock %} {% block header %}
+{% include "includes/learn_header.html" %}{% endblock %} 
 {% block body %}
 <div id="main" class="site-main">
   <div class="page_content single_sidebar">
-    <div class="left-pattern pattern pattern-2" style="width: 69.5px;"></div>
+    <div class="left-pattern pattern pattern-2" style="width: 69.5px"></div>
     <div class="container">
       <aside class="sb_right">
+        <!---Other coarses-->
+        <div class="cws-widget">
+          <div class="widget-title">Other Study Packs</div>
+          <div class="menu-main-menu-container">
+            <ul id="menu-main-menu-1" class="menu">
+              {% if other_coarses %} {% for other_coarse in other_coarses %}
+              <li class="menu-item menu-item-has-children has_children">
+                <a href="{% url 'learn_start' other_coarse.id %}">{{other_coarse.name}}</a>
+                {% endfor %} {% endif %}
+              </li>
+            </ul>
+          </div>
+        </div>
 
+        <!----User Badges-->
+        <div class="cws-widget">
+          <div class="widget-title">My Badges</div>
+          {% include "includes/badges_list.html" %}
+        </div>
       </aside>
       <main>
-        <div class='grid_row clearfix'>
-          <div class='grid_col grid_col_6'>
-            <div class='ce clearfix'>
-                <h3 class="ce_title">{{coarse.name}}</h3>
-                <div>
-                    <p><img class="size-medium image-type alignleft" src="{{coarse.image.url}}" width="150" height="150" alt="{{coarse.name}}" /></p>
-                    <p>{{coarse.description}}</p>
-                    <p>&nbsp;</p>
-                    <p><a href="{% url 'learn_start' coarse.id %}" class="cws_button small">Starting learning</a></p>
-                </div>
-            </div>
+        <div id="content" role="main">
+          {% if enrollement %}
+          {% include "includes/enroll_stats.html" %}
+          <div id="content-section">
+            {% include 'includes/coarse_content_partial.html' %}
+          </div>
+          <nav class="woocommerce-pagination">
+            <ul class="page-numbers" id="pagination-controls">
+                <li><span class="page-numbers current">1</span></li>
+                <li><a class="page-numbers" href="#">2</a></li>
+                <li><a class="next page-numbers"  href="#">→</a></li>
+            </ul>
+        </nav>
+          {% else %}
+          {% include "includes/enroll_user.html" %}
+          
+          {% include "includes/loading.html" %}
+          
+          {% endif %}
         </div>
       </main>
     </div>
@@ -73,3 +100,63 @@
   </div>
 </div>
 {% endblock %}
+{% block extra_js %}
+<script>
+  $(document).ready(function() {
+    $("#EnrollUser").click(function() {
+      var coarse = $(this).data("coarse"); 
+      var user = $(this).data("user"); 
+      var csrfToken = $("input[name='csrfmiddlewaretoken']").val(); // Adjust this selector based on your form
+
+      $("#EnrollBox").hide();
+      $("#LoadingSpinner").show();
+
+      $.ajax({
+        url: "{% url 'enroll-user' %}",
+        type: "POST",
+        data: {
+          coarse: coarse,
+          user: user,
+          csrfmiddlewaretoken: csrfToken
+        },
+        success: function (data) {
+          console.log(data);
+          // Handle success (e.g., show a success message, redirect, etc.)
+        },
+        error: function (xhr, status, error) {
+          console.error(error);
+          // Handle error (e.g., show an error message, revert UI changes, etc.)
+        },
+        complete: function () {
+          $("#LoadingSpinner").hide();
+        }
+      });
+    });
+  });
+
+  $(document).ready(function() {
+    function loadContent(page) {
+        $.ajax({
+            url: "{% url 'load_content' coarse.pk %}",
+            data: {
+                'page': page
+            },
+            success: function(data) {
+                $('#content-section').html(data.content_html);
+                if (page == 1) {
+                    $('#prev-page').attr('disabled', true);
+                } else {
+                    $('#prev-page').attr('disabled', false);
+                }
+                if (!data.has_next) {
+                    $('#next-page').attr('disabled', true);
+                } else {
+                    $('#next-page').attr('disabled', false);
+                }
+            }
+        });
+      }
+    
+    });
+</script>
+{% endblock extra_js %}
