@@ -50,10 +50,11 @@ npm run dev        # Webpack (live reload)
 ## **🧩 Project Structure**  
 ```
 ├── assets/              # Webpack frontend (JS/SCSS)
-│   └── js/accessibility/  # A11y utilities
+│   └── ../
+|   
 ├── config/              # Django settings
-├── little_signs/        # Core app (sign language content)
-├── docker/              # Container configs
+├── apps/                # apps or modules
+
 └── .env.example         # Configuration template
 ```
 
@@ -90,7 +91,8 @@ AWS_BUCKET_NAME=little-signs-videos
 We welcome contributions from:  
 - **Developers**: Improve accessibility features  
 - **Linguists**: Expand sign language content  
-- **Designers**: Enhance UI for diverse users  
+- **Designers**: Enhance UI for diverse users
+- **AI Engineers**: Be part of the state of the art AI soulution
 
 **Process**:  
 1. Fork → Create branch (`feature/a11y-improvement`)  
