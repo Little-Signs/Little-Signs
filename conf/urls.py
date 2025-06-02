@@ -15,7 +15,7 @@ def trigger_error(request):
     division_by_zero = 1 / 0
     
 urlpatterns = [
-    path("ls-admin/", admin.site.urls),
+    path("admin/", admin.site.urls),
     path("account/", include("apps.users.urls.auth")),
     path("learn/", include("apps.learn.urls.learn")),
     path("", include("apps.pages.urls.home")),

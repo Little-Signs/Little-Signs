@@ -1,0 +1,117 @@
+{% extends 'unfold/layouts/skeleton.html' %}
+
+{% load i18n static %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    {{ form.media }}
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+        .bg-gradient-gray {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        }
+        .dark .bg-gradient-gray {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+        }
+        .card-effect {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+        }
+        .dark .card-effect {
+            background: rgba(31, 41, 55, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }} bg-gradient-gray login dark:bg-gradient-gray{% endblock %}
+
+{% block usertools %}{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block nav-sidebar %}{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block title %}
+    {{ title }} | {{ site_title }}
+{% endblock %}
+
+{% block base %}
+    <div class="flex min-h-screen">
+        <div class="flex flex-grow items-center justify-center mx-auto px-4 relative">
+            <div class="w-full sm:w-96 animate-fade-in">
+                <div class="card-effect p-8">
+                    <h1 class="font-semibold mb-10 text-center">
+                        <img src="{% static "img/logo/android-chrome-192x192.png" %}" class="mx-auto" style="max-height: 5rem;" />
+                        Little Signs Admin login
+                    </h1>
+
+                    {% include "unfold/helpers/messages/errornote.html" with errors=form.errors %}
+
+                    {% include "unfold/helpers/messages/error.html" with errors=form.non_field_errors %}
+
+                    {% if user.is_authenticated %}
+                        {% blocktranslate trimmed asvar message %}
+                            You are authenticated as {{ username }}, but are not authorized to
+                            access this page. Would you like to login to a different account?
+                        {% endblocktranslate %}
+
+                        {% include "unfold/helpers/messages/error.html" with error=message %}
+                    {% endif %}
+
+                    {% block login_before %}{% endblock %}
+
+                    <form action="{{ app_path }}" method="post" id="login-form" class="space-y-6">
+                        {% csrf_token %}
+
+                        {% include "unfold/helpers/field.html" with field=form.username %}
+
+                        {% include "unfold/helpers/field.html" with field=form.password %}
+
+                        {% url 'admin_password_reset' as password_reset_url %}
+
+                        {% if password_reset_url %}
+                            <div class="password-reset-link text-right">
+                                <a href="{{ password_reset_url }}" class="text-sm text-primary-600 hover:text-primary-500 transition-colors">
+                                    {% translate 'Forgotten your password or username?' %}
+                                </a>
+                            </div>
+                        {% endif %}
+
+                        <div class="submit-row">
+                            <button type="submit" class="bg-primary-600 hover:bg-primary-700 border border-transparent flex flex-row font-semibold group items-center justify-center py-2 rounded-md text-sm text-white w-full transition-all duration-300 transform hover:scale-105">
+                                {% translate 'Log in' %}
+
+                                <i class="material-symbols-outlined ml-2 relative right-0 text-lg transition-all group-hover:-right-1">arrow_forward</i>
+                            </button>
+                        </div>
+                    </form>
+
+                    {% block login_after %}{% endblock %}
+                </div>
+            </div>
+        </div>
+
+        {% if image %}
+        <div class="bg-cover flex-grow hidden max-w-3xl xl:max-w-4xl xl:block" style="background-image: url('{{ image }}')">
+            <div class="relative inset-0 flex items-center justify-center w-16" style="margin-top: 40%;">
+                
+            </div>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

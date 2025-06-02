@@ -4,9 +4,7 @@ from apps.users.models import User
 from django.utils.translation import gettext_lazy as _
 
 INPUT_CLASSES = [
-    "cf-form-control",
-    "cf-text",
-    "cf-validates-as-required"
+    "input-text"
 ]
 CHECKBOX_LABEL_CLASSES = []
 

@@ -22,5 +22,6 @@ assets/bundles/webpack-bundle.dev.json
 assets/bundles/dev
 assets/js
 assets/css
+node_modules/
 # IDE config
 .vscode

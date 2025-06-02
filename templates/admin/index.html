@@ -1,0 +1,172 @@
+{% extends 'unfold/layouts/base_simple.html' %}
+{% load i18n unfold static %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block title %}
+    {% trans 'Dashboard' %} | {{ site_title|default:_('Django site admin') }}
+{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name">
+        <a href="{% url 'admin:index' %}" class="text-2xl font-bold text-primary-600">
+            {{ site_header }}
+        </a>
+    </h1>
+{% endblock %}
+
+{% block content %}
+    <div class="container mx-auto px-4 py-8">
+        <!-- Welcome Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Welcome to Little Signs Admin Dashboard</h2>
+            <p class="text-gray-600">Manage your users, courses, subscriptions, and more from this centralized dashboard.</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Users Card -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium">Total Users</h3>
+                        <p class="text-2xl font-bold text-gray-800 mt-2">{{ user_count }}</p>
+                    </div>
+                    <div class="bg-primary-100 p-3 rounded-full">
+                        <span class="material-icons text-primary-600">people</span>
+                    </div>
+                </div>
+                <a href="{% url 'admin:users_user_changelist' %}" class="text-primary-600 text-sm font-medium mt-4 block hover:underline">
+                    View all users
+                </a>
+            </div>
+
+            <!-- Courses Card -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium">Total Courses</h3>
+                        <p class="text-2xl font-bold text-gray-800 mt-2">{{ course_count }}</p>
+                    </div>
+                    <div class="bg-blue-100 p-3 rounded-full">
+                        <span class="material-icons text-blue-600">school</span>
+                    </div>
+                </div>
+                <a href="{% url 'admin:learn_coarse_changelist' %}" class="text-blue-600 text-sm font-medium mt-4 block hover:underline">
+                    View all courses
+                </a>
+            </div>
+
+            <!-- Subscriptions Card -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium">Active Subscriptions</h3>
+                        <p class="text-2xl font-bold text-gray-800 mt-2">{{ active_subscriptions_count }}</p>
+                    </div>
+                    <div class="bg-green-100 p-3 rounded-full">
+                        <span class="material-icons text-green-600">subscriptions</span>
+                    </div>
+                </div>
+                <a href="{% url 'admin:users_usersubscription_changelist' %}" class="text-green-600 text-sm font-medium mt-4 block hover:underline">
+                    View subscriptions
+                </a>
+            </div>
+
+            <!-- Organizations Card -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium">Organizations</h3>
+                        <p class="text-2xl font-bold text-gray-800 mt-2">{{ organization_count }}</p>
+                    </div>
+                    <div class="bg-purple-100 p-3 rounded-full">
+                        <span class="material-icons text-purple-600">business</span>
+                    </div>
+                </div>
+                <a href="{% url 'admin:users_organisation_changelist' %}" class="text-purple-600 text-sm font-medium mt-4 block hover:underline">
+                    View organizations
+                </a>
+            </div>
+        </div>
+
+        <!-- Recent Activity Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Recent Enrollments -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Recent Course Enrollments</h3>
+                <div class="space-y-4">
+                    {% for enrollment in recent_enrollments %}
+                        <div class="flex items-center justify-between border-b pb-3">
+                            <div>
+                                <p class="font-medium text-gray-800">{{ enrollment.user.get_full_name }}</p>
+                                <p class="text-sm text-gray-500">Enrolled in {{ enrollment.coarse.name }}</p>
+                            </div>
+                            <span class="text-xs px-2 py-1 rounded-full 
+                                {% if enrollment.status == 'COMPLETED' %}bg-green-100 text-green-800
+                                {% elif enrollment.status == 'PENDING' %}bg-yellow-100 text-yellow-800
+                                {% else %}bg-red-100 text-red-800{% endif %}">
+                                {{ enrollment.get_status_display }}
+                            </span>
+                        </div>
+                    {% empty %}
+                        <p class="text-gray-500">No recent enrollments</p>
+                    {% endfor %}
+                </div>
+                <a href="{% url 'admin:learn_coarseenrollment_changelist' %}" class="text-primary-600 text-sm font-medium mt-4 block hover:underline">
+                    View all enrollments
+                </a>
+            </div>
+
+            <!-- Recent Badges Awarded -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Recently Awarded Badges</h3>
+                <div class="space-y-4">
+                    {% for badge in recent_badges %}
+                        <div class="flex items-center space-x-4 border-b pb-3">
+                            {% if badge.icon %}
+                                <img src="{{ badge.icon.url }}" alt="{{ badge.name }}" class="w-10 h-10 object-cover rounded-full">
+                            {% else %}
+                                <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                                    <span class="material-icons text-gray-500">military_tech</span>
+                                </div>
+                            {% endif %}
+                            <div>
+                                <p class="font-medium text-gray-800">{{ badge.name }}</p>
+                                <p class="text-sm text-gray-500">{{ badge.description|truncatechars:50 }}</p>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <p class="text-gray-500">No recently awarded badges</p>
+                    {% endfor %}
+                </div>
+                <a href="{% url 'admin:learn_badge_changelist' %}" class="text-primary-600 text-sm font-medium mt-4 block hover:underline">
+                    View all badges
+                </a>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="mt-8 bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Quick Actions</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="{% url 'admin:users_user_add' %}" class="bg-primary-50 hover:bg-primary-100 text-primary-700 p-4 rounded-lg text-center transition-colors">
+                    <span class="material-icons block mb-2">person_add</span>
+                    <span class="text-sm font-medium">Add User</span>
+                </a>
+                <a href="{% url 'admin:learn_coarse_add' %}" class="bg-blue-50 hover:bg-blue-100 text-blue-700 p-4 rounded-lg text-center transition-colors">
+                    <span class="material-icons block mb-2">add_circle</span>
+                    <span class="text-sm font-medium">Add Course</span>
+                </a>
+                <a href="{% url 'admin:users_subscriptionplan_add' %}" class="bg-green-50 hover:bg-green-100 text-green-700 p-4 rounded-lg text-center transition-colors">
+                    <span class="material-icons block mb-2">add_business</span>
+                    <span class="text-sm font-medium">Add Plan</span>
+                </a>
+                <a href="{% url 'admin:learn_badge_add' %}" class="bg-purple-50 hover:bg-purple-100 text-purple-700 p-4 rounded-lg text-center transition-colors">
+                    <span class="material-icons block mb-2">add_task</span>
+                    <span class="text-sm font-medium">Add Badge</span>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

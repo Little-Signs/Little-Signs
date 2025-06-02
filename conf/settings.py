@@ -1,6 +1,9 @@
 import os
 
 import environ
+from django.templatetags.static import static
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 
 
 env = environ.Env()
@@ -66,10 +69,21 @@ DJANGO_DATABASE_URL = env.db("DATABASE_URL")
 
 DATABASES = {"default": DJANGO_DATABASE_URL}
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 # -----------------------------------------------------------------------------
 # Applications configuration
 # -----------------------------------------------------------------------------
 INSTALLED_APPS = [
+
+    "unfold", 
+    "unfold.contrib.filters", 
+    "unfold.contrib.forms",  
+    "unfold.contrib.inlines",
+    "unfold.contrib.import_export",
+    "unfold.contrib.guardian", 
+    "unfold.contrib.simple_history",
+    "django.contrib.admin",
     # First party
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -83,8 +97,6 @@ INSTALLED_APPS = [
     "webpack_loader",
     "active_link",
     'corsheaders',
-    # Local
-    "conf.apps.CustomAdminConfig",
     "apps.misc",
     "apps.users",
     "apps.pages",
@@ -283,3 +295,178 @@ if USE_SENTRY:
     sentry_sdk.init(
         dsn=env("SENTRY_DSN"), integrations=[DjangoIntegration()], environment=ENV
     )
+
+
+
+UNFOLD = {
+    "SITE_TITLE": "Little Signs - Admin Dashboard",
+    "SITE_HEADER": "Little Signs Admin",
+    "SITE_SUBHEADER": "Little Signs",
+    "SITE_DROPDOWN": [
+        {
+            "icon": "diamond",
+            "title": _("website"),
+            "link": "https://littlesigns.co.zw",
+        },
+    ],
+    "SITE_URL": "/",
+    "SITE_ICON": {
+        "light": lambda request: static("img/logo/favicon-32x32.png"),
+        "dark": lambda request: static("img/logo/favicon-32x32.png"),
+    },
+    "SITE_LOGO": {
+        "light": lambda request: static("img/logo/favicon-32x32.png"),
+        "dark": lambda request: static("img/logo/favicon-32x32.png"),
+    },
+    "SITE_SYMBOL": "speed",  # symbol from icon set
+    "SITE_FAVICONS": [
+{
+    "rel": "icon",
+    "sizes": "32x32",
+    "type": "image/x-icon",
+    "href": lambda request: static("img/logo/favicon.ico"),
+}
+
+    ],
+    "SHOW_HISTORY": True, 
+    "SHOW_VIEW_ON_SITE": True,
+    "SHOW_BACK_BUTTON": False, 
+    "DASHBOARD_CALLBACK": "conf.utils.dashboard_callback",
+    "THEME": "light",
+    "LOGIN": {
+        "redirect_after": lambda request: reverse_lazy("admin:index"),
+    },
+    "STYLES": [
+        lambda request: static("css/style.css"),
+    ],
+    "SCRIPTS": [
+        lambda request: static("js/script.js"),
+    ],
+    "BORDER_RADIUS": "6px",
+    "COLORS": {
+        "base": {
+            "50": "249, 250, 251",
+            "100": "243, 244, 246",
+            "200": "229, 231, 235",
+            "300": "209, 213, 219",
+            "400": "156, 163, 175",
+            "500": "107, 114, 128",
+            "600": "75, 85, 99",
+            "700": "55, 65, 81",
+            "800": "31, 41, 55",
+            "900": "17, 24, 39",
+            "950": "3, 7, 18",
+        },
+        "primary": {
+            "50": "250, 245, 255",
+            "100": "243, 232, 255",
+            "200": "233, 213, 255",
+            "300": "216, 180, 254",
+            "400": "192, 132, 252",
+            "500": "168, 85, 247",
+            "600": "147, 51, 234",
+            "700": "126, 34, 206",
+            "800": "107, 33, 168",
+            "900": "88, 28, 135",
+            "950": "59, 7, 100",
+        },
+        "font": {
+            "subtle-light": "var(--color-base-500)",  # text-base-500
+            "subtle-dark": "var(--color-base-400)",  # text-base-400
+            "default-light": "var(--color-base-600)",  # text-base-600
+            "default-dark": "var(--color-base-300)",  # text-base-300
+            "important-light": "var(--color-base-900)",  # text-base-900
+            "important-dark": "var(--color-base-100)",  # text-base-100
+        },
+    },
+    "EXTENSIONS": {
+        "modeltranslation": {
+            "flags": {
+                "en": "🇬🇧",
+            },
+        },
+    },
+        "SIDEBAR": {
+        "show_search": False, 
+        "show_all_applications": False,
+        "navigation": [
+            {
+                "title": _("Navigation"),
+                "separator": True,
+                "collapsible": False,
+                "items": [
+                    {
+                        "title": _("Dashboard"),
+                        "icon": "dashboard",
+                        "link": reverse_lazy("admin:index"),
+                        "permission": lambda request: request.user.is_superuser,
+                    },
+                    {
+                        "title": _("Users"),
+                        "icon": "people",
+                        "link": reverse_lazy("admin:users_user_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Subscriptions"),
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Subscription Plans"),
+                        "icon": "card_membership",
+                        "link": reverse_lazy("admin:users_subscriptionplan_changelist"),
+                    },
+                    {
+                        "title": _("User Subscriptions"),
+                        "icon": "subscriptions",
+                        "link": reverse_lazy("admin:users_usersubscription_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Organizations"),
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Organizations"),
+                        "icon": "business",
+                        "link": reverse_lazy("admin:users_organisation_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Learning"),
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Courses"),
+                        "icon": "school",
+                        "link": reverse_lazy("admin:learn_coarse_changelist"),
+                    },
+                    {
+                        "title": _("Course Contents"),
+                        "icon": "video_library",
+                        "link": reverse_lazy("admin:learn_coarsecontent_changelist"),
+                    },
+                    {
+                        "title": _("Enrollments"),
+                        "icon": "assignment_turned_in",
+                        "link": reverse_lazy("admin:learn_coarseenrollment_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Achievements"),
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Badges"),
+                        "icon": "military_tech",
+                        "link": reverse_lazy("admin:learn_badge_changelist"),
+                    },
+                ],
+            },
+        ],
+    }
+}
