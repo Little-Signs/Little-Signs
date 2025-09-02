@@ -143,17 +143,16 @@ TEMPLATES = [
 # Static & Media Files
 # -----------------------------------------------------------------------------
 
-# AWS credentials
-AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+# Cloudflare R2 credentials
+AWS_ACCESS_KEY_ID = env('R2_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('R2_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env('R2_BUCKET_NAME')
 AWS_DEFAULT_ACL = 'public-read'
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_CUSTOM_DOMAIN = env('R2_CUSTOM_DOMAIN', default=f'storage.littlesigns.co.zw')
+AWS_S3_ENDPOINT_URL = env('R2_ENDPOINT_URL', default='https://{account_id}.r2.cloudflarestorage.com')
 AWS_S3_OBJECT_PARAMETERS = {
         'CacheControl': 'max-age=86400',
     }
-
-
 # For serving static files directly from S3
 AWS_S3_URL_PROTOCOL = 'https:'
 AWS_S3_USE_SSL = True
@@ -165,7 +164,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 PUBLIC_MEDIA_LOCATION = 'media'
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-DEFAULT_FILE_STORAGE = 'app.storage_backends.PublicMediaStorage'
+DEFAULT_FILE_STORAGE = 'apps.storage_backends.PublicMediaStorage'
 ADMIN_MEDIA_PREFIX = STATIC_URL + "admin/"
 
 STATICFILES_DIRS = (
@@ -199,22 +198,6 @@ WEBPACK_LOADER = {
         "IGNORE": [r".+\.hot-update.js", r".+\.map"],
     }
 }
-
-
-USE_S3_STATIC_STORAGE = env.bool("USE_S3_STATIC_STORAGE", default=False)
-
-if USE_S3_STATIC_STORAGE:
-    AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
-    AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
-    AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
-    AWS_S3_ENDPOINT_URL = env("AWS_S3_ENDPOINT_URL")
-    AWS_S3_OBJECT_PARAMETERS = {
-        "CacheControl": "max-age=86400",
-    }
-    AWS_LOCATION = "static"
-    AWS_DEFAULT_ACL = "public-read"
-    STATIC_URL = f"{AWS_S3_ENDPOINT_URL}/{AWS_LOCATION}/"
-    STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 # -----------------------------------------------------------------------------
 # Celery
