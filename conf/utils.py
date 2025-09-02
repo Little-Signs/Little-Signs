@@ -9,12 +9,16 @@ def dashboard_callback(request, context):
     """
     context.update(
         {
-    'user_count': User.objects.count(),
-    'course_count': Coarse.objects.count(),
-    'active_subscriptions_count': UserSubscription.objects.filter(is_active=True).count(),
-    'organization_count': Organisation.objects.count(),
-    'recent_enrollments': CoarseEnrollment.objects.select_related('user', 'coarse').order_by('-created_at')[:5],
-    'recent_badges': Badge.objects.order_by('-created_at')[:5],
-}
+            "user_count": User.objects.count(),
+            "course_count": Coarse.objects.count(),
+            "active_subscriptions_count": UserSubscription.objects.filter(
+                is_active=True
+            ).count(),
+            "organization_count": Organisation.objects.count(),
+            "recent_enrollments": CoarseEnrollment.objects.select_related(
+                "user", "coarse"
+            ).order_by("-created_at")[:5],
+            "recent_badges": Badge.objects.order_by("-created_at")[:5],
+        }
     )
     return context

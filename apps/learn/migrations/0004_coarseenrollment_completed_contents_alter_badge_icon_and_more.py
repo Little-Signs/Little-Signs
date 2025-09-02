@@ -7,28 +7,45 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('learn', '0003_alter_coarseenrollment_progress'),
+        ("learn", "0003_alter_coarseenrollment_progress"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='coarseenrollment',
-            name='completed_contents',
-            field=models.ManyToManyField(related_name='coarse_contents', related_query_name='coarse_content', to='learn.coarsecontent', verbose_name='Coarse Contents completed'),
+            model_name="coarseenrollment",
+            name="completed_contents",
+            field=models.ManyToManyField(
+                related_name="coarse_contents",
+                related_query_name="coarse_content",
+                to="learn.coarsecontent",
+                verbose_name="Coarse Contents completed",
+            ),
         ),
         migrations.AlterField(
-            model_name='badge',
-            name='icon',
-            field=models.ImageField(null=True, storage=conf.storage_backend.PublicMediaStorageLittleSigns(), upload_to=''),
+            model_name="badge",
+            name="icon",
+            field=models.ImageField(
+                null=True,
+                storage=conf.storage_backend.PublicMediaStorageLittleSigns(),
+                upload_to="",
+            ),
         ),
         migrations.AlterField(
-            model_name='coarsecontent',
-            name='image',
-            field=models.ImageField(null=True, storage=conf.storage_backend.PublicMediaStorageLittleSigns(), upload_to=''),
+            model_name="coarsecontent",
+            name="image",
+            field=models.ImageField(
+                null=True,
+                storage=conf.storage_backend.PublicMediaStorageLittleSigns(),
+                upload_to="",
+            ),
         ),
         migrations.AlterField(
-            model_name='coarsecontent',
-            name='video',
-            field=models.FileField(null=True, storage=conf.storage_backend.PublicMediaStorageLittleSigns(), upload_to=''),
+            model_name="coarsecontent",
+            name="video",
+            field=models.FileField(
+                null=True,
+                storage=conf.storage_backend.PublicMediaStorageLittleSigns(),
+                upload_to="",
+            ),
         ),
     ]

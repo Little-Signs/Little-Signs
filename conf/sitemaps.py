@@ -5,14 +5,15 @@ from apps.learn.models import Coarse
 
 class StaticViewSitemap(Sitemap):
     priority = 1
-    changefreq = 'yearly'
+    changefreq = "yearly"
 
     def items(self):
-        return ['home']
+        return ["home"]
 
     def location(self, item):
         return reverse(item)
-    
+
+
 class CoarseSitemap(Sitemap):
     changefreq = "weekly"
     priority = 0.8
@@ -24,14 +25,15 @@ class CoarseSitemap(Sitemap):
         return obj.updated_at
 
     def location(self, obj):
-        return reverse('coarse-detail', args=[obj.pk])
-    
+        return reverse("coarse-detail", args=[obj.pk])
+
+
 class OtherStaticViewSitemap(Sitemap):
     priority = 0.5
-    changefreq = 'yearly'
+    changefreq = "yearly"
 
     def items(self):
-        return ['about-us', 'contact', 'login']
+        return ["about-us", "contact", "login"]
 
     def location(self, item):
         return reverse(item)

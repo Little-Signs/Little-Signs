@@ -1,8 +1,1 @@
-{
-  "devDependencies": {
-    "tailwindcss": "^3.4.4"
-  },
-  "dependencies": {
-    "preline": "^2.3.0"
-  }
-}
+{"devDependencies": {"tailwindcss": "^3.4.4"}, "dependencies": {"preline": "^2.3.0"}}

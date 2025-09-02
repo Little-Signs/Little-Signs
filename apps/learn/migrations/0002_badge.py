@@ -7,23 +7,38 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('learn', '0001_initial'),
+        ("learn", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Badge',
+            name="Badge",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('description', models.TextField()),
-                ('icon', models.ImageField(null=True, storage=conf.storage_backend.PublicMediaStorage(), upload_to='')),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("description", models.TextField()),
+                (
+                    "icon",
+                    models.ImageField(
+                        null=True,
+                        storage=conf.storage_backend.PublicMediaStorage(),
+                        upload_to="",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
             ],
             options={
-                'verbose_name': 'Badge',
-                'verbose_name_plural': 'Badges',
+                "verbose_name": "Badge",
+                "verbose_name_plural": "Badges",
             },
         ),
     ]

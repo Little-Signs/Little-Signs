@@ -6,43 +6,50 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0001_initial'),
+        ("users", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='city',
-            field=models.CharField(max_length=50, null=True, verbose_name='city'),
+            model_name="user",
+            name="city",
+            field=models.CharField(max_length=50, null=True, verbose_name="city"),
         ),
         migrations.AddField(
-            model_name='user',
-            name='date_of_birth',
-            field=models.DateField(null=True, verbose_name='date of birth'),
+            model_name="user",
+            name="date_of_birth",
+            field=models.DateField(null=True, verbose_name="date of birth"),
         ),
         migrations.AddField(
-            model_name='user',
-            name='gender',
-            field=models.CharField(choices=[('Male', 'Male'), ('Female', 'Female')], max_length=50, null=True, verbose_name='gender'),
+            model_name="user",
+            name="gender",
+            field=models.CharField(
+                choices=[("Male", "Male"), ("Female", "Female")],
+                max_length=50,
+                null=True,
+                verbose_name="gender",
+            ),
         ),
         migrations.AddField(
-            model_name='user',
-            name='is_individual',
+            model_name="user",
+            name="is_individual",
             field=models.BooleanField(default=True),
         ),
         migrations.AddField(
-            model_name='user',
-            name='is_organisation',
+            model_name="user",
+            name="is_organisation",
             field=models.BooleanField(default=True),
         ),
         migrations.AddField(
-            model_name='user',
-            name='phone_number',
-            field=models.CharField(max_length=15, null=True, verbose_name='phone number'),
+            model_name="user",
+            name="phone_number",
+            field=models.CharField(
+                max_length=15, null=True, verbose_name="phone number"
+            ),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='email',
-            field=models.EmailField(max_length=20, null=True, verbose_name='email'),
+            model_name="user",
+            name="email",
+            field=models.EmailField(max_length=20, null=True, verbose_name="email"),
         ),
     ]

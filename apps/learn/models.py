@@ -3,10 +3,11 @@ from django.db import models
 # Create your models here.
 from django.db import models
 from django.urls import reverse
-from conf.storage_backend import PublicMediaStorage,PublicMediaStorageLittleSigns
+from conf.storage_backend import PublicMediaStorage, PublicMediaStorageLittleSigns
 from apps.users.models import User
 from django.core.mail import send_mail
 from conf import settings
+
 
 # Create your models here.
 class Coarse(models.Model):
@@ -19,40 +20,52 @@ class Coarse(models.Model):
     def __str__(self):
         return self.name
 
+
 class CoarseContent(models.Model):
     name = models.CharField(max_length=100)
     video = models.FileField(storage=PublicMediaStorageLittleSigns(), null=True)
     image = models.ImageField(storage=PublicMediaStorageLittleSigns(), null=True)
-    coarse = models.ForeignKey(Coarse,on_delete=models.CASCADE)
+    coarse = models.ForeignKey(Coarse, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
 
+
 class CoarseEnrollment(models.Model):
 
     ENROLLMENT_STATUS = (
-        ('PENDING', 'Pending'),
-        ('REVOKED', 'Revoked'),
-        ('COMPLETED', 'Completed')
+        ("PENDING", "Pending"),
+        ("REVOKED", "Revoked"),
+        ("COMPLETED", "Completed"),
     )
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
-    coarse = models.ForeignKey(Coarse,on_delete=models.CASCADE,null=True)
-    status = models.CharField(max_length=10,choices=ENROLLMENT_STATUS,default='PENDING')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    coarse = models.ForeignKey(Coarse, on_delete=models.CASCADE, null=True)
+    status = models.CharField(
+        max_length=10, choices=ENROLLMENT_STATUS, default="PENDING"
+    )
     progress = models.IntegerField(default=0)
-    last_content_accessed = models.ForeignKey(CoarseContent,on_delete=models.CASCADE,null=True),
-    completed_contents= models.ManyToManyField("learn.CoarseContent", verbose_name="Coarse Contents completed",related_name="coarse_contents",related_query_name="coarse_content")
+    last_content_accessed = (
+        models.ForeignKey(CoarseContent, on_delete=models.CASCADE, null=True),
+    )
+    completed_contents = models.ManyToManyField(
+        "learn.CoarseContent",
+        verbose_name="Coarse Contents completed",
+        related_name="coarse_contents",
+        related_query_name="coarse_content",
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.status
-    
+
     @staticmethod
     def is_user_enrolled(user, coarse):
         return CoarseEnrollment.objects.filter(user=user, coarse=coarse).exists()
-    
+
+
 class Badge(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -77,12 +90,14 @@ class Badge(models.Model):
 
     def send_award_email(self, user):
         subject = f"Congratulations! You've earned a new badge: {self.name}"
-        message = f"Dear {user.first_name},\n\n" \
-                  f"Congratulations! You've earned the '{self.name}' badge.\n\n" \
-                  f"Description: {self.description}\n\n" \
-                  f"Keep up the great work!\n\n" \
-                  f"Best regards,\n" \
-                  f"The Team"
+        message = (
+            f"Dear {user.first_name},\n\n"
+            f"Congratulations! You've earned the '{self.name}' badge.\n\n"
+            f"Description: {self.description}\n\n"
+            f"Keep up the great work!\n\n"
+            f"Best regards,\n"
+            f"The Team"
+        )
         from_email = settings.EMAIL_HOST_USER
         recipient_list = [user.email]
         send_mail(subject, message, from_email, recipient_list)

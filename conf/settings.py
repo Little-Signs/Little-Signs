@@ -41,8 +41,8 @@ EMAIL_HOST = env("EMAIL_HOST", default="")
 EMAIL_PORT = env("EMAIL_PORT", default="")
 EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default="")
-EMAIL_USE_SSL = True # Use this for SSL instead of TLS
-CONTACT_EMAIL = 'info@littlesigns.co.zw'
+EMAIL_USE_SSL = True  # Use this for SSL instead of TLS
+CONTACT_EMAIL = "info@littlesigns.co.zw"
 
 # -----------------------------------------------------------------------------
 # Security and Users
@@ -69,19 +69,18 @@ DJANGO_DATABASE_URL = env.db("DATABASE_URL")
 
 DATABASES = {"default": DJANGO_DATABASE_URL}
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # -----------------------------------------------------------------------------
 # Applications configuration
 # -----------------------------------------------------------------------------
 INSTALLED_APPS = [
-
-    "unfold", 
-    "unfold.contrib.filters", 
-    "unfold.contrib.forms",  
+    "unfold",
+    "unfold.contrib.filters",
+    "unfold.contrib.forms",
     "unfold.contrib.inlines",
     "unfold.contrib.import_export",
-    "unfold.contrib.guardian", 
+    "unfold.contrib.guardian",
     "unfold.contrib.simple_history",
     "django.contrib.admin",
     # First party
@@ -90,24 +89,24 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django.contrib.sitemaps", 
+    "django.contrib.sitemaps",
     # Third party
     "storages",
     "import_export",
     "webpack_loader",
     "active_link",
-    'corsheaders',
+    "corsheaders",
     "apps.misc",
     "apps.users",
     "apps.pages",
-    "apps.learn"
+    "apps.learn",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    'corsheaders.middleware.CorsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -117,9 +116,9 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-  'http://localhost:8000',
-  'https://littlesigns.co.zw',
-  'https://www.littlesigns.co.zw'
+    "http://localhost:8000",
+    "https://littlesigns.co.zw",
+    "https://www.littlesigns.co.zw",
 )
 
 TEMPLATES = [
@@ -144,27 +143,29 @@ TEMPLATES = [
 # -----------------------------------------------------------------------------
 
 # Cloudflare R2 credentials
-AWS_ACCESS_KEY_ID = env('R2_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = env('R2_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = env('R2_BUCKET_NAME')
-AWS_DEFAULT_ACL = 'public-read'
-AWS_S3_CUSTOM_DOMAIN = env('R2_CUSTOM_DOMAIN', default=f'storage.littlesigns.co.zw')
-AWS_S3_ENDPOINT_URL = env('R2_ENDPOINT_URL', default='https://{account_id}.r2.cloudflarestorage.com')
+AWS_ACCESS_KEY_ID = env("R2_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = env("R2_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = env("R2_BUCKET_NAME")
+AWS_DEFAULT_ACL = "public-read"
+AWS_S3_CUSTOM_DOMAIN = env("R2_CUSTOM_DOMAIN", default=f"storage.littlesigns.co.zw")
+AWS_S3_ENDPOINT_URL = env(
+    "R2_ENDPOINT_URL", default="https://{account_id}.r2.cloudflarestorage.com"
+)
 AWS_S3_OBJECT_PARAMETERS = {
-        'CacheControl': 'max-age=86400',
-    }
+    "CacheControl": "max-age=86400",
+}
 # For serving static files directly from S3
-AWS_S3_URL_PROTOCOL = 'https:'
+AWS_S3_URL_PROTOCOL = "https:"
 AWS_S3_USE_SSL = True
 AWS_S3_VERIFY = True
 
 STATIC_URL = env("STATIC_URL", default="/static/")
-STATIC_ROOT = os.path.join('static')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATIC_ROOT = os.path.join("static")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
-PUBLIC_MEDIA_LOCATION = 'media'
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-DEFAULT_FILE_STORAGE = 'apps.storage_backends.PublicMediaStorage'
+PUBLIC_MEDIA_LOCATION = "media"
+MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/"
+DEFAULT_FILE_STORAGE = "apps.storage_backends.PublicMediaStorage"
 ADMIN_MEDIA_PREFIX = STATIC_URL + "admin/"
 
 STATICFILES_DIRS = (
@@ -196,7 +197,7 @@ WEBPACK_LOADER = {
         "POLL_INTERVAL": 0.1,
         "TIMEOUT": None,
         "IGNORE": [r".+\.hot-update.js", r".+\.map"],
-    }
+    },
 }
 
 # -----------------------------------------------------------------------------
@@ -225,7 +226,6 @@ if USE_DJANGO_EXTENSIONS:
         "django_extensions",
     ]
 
-    
 
 # -----------------------------------------------------------------------------
 # Logging
@@ -280,7 +280,6 @@ if USE_SENTRY:
     )
 
 
-
 UNFOLD = {
     "SITE_TITLE": "Little Signs - Admin Dashboard",
     "SITE_HEADER": "Little Signs Admin",
@@ -303,17 +302,16 @@ UNFOLD = {
     },
     "SITE_SYMBOL": "speed",  # symbol from icon set
     "SITE_FAVICONS": [
-{
-    "rel": "icon",
-    "sizes": "32x32",
-    "type": "image/x-icon",
-    "href": lambda request: static("img/logo/favicon.ico"),
-}
-
+        {
+            "rel": "icon",
+            "sizes": "32x32",
+            "type": "image/x-icon",
+            "href": lambda request: static("img/logo/favicon.ico"),
+        }
     ],
-    "SHOW_HISTORY": True, 
+    "SHOW_HISTORY": True,
     "SHOW_VIEW_ON_SITE": True,
-    "SHOW_BACK_BUTTON": False, 
+    "SHOW_BACK_BUTTON": False,
     "DASHBOARD_CALLBACK": "conf.utils.dashboard_callback",
     "THEME": "light",
     "LOGIN": {
@@ -369,8 +367,8 @@ UNFOLD = {
             },
         },
     },
-        "SIDEBAR": {
-        "show_search": False, 
+    "SIDEBAR": {
+        "show_search": False,
         "show_all_applications": False,
         "navigation": [
             {
@@ -451,5 +449,5 @@ UNFOLD = {
                 ],
             },
         ],
-    }
+    },
 }

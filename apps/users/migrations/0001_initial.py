@@ -17,9 +17,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="Group",
             fields=[],
-            options={"proxy": True, "indexes": [], "constraints": [],},
+            options={
+                "proxy": True,
+                "indexes": [],
+                "constraints": [],
+            },
             bases=("auth.group",),
-            managers=[("objects", django.contrib.auth.models.GroupManager()),],
+            managers=[
+                ("objects", django.contrib.auth.models.GroupManager()),
+            ],
         ),
         migrations.CreateModel(
             name="User",
@@ -83,6 +89,8 @@ class Migration(migrations.Migration):
                     ),
                 ),
             ],
-            options={"abstract": False,},
+            options={
+                "abstract": False,
+            },
         ),
     ]

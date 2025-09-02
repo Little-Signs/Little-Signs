@@ -6,14 +6,16 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('learn', '0002_badge'),
-        ('users', '0005_alter_user_email'),
+        ("learn", "0002_badge"),
+        ("users", "0005_alter_user_email"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='badges',
-            field=models.ManyToManyField(to='learn.badge', verbose_name='Learner badges'),
+            model_name="user",
+            name="badges",
+            field=models.ManyToManyField(
+                to="learn.badge", verbose_name="Learner badges"
+            ),
         ),
     ]
