@@ -5,19 +5,12 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
 from .models import Organisation, SubscriptionPlan, UserSubscription, User
 
-from unfold.forms import AdminPasswordChangeForm, UserChangeForm, UserCreationForm
-from unfold.admin import ModelAdmin
-
 
 # admin.site.unregister(User)
 # admin.site.unregister(Group)
 
 
-class UserAdmin(BaseUserAdmin, ModelAdmin):
-    form = UserChangeForm
-    add_form = UserCreationForm
-    change_password_form = AdminPasswordChangeForm
-
+class UserAdmin(BaseUserAdmin):
     list_display = (
         "email",
         "first_name",
@@ -73,19 +66,19 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
 
 
 # @admin.register(Group)
-# class GroupAdmin(BaseGroupAdmin, ModelAdmin):
+# class GroupAdmin(BaseGroupAdmin):
 #     pass
 
 
 @admin.register(Organisation)
-class OrganisationAdmin(ModelAdmin):
+class OrganisationAdmin(admin.ModelAdmin):
     list_display = ("org_name", "user", "type_of_org", "org_address", "phone_number")
     list_filter = ("type_of_org",)
     search_fields = ("org_name", "user__email", "org_address")
     raw_id_fields = ("user",)
 
 
-class SubscriptionPlanAdmin(ModelAdmin):
+class SubscriptionPlanAdmin(admin.ModelAdmin):
     list_display = ("name", "plan_type", "duration", "price", "is_active")
     list_filter = ("plan_type", "duration", "is_active")
     search_fields = ("name", "description")
@@ -93,7 +86,7 @@ class SubscriptionPlanAdmin(ModelAdmin):
     prepopulated_fields = {"name": ("plan_type", "duration")}
 
 
-class UserSubscriptionAdmin(ModelAdmin):
+class UserSubscriptionAdmin(admin.ModelAdmin):
     list_display = ("user", "plan", "start_date", "end_date", "is_active", "auto_renew")
     list_filter = ("is_active", "auto_renew", "plan__plan_type", "plan__duration")
     search_fields = ("user__email", "user__first_name", "user__last_name")
