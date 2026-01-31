@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from .sitemaps import CoarseSitemap, StaticViewSitemap, OtherStaticViewSitemap
+from .sitemaps import CourseSitemap, StaticViewSitemap, OtherStaticViewSitemap
 
 # API Documentation
 schema_view = get_schema_view(
@@ -25,7 +25,7 @@ schema_view = get_schema_view(
 
 sitemaps = {
     "static": StaticViewSitemap,
-    "study-packs": CoarseSitemap,
+    "courses": CourseSitemap,
     "other_static": OtherStaticViewSitemap,
 }
 

@@ -1,6 +1,6 @@
 from rest_framework import generics
-from rest_framework.permissions import IsAdminOrStaff, IsAuthenticated
-from apps.learning.models import Sign, DifficultyLevel
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from apps.learn.models import Sign, DifficultyLevel
 from .serializers import SignSerializer, DifficultyLevelSerializer
 
 
@@ -18,5 +18,5 @@ class DifficultyLevelListAPIView(generics.ListCreateAPIView):
 
     def get_permissions(self):
         if self.request.method == 'POST':
-            return [IsAdminOrStaff()]
+            return [IsAdminUser()]
         return []  # Public access for GET

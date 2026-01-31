@@ -1,51 +1,51 @@
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
-from .models import Coarse, CoarseContent, CoarseEnrollment, Badge
+from .models import Course, CourseContent, CourseEnrollment, Badge
 
 
-class CoarseResource(resources.ModelResource):
+class CourseResource(resources.ModelResource):
     class Meta:
-        model = Coarse
+        model = Course
 
 
-class CoarseAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    list_display = ("id", "image", "name", "description", "created_at", "updated_at")
+class CourseAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    list_display = ("id", "cover_image", "title", "description", "created_at", "updated_at")
+    search_fields = ("title",)
+
+    resource_class = CourseResource
+
+
+class CourseContentResource(resources.ModelResource):
+    class Meta:
+        model = CourseContent
+
+
+class CourseContentAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    list_display = ("id", "name", "video", "course", "created_at", "updated_at")
     search_fields = ("name",)
 
-    resource_class = CoarseResource
+    resource_class = CourseContentResource
 
 
-class CoarseContentResource(resources.ModelResource):
+class CourseEnrollmentResource(resources.ModelResource):
     class Meta:
-        model = CoarseContent
+        model = CourseEnrollment
 
 
-class CoarseContentAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    list_display = ("id", "name", "video", "coarse", "created_at", "updated_at")
-    search_fields = ("name",)
-
-    resource_class = CoarseContentResource
-
-
-class CoarseEnrollmentResource(resources.ModelResource):
-    class Meta:
-        model = CoarseEnrollment
-
-
-class CoarseEnrollmentAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+class CourseEnrollmentAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = (
         "id",
         "user",
-        "coarse",
+        "course",
         "status",
         "progress",
         "last_content_accessed",
         "updated_at",
     )
-    search_fields = ("coarse",)
+    search_fields = ("course",)
 
-    resource_class = CoarseEnrollmentResource
+    resource_class = CourseEnrollmentResource
 
 
 class BadgeResource(resources.ModelResource):
@@ -58,7 +58,7 @@ class BadgeAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     search_fields = ("name",)
 
 
-admin.site.register(CoarseEnrollment, CoarseEnrollmentAdmin)
-admin.site.register(CoarseContent, CoarseContentAdmin)
-admin.site.register(Coarse, CoarseAdmin)
+admin.site.register(CourseEnrollment, CourseEnrollmentAdmin)
+admin.site.register(CourseContent, CourseContentAdmin)
+admin.site.register(Course, CourseAdmin)
 admin.site.register(Badge, BadgeAdmin)

@@ -1,5 +1,4 @@
 from django.contrib import admin
-from rest_framework.authtoken.admin import TokenAdmin
 from .models import APIKey, APIUsageLog
 
 
@@ -24,11 +23,6 @@ class APIUsageLogAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         return False  # Logs are created automatically
 
-
-# Customize Token Admin
-TokenAdmin.list_display = ('user', 'key', 'created_at')
-TokenAdmin.list_filter = ('created_at',)
-TokenAdmin.search_fields = ('user__email',)
 
 
 admin.site.register(APIKey, APIKeyAdmin)

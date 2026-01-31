@@ -1,6 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
-from apps.learn.models import Coarse
+from apps.learn.models import Course
 
 
 class StaticViewSitemap(Sitemap):
@@ -14,18 +14,18 @@ class StaticViewSitemap(Sitemap):
         return reverse(item)
 
 
-class CoarseSitemap(Sitemap):
+class CourseSitemap(Sitemap):
     changefreq = "weekly"
     priority = 0.8
 
     def items(self):
-        return Coarse.objects.all()
+        return Course.objects.all()
 
     def lastmod(self, obj):
         return obj.updated_at
 
     def location(self, obj):
-        return reverse("coarse-detail", args=[obj.pk])
+        return reverse("course-detail", args=[obj.pk])
 
 
 class OtherStaticViewSitemap(Sitemap):

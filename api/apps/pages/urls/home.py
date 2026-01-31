@@ -6,9 +6,9 @@ urlpatterns = [
     path("", RedirectView.as_view(pattern_name="home", permanent=False)),
     path("home/", views.index, name="home"),
     path(
-        "home/study-pack/<int:pk>/",
-        views.CoarseDetailView.as_view(),
-        name="coarse-detail",
+        "home/course/<int:pk>/",
+        views.CourseDetailView.as_view(),
+        name="course-detail",
     ),
     path("about-us/", views.aboutUs, name="about-us"),
     path("contact/", views.contact, name="contact"),

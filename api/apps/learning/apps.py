@@ -7,4 +7,4 @@ class LearningConfig(AppConfig):
     verbose_name = 'Learning Content'
     
     def ready(self):
-        import apps.learning.signals
+        pass
