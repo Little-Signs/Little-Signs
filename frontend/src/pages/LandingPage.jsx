@@ -11,6 +11,7 @@ const LandingPage = () => (
     <MainContent />
     <About />
     <Courses />
+    <div className="content_bottom_bg"></div>
     <Footer />
   </>
 );
