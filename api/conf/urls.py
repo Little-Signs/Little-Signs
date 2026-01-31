@@ -47,7 +47,6 @@ urlpatterns = [
     
     # Legacy URLs (to be removed after migration to API-only)
     path("account/", include("apps.users.urls.auth")),
-    path("learn/", include("apps.learn.urls.learn")),
     path("", include("apps.pages.urls.home")),
     path("sentry-debug/", trigger_error),
     path(

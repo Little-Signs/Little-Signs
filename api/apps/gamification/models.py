@@ -99,12 +99,14 @@ class UserBadge(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='user_badges'
+        related_name='gamification_user_badges',
+        related_query_name='gamification_user_badge'
     )
     badge = models.ForeignKey(
         Badge,
         on_delete=models.CASCADE,
-        related_name='user_badges'
+        related_name='gamification_user_badges',
+        related_query_name='gamification_user_badge'
     )
     earned_at = models.DateTimeField(auto_now_add=True)
     is_displayed = models.BooleanField(

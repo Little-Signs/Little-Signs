@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
+    "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
     # Third party
@@ -103,7 +104,6 @@ INSTALLED_APPS = [
     "apps.misc",
     "apps.users",
     "apps.pages",
-    "apps.learn",
 ]
 
 MIDDLEWARE = [
@@ -117,6 +117,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
@@ -127,8 +128,22 @@ CORS_ORIGIN_WHITELIST = (
     "https://www.littlesigns.co.zw",
 )
 
-# Templates removed - using API-only approach
-# No template configuration needed for REST API
+# Templates configuration for admin interface
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
 
 # -----------------------------------------------------------------------------
 # REST Framework Configuration

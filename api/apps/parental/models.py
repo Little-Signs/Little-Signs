@@ -11,7 +11,8 @@ class ParentProfile(models.Model):
     user = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
-        related_name='parent_profile'
+        related_name='parental_parent_profile',
+        related_query_name='parental_parent_profile'
     )
     
     # Parent information
@@ -33,7 +34,8 @@ class ParentProfile(models.Model):
     # Children managed by this parent
     managed_children = models.ManyToManyField(
         User,
-        related_name='managed_by_parents',
+        related_name='parental_managed_by_parents',
+        related_query_name='parental_managed_by_parent',
         blank=True,
         help_text="Children accounts managed by this parent"
     )
@@ -54,7 +56,8 @@ class ChildProfile(models.Model):
     user = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
-        related_name='child_profile'
+        related_name='parental_child_profile',
+        related_query_name='parental_child_profile'
     )
     
     # Child information

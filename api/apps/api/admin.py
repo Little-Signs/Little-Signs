@@ -15,10 +15,10 @@ class APIKeyAdmin(admin.ModelAdmin):
 
 
 class APIUsageLogAdmin(admin.ModelAdmin):
-    list_display = ['user', 'endpoint', 'method', 'status_code', 'timestamp', 'ip_address']
-    list_filter = ['method', 'status_code', 'timestamp']
+    list_display = ['user', 'endpoint', 'method', 'status_code', 'created_at', 'ip_address']
+    list_filter = ['method', 'status_code', 'created_at']
     search_fields = ['user__email', 'endpoint', 'ip_address']
-    readonly_fields = ['user', 'endpoint', 'method', 'status_code', 'timestamp', 'ip_address', 'request_data', 'response_data']
+    readonly_fields = ['user', 'endpoint', 'method', 'status_code', 'created_at', 'ip_address', 'request_data', 'response_data']
     
     def has_add_permission(self, request):
         return False  # Logs are created automatically

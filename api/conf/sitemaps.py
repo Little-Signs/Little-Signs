@@ -1,6 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
-from apps.learn.models import Course
+from apps.learning.models import Course
 
 
 class StaticViewSitemap(Sitemap):

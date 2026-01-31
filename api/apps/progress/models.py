@@ -23,7 +23,8 @@ class Enrollment(models.Model):
     user = models.ForeignKey(
         User, 
         on_delete=models.CASCADE, 
-        related_name='enrollments'
+        related_name='progress_enrollments',
+        related_query_name='progress_enrollment'
     )
     course = models.ForeignKey(
         'learning.Course', 
@@ -114,7 +115,8 @@ class PracticeSession(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='practice_sessions'
+        related_name='progress_practice_sessions',
+        related_query_name='progress_practice_session'
     )
     session_date = models.DateTimeField(auto_now_add=True)
     duration_minutes = models.PositiveIntegerField(
@@ -170,7 +172,7 @@ class CourseEnrollment(models.Model):
         ("REVOKED", "Revoked"),
         ("COMPLETED", "Completed"),
     )
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='progress_course_enrollments')
     course = models.ForeignKey('learning.Course', on_delete=models.CASCADE, null=True)
     status = models.CharField(
         max_length=10, choices=ENROLLMENT_STATUS, default="PENDING"

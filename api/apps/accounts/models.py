@@ -22,11 +22,27 @@ class User(base_models.AbstractBaseUser, base_models.PermissionsMixin):
     is_individual = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now)
+    groups = models.ManyToManyField(
+        base_models.Group,
+        verbose_name="groups",
+        blank=True,
+        help_text="The groups this user belongs to.",
+        related_name="accounts_users",
+        related_query_name="accounts_user",
+    )
+    user_permissions = models.ManyToManyField(
+        base_models.Permission,
+        verbose_name="user permissions",
+        blank=True,
+        help_text="Specific permissions for this user.",
+        related_name="accounts_users",
+        related_query_name="accounts_user",
+    )
     badges = models.ManyToManyField(
         "gamification.Badge",
         verbose_name="Learner badges",
-        related_name="badges",
-        related_query_name="badge",
+        related_name="accounts_badges",
+        related_query_name="accounts_badge",
     )
 
     REQUIRED_FIELDS = []
