@@ -1,204 +1,273 @@
-import React from 'react';
-import { FaFacebook, FaTwitter, FaYoutube, FaGooglePlus, FaAngleLeft, FaAngleRight } from 'react-icons/fa';
-
+import React, { useState } from "react";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+  FaAngleLeft,
+  FaAngleRight,
+} from "react-icons/fa";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    { icon: FaGooglePlus, href: '#', color: '#dd4b39', title: 'Google Plus' },
-    { icon: FaFacebook, href: '#', color: '#3b5998', title: 'Facebook' },
-    { icon: FaYoutube, href: '#', color: '#b31217', title: 'Youtube' },
-    { icon: FaTwitter, href: '#', color: '#4099ff', title: 'Twitter' }
-  ];
-
-  const languages = [
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-    { code: 'it', name: 'Italiano', flag: '🇮🇹' }
-  ];
-
-  const galleryImages = [
-    { id: 1, src: '/images/gallery-1.jpg', alt: 'Gallery Image 1' },
-    { id: 2, src: '/images/gallery-2.jpg', alt: 'Gallery Image 2' },
-    { id: 3, src: '/images/gallery-3.jpg', alt: 'Gallery Image 3' }
-  ];
-
-  const latestPosts = [
-    {
-      id: 1,
-      title: 'Image Post',
-      excerpt: 'Lorem ipsum dolor ...',
-      date: 'January 3, 2015',
-      image: '/images/post-1.jpg'
-    },
-    {
-      id: 2,
-      title: 'Image Post',
-      excerpt: 'Lorem ipsum dolor ...',
-      date: 'January 2, 2015',
-      image: '/images/post-2.jpg'
-    },
-    {
-      id: 3,
-      title: 'Video blog post',
-      excerpt: 'Lorem ipsum dolor ...',
-      date: 'January 1, 2015',
-      image: '/images/post-3.jpg'
-    }
-  ];
+  // Language dropdown state
+  const [langOpen, setLangOpen] = useState(false);
 
   return (
-    <footer className="footer">
-      {/* Main Footer Content */}
-      <div className="footer-main">
-        <div className="footer-container">
-          <div className="footer-grid">
-            
-            {/* Gallery Section */}
-            <div className="footer-widget gallery-widget">
-              <div className="widget-header">
-                <h3 className="widget-title">Gallery</h3>
-                <div className="widget-nav">
-                  <button className="nav-btn prev-btn">
-                    <FaAngleLeft />
-                  </button>
-                  <button className="nav-btn next-btn">
-                    <FaAngleRight />
-                  </button>
-                </div>
+    <>
+      <div className="kids_bottom_container footer">
+        <div className="l-page-width">
+          <div className="wrapper">
+          {/* Logo and Description Widget */}
+          <div className="widget widget_text">
+            <div className="textwidget">
+              <div className="footer-logo-section">
+                <img src="images/logo.png" alt="Little Signs" className="footer-logo" />
+                <h3 className="footer-site-name">Little Signs</h3>
+                <p className="footer-description">
+                  A premium platform designed to help children learn and grow through interactive experiences 
+                  and engaging content. We believe in making education fun and accessible for every child.
+                </p>
               </div>
-              <div className="gallery-grid">
-                {galleryImages.map((image) => (
-                  <div key={image.id} className="gallery-item">
-                    <div className="gallery-image-wrapper">
-                      <img src={image.src} alt={image.alt} className="gallery-image" />
-                    </div>
+            </div>
+          </div>
+            {/* Twitter Widget */}
+            <div className="widget widget_cws_tweets">
+              <div className="cws-widget-content">
+                {/* twitter header */}
+                <div className="carousel_header clearfix">
+                  <div className="widget_carousel_nav">
+                    <i className="prev">
+                      <FaAngleLeft />
+                    </i>
+                    <i className="next">
+                      <FaAngleRight />
+                    </i>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Twitter Section */}
-            <div className="footer-widget twitter-widget">
-              <div className="widget-header">
-                <div className="widget-nav">
-                  <button className="nav-btn prev-btn">
-                    <FaAngleLeft />
-                  </button>
-                  <button className="nav-btn next-btn">
-                    <FaAngleRight />
-                  </button>
+                  <h3 className="widget-title">Twitter</h3>
                 </div>
-                <h3 className="widget-title">Twitter</h3>
+                {/* twitter carousel */}
+                <div className="twitter-carousel carousel latest_tweets"></div>
               </div>
-              <div className="twitter-content">
-                <div className="tweet">
-                  <p className="tweet-text">Follow us on Twitter for the latest updates and news!</p>
-                  <p className="tweet-time">2 hours ago</p>
+            </div>
+            {/* Latest Posts Widget */}
+            <div className="widget widget_cws_latest_posts">
+              <div className="latest-posts-widget">
+                <h3 className="widget-title">Latest Posts</h3>
+                <div className="widget-content">
+                  <ul>
+                    <li>
+                      <div className="kids_image_wrapper ">
+                        <a
+                          href="pic/HappyFeet_1st4.jpg"
+                          className="prettyPhoto kids_mini_picture"
+                          data-rel="prettyPhoto[rpwt]"
+                        >
+                          <img
+                            src="images/70x70-img-1.jpg"
+                            width="70"
+                            height="70"
+                            alt=""
+                          />
+                        </a>
+                      </div>
+                      <div className="kids_post_content">
+                        <h4>
+                          <a href="#">Image Post</a>
+                        </h4>
+                        <p>Lorem ipsum dolor ...</p>
+                        <p className="time-post">January 3, 2015</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="kids_image_wrapper ">
+                        <a
+                          href="pic/LegoMovie_3rd4.jpg"
+                          className="prettyPhoto kids_mini_picture"
+                          data-rel="prettyPhoto[rpwt]"
+                        >
+                          <img
+                            src="images/70x70-img-2.jpg"
+                            width="70"
+                            height="70"
+                            alt=""
+                          />
+                        </a>
+                      </div>
+                      <div className="kids_post_content">
+                        <h4>
+                          <a href="#">Image Post</a>
+                        </h4>
+                        <p>Lorem ipsum dolor ...</p>
+                        <p className="time-post">January 2, 2015</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="kids_image_wrapper ">
+                        <a
+                          href="pic/Tangled_3rd5.jpg"
+                          className="prettyPhoto kids_mini_picture"
+                          data-rel="prettyPhoto[rpwt]"
+                        >
+                          <img
+                            src="images/70x70-img-3.jpg"
+                            width="70"
+                            height="70"
+                            alt=""
+                          />
+                        </a>
+                      </div>
+                      <div className="kids_post_content">
+                        <h4>
+                          <a href="#">Video blog post</a>
+                        </h4>
+                        <p>Lorem ipsum dolor ...</p>
+                        <p className="time-post">January 1, 2015</p>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-
-            {/* Latest Posts Section */}
-            <div className="footer-widget posts-widget">
-              <h3 className="widget-title">Latest Posts</h3>
-              <div className="posts-list">
-                {latestPosts.map((post) => (
-                  <div key={post.id} className="post-item">
-                    <div className="post-image-wrapper">
-                      <img src={post.image} alt={post.title} className="post-image" />
-                    </div>
-                    <div className="post-content">
-                      <h4 className="post-title">
-                        <a href="#">{post.title}</a>
-                      </h4>
-                      <p className="post-excerpt">{post.excerpt}</p>
-                      <p className="post-date">{post.date}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Calendar Section */}
-            <div className="footer-widget calendar-widget">
+            {/* Calendar Widget */}
+            <div className="widget widget_calendar">
               <h3 className="widget-title">Calendar</h3>
-              <div className="calendar-wrapper">
-                <div className="mini-calendar">
-                  <div className="calendar-header">
-                    <span className="calendar-month">January</span>
-                    <span className="calendar-year">{currentYear}</span>
-                  </div>
-                  <div className="calendar-grid">
-                    <div className="calendar-weekdays">
-                      {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, index) => (
-                        <div key={index} className="calendar-weekday">{day}</div>
-                      ))}
-                    </div>
-                    <div className="calendar-days">
-                      {Array.from({ length: 31 }, (_, i) => (
-                        <div key={i} className="calendar-day">{i + 1}</div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div id="calendar_wrap"></div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Footer Bottom */}
-      <div className="footer-bottom">
-        <div className="footer-container">
-          <div className="footer-bottom-content">
-            
-            {/* Social Media Links */}
-            <div className="footer-social">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={index}
-                    href={social.href}
-                    title={social.title}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-link"
-                    style={{ backgroundColor: social.color }}
-                  >
-                    <Icon className="social-icon" />
-                  </a>
-                );
-              })}
-              
-              {/* Language Selector */}
-              <div className="language-selector">
-                <button className="language-button">
-                  <span className="flag">🇺🇸</span>
-                  <span className="language-code">EN</span>
-                </button>
-                <div className="language-dropdown">
-                  {languages.map((lang) => (
-                    <a key={lang.code} href="#" className="language-option">
-                      <span className="flag">{lang.flag}</span>
-                      <span className="language-name">{lang.name}</span>
-                    </a>
-                  ))}
+      <div className="kids-footer-copyrights footer">
+        <div className="l-page-width  clearfix">
+          <div className="wrapper">
+            <ul className="kids_social">
+              <li>
+                <a
+                  href="https://www.facebook.com/littlesigns"
+                  title="Facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fa fa-facebook fa-2x">
+                    <FaFacebookF />
+                  </i>
+                </a>
+                <span style={{ backgroundColor: "#1877f2" }}></span>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/littlesigns"
+                  title="LinkedIn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fa fa-linkedin fa-2x">
+                    <FaLinkedinIn />
+                  </i>
+                </a>
+                <span style={{ backgroundColor: "#0077b5" }}></span>
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/littlesigns"
+                  title="Twitter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fa fa-twitter fa-2x">
+                    <FaTwitter />
+                  </i>
+                </a>
+                <span style={{ backgroundColor: "#1da1f2" }}></span>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/littlesigns"
+                  title="Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fa fa-instagram fa-2x">
+                    <FaInstagram />
+                  </i>
+                </a>
+                <span style={{ backgroundColor: "#e4405f" }}></span>
+              </li>
+              <li className="lang_bar">
+                <div
+                  id="lang_sel"
+                  onMouseEnter={() => setLangOpen(true)}
+                  onMouseLeave={() => setLangOpen(false)}
+                  style={{ position: "relative" }}
+                >
+                  <ul>
+                    <li>
+                      {/* language dropdown */}
+                      <a href="#" className="lang_sel_sel icl-en">
+                        <img
+                          className="iclflag"
+                          src="images/en.png"
+                          alt="en"
+                          title="English"
+                        />
+                      </a>
+                      <ul
+                        style={{
+                          display: langOpen ? "block" : "none",
+                          position: "absolute",
+                          left: 0,
+                          top: "100%",
+                          zIndex: 19,
+                          background: "#fff",
+                          padding: 0,
+                          margin: 0,
+                        }}
+                      >
+                        <li className="icl-fr">
+                          <a href="#">
+                            <img
+                              className="iclflag"
+                              src="images/fr.png"
+                              alt="fr"
+                              title="Français"
+                            />
+                          </a>
+                        </li>
+                        <li className="icl-de">
+                          <a href="#">
+                            <img
+                              className="iclflag"
+                              src="images/de.png"
+                              alt="de"
+                              title="Deutsch"
+                            />
+                          </a>
+                        </li>
+                        <li className="icl-it">
+                          <a href="#">
+                            <img
+                              className="iclflag"
+                              src="images/it.png"
+                              alt="it"
+                              title="Italiano"
+                            />
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
+              </li>
+            </ul>
+            <div className="widget widget_text">
+              <div className="textwidget">
+                Copyrights @2024: Little Signs - Children Learning Platform
               </div>
-            </div>
-
-            {/* Copyright */}
-            <div className="footer-copyright">
-              <p>Copyrights @{currentYear}: Little Signs - Children Platform</p>
             </div>
           </div>
         </div>
+        <div className="dark-mask"></div>
       </div>
-    </footer>
+    </>
   );
 };
 

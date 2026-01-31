@@ -5040,16 +5040,16 @@ aside .content-wrapper figure{
     rgb(239, 234, 216) 20px 20px;
 }
 .alert-box{
-	background: #FFC600;
+	background: #fec20b;
 }
 .warning-box,
 .custom-box-warning{
-	background: #ffdb5e;
+	background: #fec20b;
 }
 .warning-box:before,
 .custom-box-warning:before{
 	content: "\f12a";
-	color: #F4D159;
+	color: #fec20b;
 }
 .no-ie .warning-box:before,
 .no-ie .custom-box-warning:before{
@@ -5638,7 +5638,7 @@ ul.type-2 li:before{
 	top: 0;
 	left: 0;
 	color: #fff;
-	background: #ff633c;
+	background: #fec20b;
 	text-transform: uppercase;
 	font-size: 12px;
 	-webkit-transform: rotate(-45deg) translate(-63px , -29px);
@@ -8538,7 +8538,7 @@ input[type="date"]{
 .entry-container aside:not(#sidebar-right):not(#sidebar-left) .widget-title,
 .entry-container main .widget-title{
 	font-size: 32px;
-	color: #3185cb;
+	color: #26b4d7;
 	line-height: 1.25;
 }
 
@@ -8587,14 +8587,14 @@ ul.products li.product .price,
 	display: none;
 }
 #respond_block .comment-author{
-	color: #3185cb;
+	color: #26b4d7;
 }
 
 a, 
 ul.type-2 li:before,
 .post-title a:hover,
 a.alt:hover{
-	color: #3185cb;
+	color: #26b4d7;
 }
  
 
@@ -8644,12 +8644,12 @@ input[type="radio"]:checked:before,
 .owl-controls.clickable .owl-pagination .owl-page.active span,
 .tparrows.default:after,
 .menu-button{
-	background-color: #3185cb;
+	background-color: #26b4d7;
 }
 
 @media screen and (max-width: 980px){
 	#kids_main_nav>ul{
-		background-color: #3185cb;
+		background-color: #26b4d7;
 	}
 }
 
@@ -8657,14 +8657,14 @@ input[type="radio"]:checked:before,
 .pricing_table_header .title,
 .widget_categories ul li:before,
 .catappendspan:before{
-	color: #3185cb;
+	color: #26b4d7;
 }
 
 input[type="checkbox"]:before{
-	color: #3185cb;
+	color: #26b4d7;
 }
 .latest_tweets li .icon_frame i.fa:before{
-	background-color: rgba(49,133,203,0.4);
+	background-color: rgba(38,180,215,0.4);
 }
 
 .cws_button:hover,
@@ -8691,11 +8691,11 @@ input[type="checkbox"]:before{
 .woocommerce [type="button"]:not(.plus):not(.minus):hover,
 .woocommerce .added_to_cart:hover,
 #kids-back-top a:hover span{
-	background: #ff633c;
+	background: #fec20b;
 }
 .cws_button:hover,
 .soc_icon.fa:hover{
-	background: #ff633c !important;
+	background: #fec20b !important;
 }
 
 /* Colors for: footer */
@@ -8708,14 +8708,14 @@ input[type="checkbox"]:before{
 #kids_header .kids_social li.hide,
 .kids_social .lang_bar>div>ul a:after,
 .kids_social .lang_bar>div>ul a:before{
-	background-color: #3185cb;
+	background-color: #26b4d7;
 }
 #kids_header .kids_social li,
 .kids_social .lang_bar>div>ul>li>a:before{
-	background-color: rgba(49,133,203,0.65);
+	background-color: rgba(38,180,215,0.65);
 }
 .top-panel{
-	border-color: #3185cb;
+	border-color: #26b4d7;
 }
 
 /* Colors for: middle content (the sand color) */
@@ -9118,11 +9118,39 @@ hr{
 
 /* fix class */
 .margin-top-none {
-	margin-top: 0 !important;
+margin-top: 0 !important;
 }
 .margin-bottom-none {
-	margin-bottom: 0 !important;
+margin-bottom: 0 !important;
 }
 .select2.select2-container {
-	width: 100% !important;
+width: 100% !important;
+}
+
+/* Uniform gallery text height for courses */
+.projects_carousel .iso-item {
+display: flex;
+flex-direction: column;
+height: 100%;
+}
+
+.projects_carousel .gallery-text {
+flex: 1;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+min-height: 120px; /* Adjust as needed */
+}
+
+.projects_carousel .gallery-text .title {
+margin-bottom: 10px;
+}
+
+.projects_carousel .gallery-text p {
+flex: 1;
+margin-bottom: 15px;
+}
+
+.projects_carousel .iso-item > div:last-child {
+margin-top: auto;
 }
