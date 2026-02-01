@@ -15,6 +15,7 @@ const ContentSection = ({ children }) => (
         </div>
       </section>
     </div>
+     <div className="content_bottom_bg"></div>
   </div>
 );
 

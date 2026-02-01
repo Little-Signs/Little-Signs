@@ -1,8 +1,7 @@
 import React from "react";
-import ContentSection from '../layout/ContentSection';
 
 const About = () => (
-  <ContentSection>
+  <>
     <div className="grid-row clearfix">
       <div className="grid-col grid-col-12">
         <section className="cws-widget">
@@ -27,13 +26,11 @@ const About = () => (
                 <div className="grid-col grid-col-3">
                   <div className="feature-item">
                     <h4 className="feature-title">Interactive lessons</h4>
-                  
                   </div>
                 </div>
                 <div className="grid-col grid-col-3">
                   <div className="feature-item">
                     <h4 className="feature-title">Progress tracking</h4>
-                    
                   </div>
                 </div>
                 <div className="grid-col grid-col-3">
@@ -130,7 +127,7 @@ const About = () => (
         </section>
       </div>
     </div>
-  </ContentSection>
+  </>
 );
 
 export default About;

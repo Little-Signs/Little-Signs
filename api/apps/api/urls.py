@@ -4,6 +4,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from . import views
 from .additional_views import SignDetailAPIView, DifficultyLevelListAPIView
+from . import proxy_views
 
 # Create router for ViewSets
 router = DefaultRouter()
@@ -25,6 +26,9 @@ urlpatterns = [
     path('signs/<int:pk>/', SignDetailAPIView.as_view(), name='api_sign_detail'),
     path('sign-categories/', views.SignCategoryListAPIView.as_view(), name='api_sign_categories'),
     path('difficulty-levels/', DifficultyLevelListAPIView.as_view(), name='api_difficulty_levels'),
+    
+    # Image Proxy
+    path('proxy-image/', proxy_views.proxy_image, name='api_proxy_image'),
     
     # Progress (Authenticated)
     path('enrollments/', views.my_enrollments, name='api_my_enrollments'),

@@ -1,85 +1,110 @@
-import React from 'react';
-import ContentSection from '../layout/ContentSection';
+import React, { useState, useEffect } from 'react';
+import { coursesAPI } from '../../services/api';
+import ImageWithFallback from '../ImageWithFallback';
+import CoursesSkeleton from './CoursesSkeleton';
 
-const Courses = () => (
-  <ContentSection>
-    <div className="grid-row clearfix">
-      <div className="grid-col grid-col-12">
-        <section className="cws-widget">
-          <section className="cws_widget_content">
-            <div className="recent_projects">
-              <h3 className="section-title">Explore our digital study packs</h3>
-              {/* <p className="section-description">
-                We've rounded up some excellent resources to help children understand sign language.
-                The learning path is your child's personalized learning journey divided into meaningful daily milestones.
-              </p> */}
-              <div className="projects_carousel clearfix" data-carousel-column="4">
-                <div className="iso-item">
-                  <div className="content-wrapper">
-                    <figure>
-                      <a data-rel="prettyPhoto[rs_projects]" className="prettyPhoto kids_picture" href="images/250x250-kos-1.jpg" title="Beginner ZSL Pack">
-                        <img src="images/250x250-kos-1.jpg" alt="Beginner ZSL Pack" />
-                      </a>
-                    </figure>
+const Courses = () => {
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        setLoading(true);
+        const response = await coursesAPI.getAll({ featured: true });
+        const coursesData = response.results || response;
+        setCourses(Array.isArray(coursesData) ? coursesData : []);
+        setError(null);
+      } catch (err) {
+        console.error('Error fetching courses:', err);
+        if (err.code === 'ECONNABORTED' || err.message.includes('timeout')) {
+          setError('Connection timed out. Please check your internet connection and try again.');
+        } else if (err.response?.status === 404) {
+          setError('No courses available at the moment.');
+        } else if (err.code === 'ERR_NETWORK' || !err.response) {
+          setError('Unable to connect to the server. Please check if the backend is running.');
+        } else {
+          setError('Failed to load courses. Please try again later.');
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
+  const renderCourseCard = (course) => (
+    <div className="iso-item" key={course.id}>
+      <div className="content-wrapper">
+        <figure>
+          <a data-rel="prettyPhoto[rs_projects]" className="prettyPhoto kids_picture" href={course.cover_image} title={course.title}>
+            <ImageWithFallback 
+              src={course.cover_image} 
+              alt={course.title}
+              fallback="images/250x250-kos-1.jpg"
+              style={{
+                width: '100%',
+                height: '200px',
+                objectFit: 'cover',
+                borderRadius: '8px'
+              }}
+            />
+          </a>
+        </figure>
+      </div>
+      <div className="gallery-text">
+        <div className="title">{course.title}</div>
+        <p>{course.short_description}</p>
+      </div>
+      <div><a href="#" className="cws_button">Learn</a></div>
+    </div>
+  );
+
+  if (loading) {
+    return <CoursesSkeleton />;
+  }
+
+  if (error || !Array.isArray(courses) || courses.length === 0) {
+    return (
+        <div className="grid-row clearfix">
+          <div className="grid-col grid-col-12">
+            <section className="cws-widget">
+              <section className="cws_widget_content">
+                <div className="recent_projects">
+                  <h3 className="section-title">Explore our digital study packs</h3>
+                  <div className="projects_carousel clearfix" data-carousel-column="4">
+                    <div>{error || 'No courses available at the moment.'}</div>
                   </div>
-                  <div className="gallery-text">
-                    <div className="title">Beginner ZSL Pack</div>
-                    <p>Start your sign language journey with basic Zimbabwe Sign Language fundamentals</p>
-                  </div>
-                  <div><a href="#" className="cws_button">Learn</a></div>
                 </div>
-                
-                <div className="iso-item">
-                  <div className="content-wrapper">
-                    <figure>
-                      <a data-rel="prettyPhoto[rs_projects]" className="prettyPhoto kids_picture" href="images/250x250-kos-2.jpg" title="Intermediate ZSL Pack">
-                        <img src="images/250x250-kos-2.jpg" alt="Intermediate ZSL Pack" />
-                      </a>
-                    </figure>
-                  </div>
-                  <div className="gallery-text">
-                    <div className="title">Intermediate ZSL Pack</div>
-                    <p>Build on your foundation with more complex signs and conversational skills</p>
-                  </div>
-                  <div><a href="#" className="cws_button">Learn</a></div>
-                </div>
-                
-                <div className="iso-item">
-                  <div className="content-wrapper">
-                    <figure>
-                      <a data-rel="prettyPhoto[rs_projects]" className="prettyPhoto kids_picture" href="images/250x250-kos-3.jpg" title="Advanced ZSL Pack">
-                        <img src="images/250x250-kos-3.jpg" alt="Advanced ZSL Pack" />
-                      </a>
-                    </figure>
-                  </div>
-                  <div className="gallery-text">
-                    <div className="title">Advanced ZSL Pack</div>
-                    <p>Master advanced Zimbabwe Sign Language with expert-level techniques</p>
-                  </div>
-                  <div><a href="#" className="cws_button">Learn</a></div>
-                </div>
-                
-                <div className="iso-item">
-                  <div className="content-wrapper">
-                    <figure>
-                      <a data-rel="prettyPhoto[rs_projects]" className="prettyPhoto kids_picture" href="images/250x250-kos-4.jpg" title="Family Learning Pack">
-                        <img src="images/250x250-kos-4.jpg" alt="Family Learning Pack" />
-                      </a>
-                    </figure>
-                  </div>
-                  <div className="gallery-text">
-                    <div className="title">Family Learning Pack</div>
-                    <p>Perfect for families to learn sign language together and strengthen bonds</p>
-                  </div>
-                  <div><a href="#" className="cws_button">Learn</a></div>
+              </section>
+            </section>
+          </div>
+        </div>
+    );
+  }
+
+  return (
+      <div className="grid-row clearfix">
+        <div className="grid-col grid-col-12">
+          <section className="cws-widget">
+            <section className="cws_widget_content">
+              <div className="recent_projects">
+                <h3 className="section-title">Explore our digital study packs</h3>
+                {/* <p className="section-description">
+                  We've rounded up some excellent resources to help children understand sign language.
+                  The learning path is your child's personalized learning journey divided into meaningful daily milestones.
+                </p> */}
+                <div className="projects_carousel clearfix" data-carousel-column="4">
+                  {Array.isArray(courses) && courses.map(renderCourseCard)}
                 </div>
               </div>
-            </div>
+            </section>
           </section>
-        </section>
+        </div>
       </div>
-    </div>
-  </ContentSection>
-);
+  );
+};
 
 export default Courses;

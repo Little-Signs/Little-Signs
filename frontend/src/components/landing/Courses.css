@@ -1,0 +1,49 @@
+/* Courses Section Styles */
+.recent_projects {
+  margin-top: 0 !important;
+  padding-top: 20px !important;
+}
+
+.cws-widget {
+  margin-top: -30px !important;
+}
+
+.projects_carousel {
+  margin-top: 10px !important;
+}
+
+/* Image optimization */
+.iso-item img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.iso-item figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.iso-item figure img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.iso-item figure:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Loading states */
+.image-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes loading {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
