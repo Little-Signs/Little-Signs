@@ -1,0 +1,54 @@
+services:
+  django:
+    build: ./api
+    container_name: dev-django
+    command: sh -c "chmod +x entrypoint.sh && ./entrypoint.sh && python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./.env
+    volumes:
+      - ./api/:/srv/app
+      - static:/srv/app/static
+      - media:/srv/app/media
+    depends_on:
+      - db
+    environment:
+      - DATABASE=postgres
+      - SQL_HOST=db
+      - SQL_PORT=5432
+  react:
+    build: ./frontend
+    container_name: dev-react
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./.env
+    tty: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - VITE_API_BASE_URL=http://localhost:8000/api/v1
+    volumes:
+      - ./frontend/:/srv/app
+      - node_modules:/srv/app/node_modules
+    depends_on:
+      - django
+  db:
+    image: postgres:16.1-alpine
+    container_name: dev-db
+    ports:
+      - "5432:5432"
+    env_file: ./.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=littlesigns
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=vd7uHW5M
+
+volumes:
+  node_modules:
+  postgres_data:
+  media:
+  static:

@@ -1,27 +1,38 @@
-# Pull base image
-FROM python:3.8.1-slim
+# pull official base image
+FROM python:3.11-slim-bullseye
 
-# Install system dependencies
-RUN apt-get update
-RUN apt-get install git -y
+# set work directory
+WORKDIR /srv/app
 
-# Set environment varibles
-ENV DJANGO_ENV=dev
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-ENV POETRY_VERSION=1.0.0
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-# Install Poetry
-RUN pip install "poetry==$POETRY_VERSION"
+# install dependencies
+RUN pip install --upgrade pip
+COPY ./requirements.txt .
 
-# Create dynamic directories
-RUN mkdir /code /logs /uploads /code/apps /code/conf
+# Install system dependencies with retry mechanism
+RUN apt-get update --fix-missing || apt-get update && \
+    apt-get install -y --no-install-recommends \
+    gcc \
+    netcat-openbsd \
+    libpq-dev \
+    postgresql-client \
+    && apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# Set work directory
-WORKDIR /code
+# install python dependencies
+RUN pip install -r requirements.txt
 
-# Install project dependencies
-COPY poetry.lock pyproject.toml ./
+# copy entrypoint.sh
+COPY ./entrypoint.sh .
 
-RUN poetry config virtualenvs.create false \
-  && poetry install $(test "$DJANGO_ENV" == prod && echo "--no-dev") --no-interaction --no-ansi --no-root
+# copy project
+COPY . .
+
+# make entrypoint executable
+RUN chmod +x /srv/app/entrypoint.sh
+
+# run entrypoint.sh
+ENTRYPOINT ["/srv/app/entrypoint.sh"]

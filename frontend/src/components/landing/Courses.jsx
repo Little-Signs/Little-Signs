@@ -1,39 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { coursesAPI } from '../../services/api';
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { fetchCourses } from '../../store/slices/coursesSlice';
 import ImageWithFallback from '../ImageWithFallback';
 import CoursesSkeleton from './CoursesSkeleton';
 
 const Courses = () => {
-  const [courses, setCourses] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const dispatch = useAppDispatch();
+  const { courses, loading, error } = useAppSelector((state) => state.courses);
 
   useEffect(() => {
-    const fetchCourses = async () => {
-      try {
-        setLoading(true);
-        const response = await coursesAPI.getAll({ featured: true });
-        const coursesData = response.results || response;
-        setCourses(Array.isArray(coursesData) ? coursesData : []);
-        setError(null);
-      } catch (err) {
-        console.error('Error fetching courses:', err);
-        if (err.code === 'ECONNABORTED' || err.message.includes('timeout')) {
-          setError('Connection timed out. Please check your internet connection and try again.');
-        } else if (err.response?.status === 404) {
-          setError('No courses available at the moment.');
-        } else if (err.code === 'ERR_NETWORK' || !err.response) {
-          setError('Unable to connect to the server. Please check if the backend is running.');
-        } else {
-          setError('Failed to load courses. Please try again later.');
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCourses();
-  }, []);
+    dispatch(fetchCourses());
+  }, [dispatch]);
 
   const renderCourseCard = (course) => (
     <div className="iso-item" key={course.id}>
@@ -97,7 +74,7 @@ const Courses = () => {
                   The learning path is your child's personalized learning journey divided into meaningful daily milestones.
                 </p> */}
                 <div className="projects_carousel clearfix" data-carousel-column="4">
-                  {Array.isArray(courses) && courses.map(renderCourseCard)}
+                  {courses.map(renderCourseCard)}
                 </div>
               </div>
             </section>
