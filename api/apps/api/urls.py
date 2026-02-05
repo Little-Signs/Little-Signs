@@ -56,6 +56,9 @@ urlpatterns = [
     path('admin/organisations/', views.OrganisationListAPIView.as_view(), name='api_organisations'),
     path('admin/subscription-plans/', views.SubscriptionPlanListAPIView.as_view(), name='api_subscription_plans'),
     
+    # Communication
+    path('communication/', include('apps.communication.urls')),
+    
     # Router URLs (for ViewSets if added later)
     path('', include(router.urls)),
 ]

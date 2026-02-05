@@ -88,4 +88,11 @@ export const difficultyLevelsAPI = {
   }
 };
 
+export const contactAPI = {
+  submit: async (formData) => {
+    const response = await api.post('/communication/contact/', formData);
+    return response.data;
+  }
+};
+
 export default api;

@@ -101,4 +101,4 @@ logs/
 .dockerignore
 
 #template theme
-little-signs-landing-page-template/
+#little-signs-landing-page-template/

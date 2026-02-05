@@ -4,6 +4,7 @@ import SocialMediaLinks from './SocialMediaLinks';
 import SearchForm from './SearchForm';
 import MenuItems from './MenuItems';
 import SliderSlides from './SliderSlides';
+import { Link } from 'react-router-dom';
 
 const Header = () => (
   <>
@@ -31,9 +32,9 @@ const Header = () => (
           <div className="kids_clear"></div>
           
           <div id="kids_logo_block" className="logo-position-left">
-            <a id="kids_logo_text" href="index.html">
+            <Link id="kids_logo_text" to="/">
               <img src="images/logo_c.png" alt="Little Signs - Learn Sign Language for Kids" title="Little Signs - Learn Sign Language for Kids" />
-            </a>
+            </Link>
           </div>
           
           <nav id="kids_main_nav" className="menu-position-right">
