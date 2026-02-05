@@ -99,3 +99,6 @@ logs/
 
 # Docker
 .dockerignore
+
+#template theme
+little-signs-landing-page-template/
