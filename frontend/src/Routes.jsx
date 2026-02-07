@@ -9,6 +9,12 @@ import RegisterPage from './pages/RegisterPage'
 import VerifyEmailPage from './pages/VerifyEmailPage'
 import PasswordResetRequestPage from './pages/PasswordResetRequestPage'
 import PasswordResetPage from './pages/PasswordResetPage'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
+import TermsOfUsePage from './pages/TermsOfUsePage'
+import AIEthicsPage from './pages/AIEthicsPage'
+import ChildSafetyPage from './pages/ChildSafetyPage'
+import CookiePolicyPage from './pages/CookiePolicyPage'
+import ParentalConsentPage from './pages/ParentalConsentPage'
 
 const AppRoutes = () => {
   return (
@@ -23,6 +29,12 @@ const AppRoutes = () => {
       <Route path="/verify-email/:token" element={<VerifyEmailPage />} />
       <Route path="/password-reset" element={<PasswordResetRequestPage />} />
       <Route path="/reset-password/:token" element={<PasswordResetPage />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+      <Route path="/terms-of-use" element={<TermsOfUsePage />} />
+      <Route path="/ai-ethics" element={<AIEthicsPage />} />
+      <Route path="/child-safety" element={<ChildSafetyPage />} />
+      <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+      <Route path="/parental-consent" element={<ParentalConsentPage />} />
     </Routes>
   )
 }

@@ -56,12 +56,25 @@ const Footer = () => {
               <h3 className="widget-title">Quick Links</h3>
               <div className="quick-links-content">
                 <ul>
-                  <li><a href="/dashboard">Dashboard</a></li>
-                  <li><a href="/profile">My Profile</a></li>
-                  <li><a href="/settings">Settings</a></li>
-                  <li><a href="/support">Support</a></li>
-                  <li><a href="/faq">FAQ</a></li>
-                  <li><a href="/terms">Terms of Service</a></li>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/about">About</a></li>
+                  <li><a href="/learn">Learn</a></li>
+                  <li><a href="/resources">Resources</a></li>
+                  <li><a href="/contact">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            {/* Policies & Legal Widget */}
+            <div className="widget widget_quick_links">
+              <h3 className="widget-title">Policies &amp; Legal</h3>
+              <div className="quick-links-content">
+                <ul>
+                  <li><a href="/privacy-policy">Privacy Policy</a></li>
+                  <li><a href="/terms-of-use">Terms of Use</a></li>
+                  <li><a href="/ai-ethics">AI Ethics Statement</a></li>
+                  <li><a href="/child-safety">Child Safety Policy</a></li>
+                  <li><a href="/cookie-policy">Cookie Policy</a></li>
+                  <li><a href="/parental-consent">Parental Consent</a></li>
                 </ul>
               </div>
             </div>

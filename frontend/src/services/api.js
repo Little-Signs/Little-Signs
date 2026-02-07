@@ -102,4 +102,11 @@ export const teamAPI = {
   }
 };
 
+export const investorAPI = {
+  requestPitchDeck: async (formData) => {
+    const response = await api.post('/communication/pitch-deck-request/', formData);
+    return response.data;
+  }
+};
+
 export default api;

@@ -3,13 +3,41 @@ import Header from '../components/Header'
 import Footer from '../components/layout/Footer'
 import ContentSection from '../components/ContentSection'
 import ContentHeader from '../components/layout/ContentHeader'
+import { investorAPI } from '../services/api'
 
 const ResourcesPage = () => {
   const [activeTab, setActiveTab] = useState('parents')
+  const [pitchForm, setPitchForm] = useState({ email: '', name: '', organisation: '' })
+  const [pitchSubmitting, setPitchSubmitting] = useState(false)
+  const [pitchStatus, setPitchStatus] = useState('')
+
+  const handlePitchChange = (e) => {
+    setPitchForm({ ...pitchForm, [e.target.name]: e.target.value })
+  }
+
+  const handlePitchSubmit = async (e) => {
+    e.preventDefault()
+    setPitchSubmitting(true)
+    setPitchStatus('')
+
+    try {
+      const data = await investorAPI.requestPitchDeck(pitchForm)
+      if (data.success) {
+        setPitchStatus('success')
+        setPitchForm({ email: '', name: '', organisation: '' })
+      } else {
+        setPitchStatus('error')
+      }
+    } catch (error) {
+      setPitchStatus('error')
+    } finally {
+      setPitchSubmitting(false)
+    }
+  }
 
   const tabs = [
     { id: 'parents', label: 'Parent Guide' },
-    { id: 'videos', label: 'Video Tutorials' }
+    { id: 'investor', label: 'Investor Relations' }
   ]
 
   return (
@@ -90,64 +118,95 @@ const ResourcesPage = () => {
                     </div>
                   )}
 
-                  {activeTab === 'videos' && (
+                  {activeTab === 'investor' && (
                     <div className='tab_item'>
-                      <h2>Video Tutorials</h2>
-                      <p>Watch our comprehensive video library featuring expert instructors and real-world demonstrations.</p>
-                      
-                      <h3>Featured Video Series</h3>
+                      <h2>Investor Relations</h2>
+                      <p>Interested in learning more about Little Signs and our mission to make sign language accessible to every child? Enter your details below to receive our pitch deck via email.</p>
+
+                      {pitchStatus === 'success' && (
+                        <div className='message_box success-box'>
+                          <div className='message_box_header'><i className='fa fa-check-circle'></i> Success</div>
+                          <p>Thank you! A download link for our pitch deck has been sent to your email.</p>
+                        </div>
+                      )}
+
+                      {pitchStatus === 'error' && (
+                        <div className='message_box alert-box'>
+                          <div className='message_box_header'><i className='fa fa-exclamation-circle'></i> Error</div>
+                          <p>Something went wrong. Please try again or contact us directly.</p>
+                        </div>
+                      )}
+
+                      <form onSubmit={handlePitchSubmit} className="wpcf7-form contact-form">
+                        <p>
+                          <span className="wpcf7-form-control-wrap your-email" style={{ display: 'block', marginBottom: '20px' }}>
+                            <input 
+                              type="email" 
+                              name="email" 
+                              value={pitchForm.email}
+                              onChange={handlePitchChange}
+                              size="49" 
+                              className="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" 
+                              required 
+                              placeholder="Your Email *" 
+                            />
+                          </span>
+                          <span className="wpcf7-form-control-wrap your-name" style={{ display: 'block', marginBottom: '20px' }}>
+                            <input 
+                              type="text" 
+                              name="name" 
+                              value={pitchForm.name}
+                              onChange={handlePitchChange}
+                              size="49" 
+                              className="wpcf7-form-control wpcf7-text" 
+                              placeholder="Your Name (optional)" 
+                            />
+                          </span>
+                          <span className="wpcf7-form-control-wrap your-organisation" style={{ display: 'block', marginBottom: '25px' }}>
+                            <input 
+                              type="text" 
+                              name="organisation" 
+                              value={pitchForm.organisation}
+                              onChange={handlePitchChange}
+                              size="49" 
+                              className="wpcf7-form-control wpcf7-text" 
+                              placeholder="Organisation (optional)" 
+                            />
+                          </span>
+                          <input 
+                            type="submit" 
+                            value={pitchSubmitting ? "Sending..." : "Download Pitch Deck"} 
+                            className="wpcf7-form-control wpcf7-submit" 
+                            disabled={pitchSubmitting}
+                          />
+                        </p>
+                      </form>
+
+                      <h3>Why Invest?</h3>
                       <div className='grid-row clearfix'>
                         <div className='grid-col grid-col-4'>
                           <div className='message_box success-box'>
-                            <div className='message_box_header'><i className='fa fa-play-circle'></i> Basic Signs</div>
-                            <p>Foundation videos covering essential signs for beginners.</p>
+                            <div className='message_box_header'><i className='fa fa-line-chart'></i> Growing Market</div>
+                            <p>The EdTech and accessibility market continues to expand rapidly.</p>
                           </div>
                         </div>
                         <div className='grid-col grid-col-4'>
                           <div className='message_box notice-box'>
-                            <div className='message_box_header'><i className='fa fa-video-camera'></i> Story Time</div>
-                            <p>Interactive storytelling sessions using sign language.</p>
+                            <div className='message_box_header'><i className='fa fa-heart'></i> Social Impact</div>
+                            <p>Bridging communication gaps for children and families across Africa.</p>
                           </div>
                         </div>
                         <div className='grid-col grid-col-4'>
                           <div className='message_box question-box'>
-                            <div className='message_box_header'><i className='fa fa-music'></i> Songs & Rhymes</div>
-                            <p>Musical videos combining signs with popular children's songs.</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <h3>Video Categories</h3>
-                      <div className='grid-row clearfix'>
-                        <div className='grid-col grid-col-3'>
-                          <div className='message_box alert-box'>
-                            <div className='message_box_header'><i className='fa fa-graduation-cap'></i> Educational</div>
-                            <p>Academic and learning-focused video content.</p>
-                          </div>
-                        </div>
-                        <div className='grid-col grid-col-3'>
-                          <div className='message_box warning-box'>
-                            <div className='message_box_header'><i className='fa fa-smile'></i> Entertainment</div>
-                            <p>Fun and engaging videos for children.</p>
-                          </div>
-                        </div>
-                        <div className='grid-col grid-col-3'>
-                          <div className='message_box success-box'>
-                            <div className='message_box_header'><i className='fa fa-users'></i> Family</div>
-                            <p>Videos designed for family learning activities.</p>
-                          </div>
-                        </div>
-                        <div className='grid-col grid-col-3'>
-                          <div className='message_box notice-box'>
-                            <div className='message_box_header'><i className='fa fa-certificate'></i> Advanced</div>
-                            <p>Complex signs and conversational skills.</p>
+                            <div className='message_box_header'><i className='fa fa-lightbulb'></i> Innovation</div>
+                            <p>Pioneering interactive sign language education through technology.</p>
                           </div>
                         </div>
                       </div>
                     </div>
                   )}
 
-                                  </div>
+                </div>
               </section>
             </section>
           </div>
