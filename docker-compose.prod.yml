@@ -1,0 +1,72 @@
+services:
+  django:
+    build:
+      context: ./api
+      dockerfile: Dockerfile.prod
+    container_name: prod-django
+    command: uvicorn conf.asgi:application --host 0.0.0.0 --port 8000 --workers 4 --log-level info
+    expose:
+      - "8000"
+    env_file:
+      - ./.env
+    volumes:
+      - static:/srv/app/static
+      - media:/srv/app/media
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - DATABASE=postgres
+      - SQL_HOST=db
+      - SQL_PORT=5432
+    restart: unless-stopped
+
+  react:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+    container_name: prod-react
+    volumes:
+      - react_build:/srv/app/dist
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.prod
+    container_name: prod-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - static:/srv/app/static
+      - media:/srv/app/media
+      - react_build:/srv/app/frontend
+    depends_on:
+      - django
+      - react
+    restart: unless-stopped
+
+  db:
+    image: postgres:16.1-alpine
+    container_name: prod-db
+    expose:
+      - "5432"
+    env_file: ./.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${SQL_DATABASE:-littlesigns}
+      - POSTGRES_USER=${SQL_USER:-postgres}
+      - POSTGRES_PASSWORD=${SQL_PASSWORD}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  node_modules:
+  postgres_data:
+  media:
+  static:
+  react_build:

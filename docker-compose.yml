@@ -43,9 +43,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=littlesigns
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=vd7uHW5M
+      - POSTGRES_DB=${SQL_DATABASE:-littlesigns}
+      - POSTGRES_USER=${SQL_USER:-postgres}
+      - POSTGRES_PASSWORD=${SQL_PASSWORD}
 
 volumes:
   node_modules:

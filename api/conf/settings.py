@@ -19,6 +19,7 @@ DEBUG = env.bool("DEBUG", default=False)
 BASE_DIR = root_path()
 ROOT_URLCONF = "conf.urls"
 WSGI_APPLICATION = "conf.wsgi.application"
+ASGI_APPLICATION = "conf.asgi.application"
 
 # -----------------------------------------------------------------------------
 # Time & Language

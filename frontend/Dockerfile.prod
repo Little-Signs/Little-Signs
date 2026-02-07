@@ -1,0 +1,15 @@
+# Build stage
+FROM node:lts-slim AS build
+
+WORKDIR /srv/app/
+
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm ci
+
+COPY . .
+RUN npm run build
+
+# Output stage - just copy the build artifacts to a volume
+FROM alpine:latest
+COPY --from=build /srv/app/dist /srv/app/dist
