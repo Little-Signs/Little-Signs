@@ -11,6 +11,6 @@ class AboutUsAdmin(admin.ModelAdmin):
 
 @admin.register(OrganisationMembers)
 class OrganisationMembersAdmin(admin.ModelAdmin):
-    list_display = ("full_name", "position", "linked_in", "twitter", "facebook")
-    search_fields = ("full_name", "position", "linked_in", "twitter", "facebook")
+    list_display = ("full_name", "position", "linked_in")
+    search_fields = ("full_name", "position", "linked_in")
     # Add more customization if needed

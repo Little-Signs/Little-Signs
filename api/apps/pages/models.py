@@ -26,8 +26,6 @@ class OrganisationMembers(models.Model):
     )
     position = models.CharField("Position in company", max_length=50)
     linked_in = models.URLField("LinkedIn profile link", max_length=200, null=True)
-    twitter = models.URLField("Twitter profile link", max_length=200, null=True)
-    facebook = models.URLField("Facebook profile link", max_length=200, null=True)
 
     class Meta:
         verbose_name = "Team"

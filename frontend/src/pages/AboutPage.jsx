@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/layout/Footer'
 import ContentSection from '../components/ContentSection'
 import ContentHeader from '../components/layout/ContentHeader'
+import { teamAPI } from '../services/api'
 
 const AboutPage = () => {
   const [activeTab, setActiveTab] = useState('mission')
   const [activeAccordion, setActiveAccordion] = useState('panel1')
+  const [teamMembers, setTeamMembers] = useState([])
 
   const tabs = [
     { id: 'mission', label: 'Our Mission' },
-    { id: 'team', label: 'Our Team' },
-    { id: 'history', label: 'Our History' },
-    { id: 'values', label: 'Our Values' }
+    { id: 'vision', label: 'Our Vision' }
   ]
 
   const accordionPanels = [
@@ -36,26 +36,19 @@ const AboutPage = () => {
     }
   ]
 
-  const teamMembers = [
-    {
-      name: 'Sarah Chen',
-      role: 'Founder & CEO',
-      image: '/images/team/sarah.jpg',
-      bio: 'Sarah is a certified speech-language pathologist with over 15 years of experience in deaf education. She founded Little Signs to bridge the communication gap between deaf and hearing communities.'
-    },
-    {
-      name: 'Michael Johnson',
-      role: 'Head of Curriculum',
-      image: '/images/team/michael.jpg',
-      bio: 'Michael brings extensive experience in educational technology and curriculum development. He ensures our content meets the highest educational standards while remaining engaging and effective.'
-    },
-    {
-      name: 'Emily Rodriguez',
-      role: 'Community Director',
-      image: '/images/team/emily.jpg',
-      bio: 'Emily leads our community outreach programs and partnerships with schools. She is passionate about making sign language education accessible to underserved communities.'
+  // Fetch team members from API
+  useEffect(() => {
+    const fetchTeamMembers = async () => {
+      try {
+        const data = await teamAPI.getAll()
+        setTeamMembers(data)
+      } catch (error) {
+        console.error('Error fetching team members:', error)
+      }
     }
-  ]
+    
+    fetchTeamMembers()
+  }, [])
 
   return (
     <>
@@ -65,7 +58,7 @@ const AboutPage = () => {
         <div className='grid-row clearfix'>
           <div className='grid-col grid-col-12'>
             {/* Tabs Section */}
-            <section className='cws-widget'>
+            <section className='cws-widget' style={{ marginBottom: '40px' }}>
               <div className='widget-title'>About Little Signs</div>
               <section className='cws_widget_content tab_widget'>
                 <div className='tabs'>
@@ -84,160 +77,116 @@ const AboutPage = () => {
                   {activeTab === 'mission' && (
                     <div className='tab_item' role='tabpanel'>
                       <h2>Our Mission</h2>
-                      <p><strong>To empower every child</strong> in Zimbabwe and beyond with the gift of sign language through innovative, accessible, and engaging educational experiences that foster communication, inclusion, and cultural understanding.</p>
-                      
-                      <div className='grid-row clearfix' style={{ marginTop: '30px' }}>
-                        <div className='grid-col grid-col-4'>
-                          <div className='message_box notice-box'>
-                            <div className='message_box_header'><i className='fa fa-heart'></i> Accessibility</div>
-                            <p>Making quality sign language education available to all children, regardless of background or ability.</p>
-                          </div>
-                        </div>
-                        <div className='grid-col grid-col-4'>
-                          <div className='message_box question-box'>
-                            <div className='message_box_header'><i className='fa fa-lightbulb'></i> Innovation</div>
-                            <p>Using cutting-edge technology and creative teaching methods to make learning fun and effective.</p>
-                          </div>
-                        </div>
-                        <div className='grid-col grid-col-4'>
-                          <div className='message_box warning-box'>
-                            <div className='message_box_header'><i className='fa fa-users'></i> Community</div>
-                            <p>Building a supportive network across Zimbabwe of learners, families, and educators.</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <h3>Our Vision</h3>
-                      <p>A Zimbabwe where <strong>every child has the opportunity</strong> to learn sign language in a supportive, fun, and effective environment that prepares them for meaningful connections and opportunities in both deaf and hearing communities.</p>
-                      
-                      <h3>What We Offer</h3>
-                      <div className='grid-row clearfix'>
-                        <div className='grid-col grid-col-6'>
-                          <div className='message_box success-box'>
-                            <div className='message_box_header'><i className='fa fa-graduation-cap'></i> Expert-Led Curriculum</div>
-                            <p>Developed by Zimbabwean educators and speech therapists to ensure cultural relevance and developmental appropriateness.</p>
-                          </div>
-                        </div>
-                        <div className='grid-col grid-col-6'>
-                          <div className='message_box success-box'>
-                            <div className='message_box_header'><i className='fa fa-mobile'></i> Mobile Learning</div>
-                            <p>Access our platform anywhere, anytime on any device.</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <h3>Our Core Values</h3>
-                      <div className='grid-row clearfix'>
-                        <div className='grid-col grid-col-3'>
-                          <div className='message_box alert-box'>
-                            <div className='message_box_header'><i className='fa fa-shield'></i> Safety First</div>
-                            <p>Creating a secure, child-friendly learning environment.</p>
-                          </div>
-                        </div>
-                        <div className='grid-col grid-col-3'>
-                          <div className='message_box question-box'>
-                            <div className='message_box_header'><i className='fa fa-star'></i> Excellence</div>
-                            <p>Delivering the highest quality educational content and experiences.</p>
-                          </div>
-                        </div>
-                        <div className='grid-col grid-col-3'>
-                          <div className='message_box notice-box'>
-                            <div className='message_box_header'><i className='fa fa-globe'></i> Cultural Respect</div>
-                            <p>Honoring Zimbabwean sign language traditions and cultural context.</p>
-                          </div>
-                        </div>
-                        <div className='grid-col grid-col-3'>
-                          <div className='message_box success-box'>
-                            <div className='message_box_header'><i className='fa fa-smile'></i> Joy in Learning</div>
-                            <p>Making sign language education fun, engaging, and rewarding.</p>
-                          </div>
-                        </div>
-                      </div>
+                      <p>At Little Signs, our mission is to bridge educational gaps by providing every child with accessible learning tools that support their unique journeys. We are dedicated to making the process of learning sign language fun, empowering, and inclusive for all children, especially those who are deaf or hard of hearing.</p>
                     </div>
                   )}
 
-                  {activeTab === 'team' && (
+                  {activeTab === 'vision' && (
                     <div className='tab_item' role='tabpanel'>
-                      <h2>Meet Our Team</h2>
-                      <div className='grid-row clearfix'>
-                        {teamMembers.map((member, index) => (
-                          <div key={index} className='grid-col grid-col-4'>
-                            <div className='cws-widget'>
-                              <div className='widget-title'>{member.name}</div>
-                              <section className='cws_widget_content'>
-                                <img 
-                                  src={member.image} 
-                                  alt={member.name}
-                                  className='alignleft size-thumbnail border'
-                                  style={{ marginBottom: '15px' }}
-                                />
-                                <h4>{member.role}</h4>
-                                <p>{member.bio}</p>
-                              </section>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {activeTab === 'history' && (
-                    <div className='tab_item' role='tabpanel'>
-                      <h2>Our History</h2>
-                      <p>Founded in 2020, Little Signs began as a small project with a big dream: to make sign language education accessible to every child who needs it.</p>
-                      
-                      <h3>Our Journey</h3>
-                      <ul>
-                        <li><strong>2020:</strong> Launched our first online platform with 50 basic signs</li>
-                        <li><strong>2021:</strong> Expanded to include 200+ signs and interactive games</li>
-                        <li><strong>2022:</strong> Partnered with 10 schools across Zimbabwe</li>
-                        <li><strong>2023:</strong> Developed mobile app and reached 10,000+ learners</li>
-                        <li><strong>2024:</strong> Launched advanced curriculum and teacher training programs</li>
-                      </ul>
-                      
-                      <h3>Achievements</h3>
-                      <div className='grid-row clearfix'>
-                        <div className='grid-col grid-col-6'>
-                          <div className='message_box success-box'>
-                            <div className='message_box_header'>10,000+ Learners</div>
-                            <p>Children and families served worldwide</p>
-                          </div>
-                        </div>
-                        <div className='grid-col grid-col-6'>
-                          <div className='message_box success-box'>
-                            <div className='message_box_header'>50+ School Partners</div>
-                            <p>Educational institutions across Zimbabwe</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {activeTab === 'values' && (
-                    <div className='tab_item' role='tabpanel'>
-                      <h2>Our Values</h2>
-                      <div className='grid-row clearfix'>
-                        <div className='grid-col grid-col-6'>
-                          <div className='message_box alert-box'>
-                            <div className='message_box_header'>Child-Centered</div>
-                            <p>Every decision we make puts children's needs first.</p>
-                          </div>
-                        </div>
-                        <div className='grid-col grid-col-6'>
-                          <div className='message_box question-box'>
-                            <div className='message_box_header'>Evidence-Based</div>
-                            <p>Our methods are backed by research and proven educational outcomes.</p>
-                          </div>
-                        </div>
-                      </div>
+                      <h2>Our Vision</h2>
+                      <p>Our vision is to create a world where every child, regardless of their hearing ability, has the opportunity to thrive through the power of sign language. We aim to foster an inclusive educational environment where learning sign language is seen as an exciting and enriching experience for all.</p>
                     </div>
                   )}
                 </div>
               </section>
             </section>
 
+            {/* Who We Are Section */}
+            <section className='cws-widget' style={{ marginBottom: '40px' }}>
+              <div className='widget-title'>Who We Are</div>
+              <section className='cws_widget_content'>
+                <p>The Little Signs introduces a whole new world of education. Bridging the gaps in education and making sure that every child get a learning tool to assist them in their learning journey.</p>
+                
+                <p>At LittleSigns, we believe that learning sign language can be fun, empowering and inclusive. Little Signs is a platform for kids. It is created mainly for the deaf children but can be used by anyone else who wishes to learn sign language.</p>
+              </section>
+            </section>
+
+            {/* AI Ethics Statement Section */}
+            <section className='cws-widget' style={{ marginBottom: '40px' }}>
+              <div className='widget-title'>AI Ethics Statement</div>
+              <section className='cws_widget_content'>
+                <p>At Little Signs, we are committed to the ethical and responsible use of artificial intelligence in our educational platform. We believe that AI should enhance, not replace, human connection in the learning process.</p>
+                
+                <h3>Our AI Principles</h3>
+                <div className='grid-row clearfix'>
+                  <div className='grid-col grid-col-6'>
+                    <div className='message_box success-box'>
+                      <div className='message_box_header'><i className='fa fa-shield'></i> Child Safety First</div>
+                      <p>All AI systems are designed with child safety as the highest priority, ensuring age-appropriate interactions and content filtering.</p>
+                    </div>
+                  </div>
+                  <div className='grid-col grid-col-6'>
+                    <div className='message_box notice-box'>
+                      <div className='message_box_header'><i className='fa fa-eye'></i> Transparency</div>
+                      <p>We are transparent about how AI is used in our platform and provide clear explanations of AI-driven features to parents and educators.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className='grid-row clearfix' style={{ marginTop: '20px' }}>
+                  <div className='grid-col grid-col-6'>
+                    <div className='message_box question-box'>
+                      <div className='message_box_header'><i className='fa fa-users'></i> Human-Centered Design</div>
+                      <p>Our AI tools are designed to support and enhance human teaching, not replace the valuable role of parents and educators.</p>
+                    </div>
+                  </div>
+                  <div className='grid-col grid-col-6'>
+                    <div className='message_box warning-box'>
+                      <div className='message_box_header'><i className='fa fa-lock'></i> Privacy & Data Protection</div>
+                      <p>We strictly protect children's privacy and ensure all AI systems comply with the highest standards of data protection and security.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <h3>Responsible AI Implementation</h3>
+                <p>Our AI features are carefully designed to support sign language learning while maintaining ethical standards. We use AI for personalized learning paths, progress tracking, and interactive demonstrations, always with human oversight and cultural sensitivity.</p>
+                
+                <p>We regularly review our AI systems to ensure they remain aligned with our educational mission and ethical commitments, working with experts in child development, sign language education, and AI ethics.</p>
+              </section>
+            </section>
+
+            {/* Meet Our Team Section */}
+            <section className='cws-widget' style={{ marginBottom: '40px' }}>
+              <div className='widget-title'>Meet Our Team</div>
+              <section className='cws_widget_content'>
+                <p>At Little Signs, we are a passionate group of educators, developers, and visionaries united by a common goal: to create a world where every child can embrace the joy of learning through sign language.</p>
+                
+                <div className='grid-row clearfix'>
+                  {teamMembers.map((member, index) => (
+                    <div key={index} className='grid-col grid-col-4'>
+                      <div className='cws-widget'>
+                        <div className='widget-title'>{member.name}</div>
+                        <section className='cws_widget_content'>
+                          <img 
+                            src={member.image} 
+                            alt={member.name}
+                            className='alignleft size-thumbnail border'
+                            style={{ marginBottom: '15px' }}
+                          />
+                          <h4>{member.role}</h4>
+                          <p>{member.bio}</p>
+                          {member.linkedin_url && (
+                            <a 
+                              href={member.linkedin_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className='cws_button small custom_color'
+                              style={{ background: '#0077b5', color: '#fff', marginTop: '10px', display: 'inline-block' }}
+                            >
+                              <i className='button-icon fa fa-linkedin' style={{ color: '#fff' }}></i>
+                              LinkedIn Profile
+                            </a>
+                          )}
+                        </section>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </section>
+
             {/* Accordion Section */}
-            <section className='cws-widget'>
+            <section className='cws-widget' style={{ marginBottom: '40px' }}>
               <div className='widget-title'>Frequently Asked Questions</div>
               <section className='cws_widget_content accordion_widget'>
                 {accordionPanels.map(panel => (
@@ -261,7 +210,7 @@ const AboutPage = () => {
             </section>
 
             {/* Call to Action */}
-            <section className='cws-widget'>
+            <section className='cws-widget' style={{ marginBottom: '40px' }}>
               <div className='widget-title'>Join Our Community</div>
               <section className='cws_widget_content'>
                 <p>Ready to start your sign language journey? Join thousands of families who have already discovered the joy of learning with Little Signs.</p>

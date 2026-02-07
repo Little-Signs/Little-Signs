@@ -4,6 +4,8 @@ import {
   FaTwitter,
   FaLinkedinIn,
   FaInstagram,
+  FaYoutube,
+  FaTiktok,
   FaAngleLeft,
   FaAngleRight,
 } from "react-icons/fa";
@@ -49,89 +51,19 @@ const Footer = () => {
                 <div className="twitter-carousel carousel latest_tweets"></div>
               </div>
             </div>
-            {/* Latest Posts Widget */}
-            <div className="widget widget_cws_latest_posts">
-              <div className="latest-posts-widget">
-                <h3 className="widget-title">Latest Posts</h3>
-                <div className="widget-content">
-                  <ul>
-                    <li>
-                      <div className="kids_image_wrapper ">
-                        <a
-                          href="pic/HappyFeet_1st4.jpg"
-                          className="prettyPhoto kids_mini_picture"
-                          data-rel="prettyPhoto[rpwt]"
-                        >
-                          <img
-                            src="images/70x70-img-1.jpg"
-                            width="70"
-                            height="70"
-                            alt=""
-                          />
-                        </a>
-                      </div>
-                      <div className="kids_post_content">
-                        <h4>
-                          <a href="#">Image Post</a>
-                        </h4>
-                        <p>Lorem ipsum dolor ...</p>
-                        <p className="time-post">January 3, 2015</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="kids_image_wrapper ">
-                        <a
-                          href="pic/LegoMovie_3rd4.jpg"
-                          className="prettyPhoto kids_mini_picture"
-                          data-rel="prettyPhoto[rpwt]"
-                        >
-                          <img
-                            src="images/70x70-img-2.jpg"
-                            width="70"
-                            height="70"
-                            alt=""
-                          />
-                        </a>
-                      </div>
-                      <div className="kids_post_content">
-                        <h4>
-                          <a href="#">Image Post</a>
-                        </h4>
-                        <p>Lorem ipsum dolor ...</p>
-                        <p className="time-post">January 2, 2015</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="kids_image_wrapper ">
-                        <a
-                          href="pic/Tangled_3rd5.jpg"
-                          className="prettyPhoto kids_mini_picture"
-                          data-rel="prettyPhoto[rpwt]"
-                        >
-                          <img
-                            src="images/70x70-img-3.jpg"
-                            width="70"
-                            height="70"
-                            alt=""
-                          />
-                        </a>
-                      </div>
-                      <div className="kids_post_content">
-                        <h4>
-                          <a href="#">Video blog post</a>
-                        </h4>
-                        <p>Lorem ipsum dolor ...</p>
-                        <p className="time-post">January 1, 2015</p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+                        {/* Quick Links Widget */}
+            <div className="widget widget_quick_links">
+              <h3 className="widget-title">Quick Links</h3>
+              <div className="quick-links-content">
+                <ul>
+                  <li><a href="/dashboard">Dashboard</a></li>
+                  <li><a href="/profile">My Profile</a></li>
+                  <li><a href="/settings">Settings</a></li>
+                  <li><a href="/support">Support</a></li>
+                  <li><a href="/faq">FAQ</a></li>
+                  <li><a href="/terms">Terms of Service</a></li>
+                </ul>
               </div>
-            </div>
-            {/* Calendar Widget */}
-            <div className="widget widget_calendar">
-              <h3 className="widget-title">Calendar</h3>
-              <div id="calendar_wrap"></div>
             </div>
           </div>
         </div>
@@ -181,16 +113,29 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://www.instagram.com/littlesigns"
-                  title="Instagram"
+                  href="https://www.youtube.com/c/littlesigns"
+                  title="YouTube"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i className="fa fa-instagram fa-2x">
-                    <FaInstagram />
+                  <i className="fa fa-youtube fa-2x">
+                    <FaYoutube />
                   </i>
                 </a>
-                <span style={{ backgroundColor: "#e4405f" }}></span>
+                <span style={{ backgroundColor: "#ff0000" }}></span>
+              </li>
+              <li>
+                <a
+                  href="https://www.tiktok.com/@littlesigns"
+                  title="TikTok"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fa fa-tiktok fa-2x">
+                    <FaTiktok />
+                  </i>
+                </a>
+                <span style={{ backgroundColor: "#000000" }}></span>
               </li>
               <li className="lang_bar">
                 <div

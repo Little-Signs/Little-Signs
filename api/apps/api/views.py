@@ -16,6 +16,7 @@ from apps.progress.models import Enrollment, PracticeSession
 from apps.gamification.models import Badge, UserBadge
 from apps.parental.models import ParentProfile, ChildProfile, ProgressReport
 from apps.accounts.models import User, Organisation, SubscriptionPlan
+from apps.pages.models import OrganisationMembers
 from apps.accounts.services import send_verification_email, send_welcome_email, send_password_reset_email
 
 from .serializers import (
@@ -661,3 +662,24 @@ class SubscriptionPlanListAPIView(ListCreateAPIView):
     queryset = SubscriptionPlan.objects.all()
     serializer_class = SubscriptionPlanSerializer
     permission_classes = [IsAdminOrStaff]
+
+
+class TeamListAPIView(APIView):
+    """List team members with LinkedIn profiles"""
+    permission_classes = [permissions.AllowAny]
+    
+    def get(self, request):
+        team_members = OrganisationMembers.objects.all()
+        team_data = []
+        
+        for member in team_members:
+            team_data.append({
+                "id": member.id,
+                "name": member.full_name,
+                "role": member.position,
+                "bio": f"{member.full_name} is a key member of our team bringing expertise and passion to Little Signs.",
+                "image": member.avatar.url if member.avatar else "/images/team/default-avatar.jpg",
+                "linkedin_url": member.linked_in
+            })
+        
+        return Response(team_data)

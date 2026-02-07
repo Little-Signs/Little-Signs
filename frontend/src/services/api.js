@@ -95,4 +95,11 @@ export const contactAPI = {
   }
 };
 
+export const teamAPI = {
+  getAll: async () => {
+    const response = await api.get('/team/');
+    return response.data;
+  }
+};
+
 export default api;

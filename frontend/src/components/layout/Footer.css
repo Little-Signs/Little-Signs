@@ -138,6 +138,53 @@
   font-style: italic;
 }
 
+/* Site Links Widget */
+.widget_site_links ul,
+.widget_quick_links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.widget_site_links li,
+.widget_quick_links li {
+  margin-bottom: 12px;
+}
+
+.widget_site_links a,
+.widget_quick_links a {
+  color: #26b4d7;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: rgba(38, 180, 215, 0.05);
+}
+
+.widget_site_links a:hover,
+.widget_quick_links a:hover {
+  color: #fec20b;
+  background-color: rgba(254, 194, 11, 0.1);
+  transform: translateX(5px);
+}
+
+.widget_site_links a::before,
+.widget_quick_links a::before {
+  content: '→';
+  margin-right: 8px;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.widget_site_links a:hover::before,
+.widget_quick_links a:hover::before {
+  transform: translateX(3px);
+}
+
 /* Latest Posts Widget */
 .latest-posts-widget ul {
   list-style: none;
@@ -266,6 +313,7 @@
 .kids_social a:hover {
   transform: translateY(-3px);
   opacity: 0.9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .kids_social i {

@@ -64,6 +64,9 @@ urlpatterns = [
     # Communication
     path('communication/', include('apps.communication.urls')),
     
+    # Team
+    path('team/', views.TeamListAPIView.as_view(), name='api_team'),
+    
     # Router URLs (for ViewSets if added later)
     path('', include(router.urls)),
 ]
