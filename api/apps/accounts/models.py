@@ -3,9 +3,15 @@ from django.db import models
 from django.utils import timezone
 from django.core.validators import MinValueValidator
 from decimal import Decimal
+import uuid
 
 
 class User(base_models.AbstractBaseUser, base_models.PermissionsMixin):
+    ACCOUNT_TYPE_CHOICES = (
+        ('parent', 'Parent/Guardian'),
+        ('organization', 'Organization/School'),
+    )
+    
     gender_choices = (("Male", "Male"), ("Female", "Female"))
     first_name = models.CharField("first name", max_length=15, null=True)
     last_name = models.CharField("last name", max_length=15, null=True)
@@ -22,6 +28,36 @@ class User(base_models.AbstractBaseUser, base_models.PermissionsMixin):
     is_individual = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now)
+    
+    # New fields for enhanced registration
+    account_type = models.CharField(
+        max_length=20, 
+        choices=ACCOUNT_TYPE_CHOICES, 
+        default='parent'
+    )
+    is_email_verified = models.BooleanField(default=False)
+    email_verification_token = models.UUIDField(default=uuid.uuid4, editable=False)
+    email_verification_sent_at = models.DateTimeField(null=True, blank=True)
+    
+    # Parent-specific fields
+    parent_first_name = models.CharField(max_length=50, null=True, blank=True)
+    parent_last_name = models.CharField(max_length=50, null=True, blank=True)
+    parent_email = models.EmailField(null=True, blank=True)
+    parent_phone = models.CharField(max_length=20, null=True, blank=True)
+    parent_relationship = models.CharField(
+        max_length=20,
+        choices=[
+            ('mother', 'Mother'),
+            ('father', 'Father'),
+            ('guardian', 'Guardian'),
+            ('other', 'Other')
+        ],
+        null=True,
+        blank=True
+    )
+    number_of_children = models.PositiveIntegerField(null=True, blank=True)
+    children_ages = models.CharField(max_length=100, null=True, blank=True)
+    
     groups = models.ManyToManyField(
         base_models.Group,
         verbose_name="groups",
@@ -55,15 +91,35 @@ class User(base_models.AbstractBaseUser, base_models.PermissionsMixin):
 
     def get_short_name(self):
         return self.first_name
+    
+    def send_email_verification(self):
+        """Generate and send email verification token"""
+        self.email_verification_token = uuid.uuid4()
+        self.email_verification_sent_at = timezone.now()
+        self.save()
+        return self.email_verification_token
 
 
 class Organisation(models.Model):
-    type_of_org_choice = (("School", "School"), ("Other", "Other"))
+    ORGANIZATION_TYPE_CHOICES = (
+        ('school', 'School'),
+        ('center', 'Learning Center'),
+        ('ngo', 'NGO'),
+        ('healthcare', 'Healthcare'),
+        ('other', 'Other')
+    )
+    
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    org_name = models.CharField(max_length=50, null=True)
-    org_address = models.CharField(max_length=50, null=True)
-    phone_number = models.CharField(max_length=15, null=True)
-    type_of_org = models.CharField(max_length=50, choices=type_of_org_choice, null=True)
+    org_name = models.CharField(max_length=100, null=True)
+    org_address = models.CharField(max_length=200, null=True)
+    phone_number = models.CharField(max_length=20, null=True)
+    type_of_org = models.CharField(
+        max_length=20, 
+        choices=ORGANIZATION_TYPE_CHOICES, 
+        null=True
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.org_name

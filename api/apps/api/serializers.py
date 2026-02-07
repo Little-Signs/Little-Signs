@@ -5,7 +5,7 @@ from apps.learning.models import Course, Lesson, Sign, SignCategory, DifficultyL
 from apps.progress.models import Enrollment, PracticeSession
 from apps.gamification.models import Badge, UserBadge
 from apps.parental.models import ParentProfile, ChildProfile, ProgressReport
-from apps.accounts.models import User, Organisation, SubscriptionPlan
+from apps.accounts.models import Organisation, SubscriptionPlan
 
 User = get_user_model()
 
@@ -15,8 +15,11 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'email', 'first_name', 'last_name', 'date_of_birth', 
-                 'gender', 'city', 'is_active', 'date_joined']
-        read_only_fields = ['id', 'date_joined', 'is_active']
+                 'gender', 'city', 'is_active', 'date_joined', 'account_type',
+                 'is_email_verified', 'parent_first_name', 'parent_last_name',
+                 'parent_email', 'parent_phone', 'parent_relationship',
+                 'number_of_children', 'children_ages']
+        read_only_fields = ['id', 'date_joined', 'is_active', 'is_email_verified']
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
@@ -26,19 +29,37 @@ class UserCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['email', 'first_name', 'last_name', 'password', 'confirm_password',
-                 'date_of_birth', 'gender', 'city']
+                 'date_of_birth', 'gender', 'city', 'account_type',
+                 'parent_first_name', 'parent_last_name', 'parent_email', 
+                 'parent_phone', 'parent_relationship', 'number_of_children',
+                 'children_ages']
 
     def validate(self, attrs):
         if attrs['password'] != attrs['confirm_password']:
             raise serializers.ValidationError("Passwords don't match")
+        
+        # Validate parent fields if account type is parent
+        if attrs.get('account_type') == 'parent':
+            parent_first_name = attrs.get('parent_first_name', '').strip()
+            parent_last_name = attrs.get('parent_last_name', '').strip()
+            parent_email = attrs.get('parent_email', '').strip()
+            parent_phone = attrs.get('parent_phone', '').strip()
+            
+            if not parent_first_name:
+                raise serializers.ValidationError("Parent first name is required for parent accounts")
+            if not parent_last_name:
+                raise serializers.ValidationError("Parent last name is required for parent accounts")
+            if not parent_email:
+                raise serializers.ValidationError("Parent email is required for parent accounts")
+            if not parent_phone:
+                raise serializers.ValidationError("Parent phone is required for parent accounts")
+        
         return attrs
 
     def create(self, validated_data):
         validated_data.pop('confirm_password')
         password = validated_data.pop('password')
-        user = User.objects.create_user(**validated_data)
-        user.set_password(password)
-        user.save()
+        user = User.objects.create_user(password=password, **validated_data)
         return user
 
 

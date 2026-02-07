@@ -331,6 +331,9 @@ LOGGING = {
 
 USE_SENTRY = env.bool("USE_SENTRY", default=False)
 
+# Frontend URL for email verification links
+FRONTEND_URL = env("FRONTEND_URL", default="http://localhost:3000")
+
 if USE_SENTRY:
     import sentry_sdk
     from sentry_sdk.integrations.django import DjangoIntegration

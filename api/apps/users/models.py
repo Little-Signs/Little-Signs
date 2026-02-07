@@ -4,9 +4,15 @@ from django.utils import timezone
 from apps.users import managers
 from django.core.validators import MinValueValidator
 from decimal import Decimal
+import uuid
 
 
 class User(base_models.AbstractBaseUser, base_models.PermissionsMixin):
+    ACCOUNT_TYPE_CHOICES = (
+        ('parent', 'Parent/Guardian'),
+        ('organization', 'Organization/School'),
+    )
+    
     gender_choices = (("Male", "Male"), ("Female", "Female"))
     first_name = models.CharField("first name", max_length=15, null=True)
     last_name = models.CharField("last name", max_length=15, null=True)
@@ -23,6 +29,40 @@ class User(base_models.AbstractBaseUser, base_models.PermissionsMixin):
     is_individual = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now)
+    
+    # New fields for enhanced registration
+    account_type = models.CharField(
+        max_length=20, 
+        choices=ACCOUNT_TYPE_CHOICES, 
+        default='parent'
+    )
+    is_email_verified = models.BooleanField(default=False)
+    email_verification_token = models.UUIDField(default=uuid.uuid4, editable=False)
+    email_verification_sent_at = models.DateTimeField(null=True, blank=True)
+    
+    # Password reset fields
+    password_reset_token = models.UUIDField(null=True, blank=True, editable=False)
+    password_reset_sent_at = models.DateTimeField(null=True, blank=True)
+    
+    # Parent-specific fields
+    parent_first_name = models.CharField(max_length=50, null=True, blank=True)
+    parent_last_name = models.CharField(max_length=50, null=True, blank=True)
+    parent_email = models.EmailField(null=True, blank=True)
+    parent_phone = models.CharField(max_length=20, null=True, blank=True)
+    parent_relationship = models.CharField(
+        max_length=20,
+        choices=[
+            ('mother', 'Mother'),
+            ('father', 'Father'),
+            ('guardian', 'Guardian'),
+            ('other', 'Other')
+        ],
+        null=True,
+        blank=True
+    )
+    number_of_children = models.PositiveIntegerField(null=True, blank=True)
+    children_ages = models.CharField(max_length=100, null=True, blank=True)
+    
     badges = models.ManyToManyField(
         "gamification.Badge",
         verbose_name="Learner badges",
@@ -34,14 +74,19 @@ class User(base_models.AbstractBaseUser, base_models.PermissionsMixin):
     USERNAME_FIELD = "email"
 
     objects = managers.UserManager()
-    # def __str__(self):
-    #     return self.first_name
-
+    
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}"
 
     def get_short_name(self):
         return self.first_name
+    
+    def send_email_verification(self):
+        """Generate and send email verification token"""
+        self.email_verification_token = uuid.uuid4()
+        self.email_verification_sent_at = timezone.now()
+        self.save()
+        return self.email_verification_token
 
 
 class Organisation(models.Model):

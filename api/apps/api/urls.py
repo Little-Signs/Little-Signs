@@ -13,8 +13,13 @@ router = DefaultRouter()
 urlpatterns = [
     # Authentication
     path('auth/register/', views.register, name='api_register'),
-    path('auth/login/', TokenObtainPairView.as_view(), name='api_login'),
+    path('auth/login/', views.custom_login, name='api_login'),
     path('auth/refresh/', TokenRefreshView.as_view(), name='api_refresh'),
+    path('auth/verify-email/<uuid:token>/', views.verify_email, name='api_verify_email'),
+    path('auth/resend-verification/', views.resend_verification, name='api_resend_verification'),
+    path('auth/password-reset-request/', views.password_reset_request, name='api_password_reset_request'),
+    path('auth/password-reset-confirm/', views.password_reset_confirm, name='api_password_reset_confirm'),
+    path('auth/verify-reset-token/<uuid:token>/', views.verify_reset_token, name='api_verify_reset_token'),
     path('auth/profile/', views.profile, name='api_profile'),
     path('auth/profile/update/', views.update_profile, name='api_update_profile'),
     

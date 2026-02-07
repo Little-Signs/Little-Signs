@@ -15,12 +15,14 @@ class UserAdmin(BaseUserAdmin):
         "email",
         "first_name",
         "last_name",
+        "account_type",
         "is_staff",
         "is_active",
         "is_organisation",
         "is_individual",
+        "is_email_verified",
     )
-    list_filter = ("is_staff", "is_active", "is_organisation", "is_individual")
+    list_filter = ("is_staff", "is_active", "is_organisation", "is_individual", "account_type", "is_email_verified")
     fieldsets = (
         (None, {"fields": ("email", "password")}),
         (
@@ -34,6 +36,32 @@ class UserAdmin(BaseUserAdmin):
                     "date_of_birth",
                     "city",
                 )
+            },
+        ),
+        (
+            "Account Details",
+            {
+                "fields": (
+                    "account_type",
+                    "is_email_verified",
+                    "email_verification_token",
+                    "email_verification_sent_at",
+                )
+            },
+        ),
+        (
+            "Parent Information",
+            {
+                "fields": (
+                    "parent_first_name",
+                    "parent_last_name", 
+                    "parent_email",
+                    "parent_phone",
+                    "parent_relationship",
+                    "number_of_children",
+                    "children_ages",
+                ),
+                "classes": ("collapse",),
             },
         ),
         (
@@ -63,6 +91,7 @@ class UserAdmin(BaseUserAdmin):
     search_fields = ("email", "first_name", "last_name")
     ordering = ("email",)
     filter_horizontal = ("groups", "user_permissions", "badges")
+    readonly_fields = ("date_joined", "last_login", "email_verification_token", "email_verification_sent_at")
 
 
 # @admin.register(Group)
